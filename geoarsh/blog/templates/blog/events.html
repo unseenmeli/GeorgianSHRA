@@ -1,0 +1,31 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+<div class="news-container">
+    <a href="{% url 'news10' %}">
+        <img src="{% static 'blog/images/racxa1.jpg' %}" class="news-image">
+    </a>
+    <div>
+        <h1 class="news-title" data-translation-key="homeNews10Title">
+            Scientific-Practical Conference Organized by the Georgian Reproductive and Sexual Health Association
+        </h1>
+        <p class="news-text" data-translation-key="homeNews10Paragraph">
+            The Georgian Reproductive and Sexual Health Association successfully organized a scientific-practical conference dedicated to the topic:🔹  'Disorders of Sexual Development: Innovations in Diagnosis and Treatment'
+        </p>
+    </div>
+</div>
+
+<div class="news-container">
+    <a href="{% url 'events1' %}">
+        <img src="{% static 'blog/images/training1.jpg' %}" class="news-image">
+    </a>
+    <div>
+        <h1 class="news-title" data-translation-key="Events1Title">
+            The Georgian Association of Reproductive and Sexual Health is pleased to announce a training session on June 20-21, 2025
+        </h1>
+        <p class="news-text" data-translation-key="Event1ParagraphT">
+            The Georgian Association of Reproductive and Sexual Health is pleased to announce a training session on June 20-21, 2025, focusing on the topic: <br>"Modern Approaches to the Management of Estrogen Deficiency Conditions."
+        </p>
+    </div>
+</div>
+{% endblock content %}

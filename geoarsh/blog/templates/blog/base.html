@@ -1,0 +1,130 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GARSH - Georgian Association of Reproductive and Sexual Health</title>
+  <link rel="stylesheet" href="{% static 'blog/main.css' %}">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="{% url 'home' %}">
+        <img id="picture" src="{% static 'blog/images/newlogo.jpeg' %}" width="100">
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li class="dropdownhome">
+          <a class="nav-toggle" id="homeLink" href="{% url 'home' %}" data-translation-key="home">Home</a>
+          <div class="dropdown-contentH">
+            <a href="{% url 'news' %}" data-translation-key="news" id="newsLink">News</a>
+          </div>
+        </li>
+        <li class="dropdownabout">
+          <a href="{% url 'about' %}" id="aboutLink" data-translation-key="about">About</a>
+          <div class="dropdown-contentA">
+            <a href="{% url 'about_association' %}" data-translation-key="aboutAssociation" id="aboutAssociationLink">About Association</a>
+            <a href="{% url 'become_member' %}" data-translation-key="becomeMember" id="becomeMemberLink">Become a Member</a>
+          </div>
+        </li>
+        <li class="dropdownscient">
+          <a href="{% url 'scientific_information' %}" id="scientificLink" data-translation-key="scientific">Scientific Information</a>
+          <div class="dropdown-contentS">
+            <a href="{% url 'publications' %}" data-translation-key="publications" id="publicationsLink">Publications</a>
+            <a href="{% url 'about_congresses' %}" data-translation-key="congresses" id="congressesLink">About Congresses</a>
+          </div>
+        </li>
+        <li class="dropdownguide">
+          <a href="{% url 'guidelines' %}" id="guidelinesLink" data-translation-key="guidelines">Guidelines</a>
+          <div class="dropdown-contentG">
+            <a href="{% url 'national_guidelines' %}" data-translation-key="national" id="nationalLink">National</a>
+            <a href="{% url 'translated_guidelines' %}" data-translation-key="translated" id="translatedLink">Translated</a>
+            <a href="{% url 'english_guidelines' %}" data-translation-key="english" id="englishLink">English</a>
+          </div>
+        </li>
+        <li><a href="{% url 'events' %}" id="eventsLink" data-translation-key="events">Events</a></li>
+        <li><a href="{% url 'for_patients' %}" id="patientsLink" data-translation-key="patients">For patients</a></li>
+        <li><a href="{% url 'contact' %}" id="contactLink" data-translation-key="contact">Contact</a></li>
+        <li id="lss">
+          <div id="language-selector">
+            <label for="language" data-translation-key="selectLanguage">SELECT LANGUAGE</label>
+            <select id="language" onchange="changeLanguage()">
+              <option value="english">English</option>
+              <option value="georgian">Georgian</option>
+            </select>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer id="mainfooter">
+    <div class="divfooter">
+      <div class="divfootersection">
+        <h2>For general questions:</h2>
+        <p>Email: asanidzeelene@yahoo.com</p>
+      </div>
+      <div class="divfootersection">
+        <h2>The head of the Association:</h2>
+        <p>Email: asanidzeelene@yahoo.com</p>
+      </div>
+      <div class="divfootersection">
+        <h2>For technical help:</h2>
+        <p>Email: unseenmeli@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+
+
+    function getZoomLevel() {
+    return window.devicePixelRatio;
+    }
+
+    window.addEventListener("resize", () => {
+    const zoom = getZoomLevel();
+    console.log(`Current zoom: ${zoom}`);
+
+    if (zoom < 1) {
+    } else if (zoom > 1) {
+    }
+    });
+
+window.onload = function () {
+    async function changeLanguage() {
+        const selectedLanguage = document.getElementById("language").value;
+        localStorage.setItem("language", selectedLanguage); // optional
+
+        try {
+            const response = await fetch(`/api/translations/${selectedLanguage}/`);
+            const translations = await response.json();
+
+            document.querySelectorAll("[data-translation-key]").forEach(el => {
+                const key = el.getAttribute("data-translation-key");
+                if (translations[key]) {
+                    el.innerHTML = translations[key];
+                }
+            });
+        } catch (error) {
+            console.error("Error fetching translations:", error);
+        }
+    }
+
+
+    const savedLanguage = localStorage.getItem("language") || "english";
+    document.getElementById("language").value = savedLanguage;
+    changeLanguage();
+
+
+    document.getElementById("language").addEventListener("change", changeLanguage);
+};
+</script>
+</body>
+</html>

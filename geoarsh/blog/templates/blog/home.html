@@ -1,0 +1,156 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+    <h1 id="homeh1" data-translation-key="homemainh1">
+        Welcome to Georgian Association of Reproductive and Sexual Health
+    </h1>
+    <div class="carousel">
+        <div class="carousel-track">
+            <img src="{% static 'blog/images/xatunasuxadze.jpg' %}" class="clickable-image carousel-img" data-url="{% url 'news24' %}" style="cursor: pointer;" alt="Penguin 1">
+            <div class="workin-on-davita">
+                <img src="{% static 'blog/images/ia chapidze.jpeg' %}" class="clickable-image carousel-img" data-url="{% url 'news23' %}" style="cursor: pointer;" alt="Penguin 2">
+            </div>  
+            <img src="{% static 'blog/images/news22main.jpg' %}" class="clickable-image carousel-img" data-url="{% url 'news22' %}" style="cursor: pointer;" alt="Penguin 3">
+            <img id="davitis-surati" src="{% static 'blog/images/fisgenews21.jpg' %}" class="clickable-image carousel-img" data-url="{% url 'news21' %}" style="cursor: pointer;" alt="Penguin 4">
+        </div>
+    </div>
+
+    <h1 id="homeh1" data-translation-key="homesecondh1">
+        Latest news!
+    </h1>
+
+    <hr>
+    <hr>
+
+    <div class="news-container">
+        <a href="{% url 'news24' %}">
+            <img src="{% static 'blog/images/xatunasuxadze.jpg' %}" class="news-image">
+        </a>
+        <div>
+            <h1 class="news-title" data-translation-key="news23Title">
+                Conference Highlight
+            </h1>
+            <p class="news-text" data-translation-key="homeNews23Paragraph">
+                On May 9–12, 2025, the 34th United Multidisciplinary Scientific Conference, "International Standards of Clinical Practice," organized by the Association of Medical Education and Evidence-Based Medicine, was held.
+            </p>             
+        </div>
+    </div>
+
+    <div class="news-container">
+        <a href="{% url 'news23' %}">
+            <img src="{% static 'blog/images/ia chapidze.jpeg' %}" class="news-image">
+        </a>
+        <div>
+            <h1 class="news-title" data-translation-key="news23Title">
+                Conference Highlight
+            </h1>
+            <p class="news-text" data-translation-key="homeNews23Paragraph">
+                On May 9–12, 2025, the 34th United Multidisciplinary Scientific Conference, "International Standards of Clinical Practice," organized by the Association of Medical Education and Evidence-Based Medicine, was held.
+            </p>             
+        </div>
+    </div>
+
+    <div class="news-container">
+        <a href="{% url 'news22' %}">
+            <img src="{% static 'blog/images/news22main.jpg' %}" class="news-image">
+        </a>
+        <div>
+            <h1 class="news-title" data-translation-key="news22Title">
+                On April 25, a scientific conference was held on the topic: Latest Recommendations for the Management of Premature Ovarian Insufficiency (POI).
+            </h1>
+            <p class="news-text" data-translation-key="homeNews22Paragraph">
+                The event featured a key lecture by Professor Elene Asanidze, who delivered a comprehensive overview of the newly updated international guidelines for the diagnosis and management of POI.
+            </p>             
+        </div>
+    </div>
+
+    <div class="news-container">
+        <a href="{% url 'news21' %}">
+            <img src="{% static 'blog/images/fisgenews21.jpg' %}" class="news-image">
+        </a>
+        <div>
+            <h1 class="news-title" data-translation-key="news21Title">
+                We are proud to share a significant achievement for the Georgian Association of Reproductive  and Sexual Health!
+            </h1>
+            <p class="news-text" data-translation-key="homeNews21Paragraph">
+                Thanks to the active academic involvement, scientific contributions, and clinical work of our members, our association is now officially on its way to becoming a member of the International Federation of the Societies of Gynecological Endocrinology (FISGE).
+            </p>             
+        </div>
+    </div>
+
+
+    <hr>
+<div class="formore">
+    <a href="{% url 'news' %}" class="click-here">
+        <h1 data-translation-key="homethirdh1">
+            For more of news click here!
+        </h1>
+    </a>
+</div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const track = document.querySelector(".carousel-track");
+            const images = Array.from(document.querySelectorAll(".carousel-img"));
+            const speed = 0.5;
+            let position = 0;
+        
+            function scaleAndFadeImages() {
+                const carouselRect = track.parentElement.getBoundingClientRect();
+                const carouselCenter = carouselRect.left + carouselRect.width / 2;
+        
+                images.forEach((img) => {
+                    const imgRect = img.getBoundingClientRect();
+                    const imgCenter = imgRect.left + imgRect.width / 2;
+                    const distanceFromCenter = Math.abs(carouselCenter - imgCenter);
+                    const maxDistance = carouselRect.width / 2;
+        
+                    // ✅ Smooth scaling based on position
+                    const scale = 0.75 + (1 - (distanceFromCenter / maxDistance)) * 0.25;
+                    img.style.transform = `scale(${scale})`;
+        
+                    // ✅ Dynamic shadow based on scale
+                    const shadowIntensity = (scale - 0.75) * 20;
+                    img.style.filter = `drop-shadow(${shadowIntensity}px ${shadowIntensity}px ${shadowIntensity * 2}px rgba(0, 0, 0, 0.5))`;
+        
+                    // ✅ Opacity Transition (Fade-out near end, Fade-in at start)
+                    const fadeStart = maxDistance * 0.9; // Start fading when near the end
+                    if (distanceFromCenter > fadeStart) {
+                        const opacity = 1 - (distanceFromCenter - fadeStart) / (maxDistance - fadeStart);
+                        img.style.opacity = opacity;
+                    } else {
+                        img.style.opacity = 1;
+                    }
+                });
+            }
+        
+            function moveCarousel() {
+                position -= speed;
+        
+                if (position <= -track.scrollWidth / 2) {
+                    position += track.scrollWidth / 2; // ✅ Loop smoothly without jump
+                }
+        
+                track.style.transform = `translateX(${position}px)`;
+                scaleAndFadeImages(); // ✅ Apply opacity & scale changes
+        
+                requestAnimationFrame(moveCarousel);
+            }
+        
+            scaleAndFadeImages(); // ✅ Apply initial scaling and opacity
+            moveCarousel();
+        
+            // ✅ Re-add Click Event for Image Navigation
+            images.forEach(img => {
+                img.addEventListener("click", () => {
+                    const url = img.getAttribute("data-url");
+                    if (url) {
+                        window.location.href = url;
+                    }
+                });
+            });
+        });
+        </script>
+        
+{% endblock content %}

@@ -138,10 +138,22 @@ def news23(request):
 def news24(request):
     return render(request, "blog/news/news24.html")
 
+def news25(request):
+    return render(request, "blog/news/news25.html")
+
 # for news posts to here !!!
 
 def events1(request):
     return render(request, "blog/for_events/events1.html")
+
+def events1res(request):
+    return render(request, "blog/for_events/events1res.html")
+
+def events2(request):
+    return render(request, "blog/for_events/events2.html")
+
+def events2res(request):
+    return render(request, "blog/for_events/events2res.html")
 
 # translations from here !!!
 

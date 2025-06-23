@@ -7,12 +7,12 @@
     </h1>
     <div class="carousel">
         <div class="carousel-track">
+            <img id="davitis-surati" src="{% static 'blog/images/elenerustavi.jpg' %}" class="clickable-image carousel-img" data-url="{% url 'news25' %}" style="cursor: pointer;" alt="Penguin 4">
             <img src="{% static 'blog/images/xatunasuxadze.jpg' %}" class="clickable-image carousel-img" data-url="{% url 'news24' %}" style="cursor: pointer;" alt="Penguin 1">
             <div class="workin-on-davita">
                 <img src="{% static 'blog/images/ia chapidze.jpeg' %}" class="clickable-image carousel-img" data-url="{% url 'news23' %}" style="cursor: pointer;" alt="Penguin 2">
             </div>  
             <img src="{% static 'blog/images/news22main.jpg' %}" class="clickable-image carousel-img" data-url="{% url 'news22' %}" style="cursor: pointer;" alt="Penguin 3">
-            <img id="davitis-surati" src="{% static 'blog/images/fisgenews21.jpg' %}" class="clickable-image carousel-img" data-url="{% url 'news21' %}" style="cursor: pointer;" alt="Penguin 4">
         </div>
     </div>
 
@@ -22,6 +22,18 @@
 
     <hr>
     <hr>
+
+    <div class="news-container">
+        <a href="{% url 'news25' %}">
+            <img src="{% static 'blog/images/elenerustavi.jpg' %}" class="news-image">
+        </a>
+        <div>
+            <h1 class="news-title" data-translation-key="news25Title">
+            </h1>
+            <p class="news-text" data-translation-key="homeNews25Paragraph">
+            </p>             
+        </div>
+    </div>
 
     <div class="news-container">
         <a href="{% url 'news24' %}">
@@ -61,20 +73,6 @@
             </h1>
             <p class="news-text" data-translation-key="homeNews22Paragraph">
                 The event featured a key lecture by Professor Elene Asanidze, who delivered a comprehensive overview of the newly updated international guidelines for the diagnosis and management of POI.
-            </p>             
-        </div>
-    </div>
-
-    <div class="news-container">
-        <a href="{% url 'news21' %}">
-            <img src="{% static 'blog/images/fisgenews21.jpg' %}" class="news-image">
-        </a>
-        <div>
-            <h1 class="news-title" data-translation-key="news21Title">
-                We are proud to share a significant achievement for the Georgian Association of Reproductive  and Sexual Health!
-            </h1>
-            <p class="news-text" data-translation-key="homeNews21Paragraph">
-                Thanks to the active academic involvement, scientific contributions, and clinical work of our members, our association is now officially on its way to becoming a member of the International Federation of the Societies of Gynecological Endocrinology (FISGE).
             </p>             
         </div>
     </div>

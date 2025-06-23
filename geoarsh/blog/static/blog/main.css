@@ -648,6 +648,11 @@ a {
     object-position: top;
 }
 
+#jenaroevents {
+    object-fit: cover;
+    object-position: bottom;
+}
+
 @media (max-width: 600px) {
     .logo {
       display: none;

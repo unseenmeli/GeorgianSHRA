@@ -1,16 +1,38 @@
 {% extends "blog/base.html" %}
 {% load static %}
 {% block content %}
+
+<!-- each event -->
+
 <div class="news-container">
-    <a href="{% url 'news10' %}">
-        <img src="{% static 'blog/images/racxa1.jpg' %}" class="news-image">
+    <a href="{% url 'events2' %}">
+        <img src="{% static 'blog/images/events2.jpg' %}" class="news-image">
     </a>
     <div>
-        <h1 class="news-title" data-translation-key="homeNews10Title">
-            Scientific-Practical Conference Organized by the Georgian Reproductive and Sexual Health Association
+        <h1 class="news-title" data-translation-key="Events2Title">
         </h1>
-        <p class="news-text" data-translation-key="homeNews10Paragraph">
-            The Georgian Reproductive and Sexual Health Association successfully organized a scientific-practical conference dedicated to the topic:🔹  'Disorders of Sexual Development: Innovations in Diagnosis and Treatment'
+        <p class="news-text" data-translation-key="Events2ParagraphT">
+        </p>
+    </div>
+</div>
+
+<!-- each event -->
+
+<br>
+<hr>
+<hr>
+<br>
+
+<div class="news-container">
+    <a href="{% url 'events1res' %}">
+        <img src="{% static 'blog/images/event1res.jpg' %}" class="news-image">
+    </a>
+    <div>
+        <h1 class="news-title" data-translation-key="Events1resTitle">
+            The Georgian Association of Reproductive and Sexual Health held a Continuing Medical Education (CME) training on June 20–21, 2025, on the topic:
+        </h1>
+        <p class="news-text" data-translation-key="Events1resParagraphT">
+            The Georgian Association of Reproductive and Sexual Health held a Continuing Medical Education (CME) training on June 20–21, 2025, on the topic:
         </p>
     </div>
 </div>
@@ -28,4 +50,24 @@
         </p>
     </div>
 </div>
+
+<br>
+<hr>
+<hr>
+<br>
+
+<div class="news-container">
+    <a href="{% url 'news10' %}">
+        <img src="{% static 'blog/images/racxa1.jpg' %}" class="news-image">
+    </a>
+    <div>
+        <h1 class="news-title" data-translation-key="homeNews10Title">
+            Scientific-Practical Conference Organized by the Georgian Reproductive and Sexual Health Association
+        </h1>
+        <p class="news-text" data-translation-key="homeNews10Paragraph">
+            The Georgian Reproductive and Sexual Health Association successfully organized a scientific-practical conference dedicated to the topic:🔹  'Disorders of Sexual Development: Innovations in Diagnosis and Treatment'
+        </p>
+    </div>
+</div>
+
 {% endblock content %}

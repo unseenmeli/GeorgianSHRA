@@ -2,10 +2,18 @@
 {% load static %}
 {% block content %}
 
-<div class="newsdiv">
-    <h1 data-translation-key="news21Title">
-        We are proud to share a significant achievement for the Georgian Association of Reproductive  and Sexual Health!
-    </h1>
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title" data-translation-key="news21Title">
+            We are proud to share a significant achievement for the Georgian Association of Reproductive  and Sexual Health!
+        </h1>
+        <div class="article-meta">
+            <span class="article-date">February 2025</span>
+            <span class="article-category">Announcement</span>
+        </div>
+    </div>
+
+    <div class="article-content">
 
     <p data-translation-key="news21Paragraph1">
         Thanks to the active academic involvement, scientific contributions, and clinical work of our members, our association is now officially on its way to becoming a member of the International Federation of the Societies of Gynecological Endocrinology (FISGE)
@@ -13,7 +21,12 @@
         This international recognition not only honors the efforts of our Georgian professionals but also strengthens our opportunities for global cooperation, knowledge exchange, and progress in the field.
         We look forward to growing together with the international community and contributing meaningfully to the future of gynecological endocrinology! 
     </p>
-</div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+    </div>
+</article>
 
 <hr>
 <hr>

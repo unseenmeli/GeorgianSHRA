@@ -2,16 +2,30 @@
 {% load static %}
 {% block content %}
 
-<div class="newsdiv">
-    <h1 data-translation-key="news22Title">
-        On April 25, a scientific conference was held on the topic: Latest Recommendations for the Management of Premature Ovarian Insufficiency (POI).    </h1>
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title" data-translation-key="news22Title">
+            On April 25, a scientific conference was held on the topic: Latest Recommendations for the Management of Premature Ovarian Insufficiency (POI).
+        </h1>
+        <div class="article-meta">
+            <span class="article-date">April 25, 2025</span>
+            <span class="article-category">Conference</span>
+        </div>
+    </div>
+
+    <div class="article-content">
 
     <p data-translation-key="news22Paragraph1">
         The event featured a key lecture by Professor Elene Asanidze, who delivered a comprehensive overview of the newly updated international guidelines for the diagnosis and management of POI. 🔹She placed particular emphasis on the importance of early diagnosis and timely therapeutic intervention—both of which are essential to improving women's quality of life and preventing complications related to estrogen deficiency.
 🔹Professor Asanidze also presented modern approaches to hormone replacement therapy (HRT) as a cornerstone in the management of POI. Her lecture further addressed the challenges and future directions in the management of early and timely menopause, with a focus on individualized care and evidence-based, patient-centered therapeutic strategies.
 🧑‍🎓 💬 The presentation was met with strong engagement from the audience and sparked dynamic discussions, reflecting both the depth of the subject matter and its practical significance. The exchange of ideas underscored the ongoing need for collaboration and shared expertise in advancing women's health.
    </p>
-</div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+    </div>
+</article>
 
 <hr>
 <hr>
@@ -20,7 +34,6 @@
     <img src="{% static 'blog/images/22news.jpg' %}" id="news20pic1">
     <img src="{% static 'blog/images/news221.jpg' %}" id="pic3">
     <img src="{% static 'blog/images/news222.jpg' %}">
-</div>
-
+</article>
 
 {% endblock content %}

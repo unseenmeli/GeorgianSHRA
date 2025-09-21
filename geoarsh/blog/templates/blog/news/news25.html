@@ -2,13 +2,27 @@
 {% load static %}
 {% block content %}
 
-<div class="newsdiv">
-    <h1 data-translation-key="news25Title">
-    </h1>
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title" data-translation-key="news25Title">
+            
+        </h1>
+        <div class="article-meta">
+            <span class="article-date">June 13, 2025</span>
+            <span class="article-category">Conference</span>
+        </div>
+    </div>
+
+    <div class="article-content">
 
     <p data-translation-key="news25Paragraph1">
     </p>
-</div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+    </div>
+</article>
 
 <hr>
 <hr>
@@ -17,6 +31,6 @@
     <img src="{% static 'blog/images/elenerustavi.jpg' %}" id="pic2">
     <img src="{% static 'blog/images/elenerustavi2.jpg' %}" id="pic3">
     <img src="{% static 'blog/images/elenerustavi1.jpg' %}">
-</div>
+</article>
 
 {% endblock content %}

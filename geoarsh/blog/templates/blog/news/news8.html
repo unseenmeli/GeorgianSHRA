@@ -2,10 +2,18 @@
 {% load static %}
 {% block content %}
 
-<div class="newsdiv">
-    <h1 data-translation-key="news8Title">
-        Participation of the Georgian Reproductive and Sexual Health Association in the European Congress of Pediatric and Adolescent Gynecology (EURAPAG)
-    </h1>
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title" data-translation-key="news8Title">
+            Participation of the Georgian Reproductive and Sexual Health Association in the European Congress of Pediatric and Adolescent Gynecology (EURAPAG)
+        </h1>
+        <div class="article-meta">
+            <span class="article-date">June 4-8, 2024</span>
+            <span class="article-category">Congress</span>
+        </div>
+    </div>
+
+    <div class="article-content">
 
     <p data-translation-key="news8Paragraph1">
         From June 4-8, 2024, the 16th Congress of the European Association of Pediatric and Adolescent Gynecology (EURAPAG) was held in Thessaloniki, Greece, bringing together leading experts, researchers, and clinicians specializing in pediatric and adolescent gynecology, as well as related medical disciplines.
@@ -21,7 +29,12 @@
 In recognition of their contributions, Professors Genaro Kristesashvili and Elene Asanidze were honored with the prestigious book "Children’s and Adolescent Gynecology," authored by distinguished scientists Dei M. and Bruni V.
 The Georgian Reproductive and Sexual Health Association remains committed to scientific excellence, international collaboration, and the advancement of pediatric and adolescent gynecology.
     </p>
-</div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+    </div>
+</article>
 
 <hr>
 <hr>
@@ -30,6 +43,6 @@ The Georgian Reproductive and Sexual Health Association remains committed to sci
     <img src="{% static 'blog/images/EleneEU1.jpg' %}">
     <img src="{% static 'blog/images/EleneEU2.jpg' %}">
     <img src="{% static 'blog/images/EleneEU3.jpg' %}">
-</div>
+</article>
 
 {% endblock content %}

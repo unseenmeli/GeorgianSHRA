@@ -2,10 +2,18 @@
 {% load static %}
 {% block content %}
 
-<div class="newsdiv">
-    <h1 data-translation-key="news23Title">
-        Conference Highlight
-    </h1>
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title" data-translation-key="news23Title">
+            Conference Highlight
+        </h1>
+        <div class="article-meta">
+            <span class="article-date">May 9-12, 2025</span>
+            <span class="article-category">Conference</span>
+        </div>
+    </div>
+
+    <div class="article-content">
 
     <p data-translation-key="news23Paragraph1">
     On May 9–12, 2025, the 34th United Multidisciplinary Scientific Conference, "International Standards of Clinical Practice," organized by the Association of Medical Education and Evidence-Based Medicine, was held.
@@ -14,7 +22,12 @@
 <br><br>"The Role of 3D Ultrasonography in the Diagnosis of Müllerian Anomalies in Women with Reproductive Disorders."
 <br><br>💬 The presentation sparked strong interest among participants and was highly appreciated for both the relevance of the topic and its practical clinical value.
     </p>
-</div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+    </div>
+</article>
 
 <hr>
 <hr>

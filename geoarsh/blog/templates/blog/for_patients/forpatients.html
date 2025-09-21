@@ -10,7 +10,7 @@
 <hr>
 
 <div class="body-container">
-    <div class="news-container">
+    <div class="news-container" onclick="window.location.href=`{% url 'for_patients1' %}`;" style="cursor: pointer;">
         <div>
             <a href="{% url 'for_patients1' %}">
                 <h1 class="news-title" data-translation-key="ForPatients1Title">
@@ -23,8 +23,8 @@
             </a>
         </div>
     </div>
-    
-    <div>
+
+    <div class="news-container" onclick="window.location.href=`{% url 'for_patients2' %}`;" style="cursor: pointer;">
         <a href="{% url 'for_patients2' %}">
             <h1 class="news-title" data-translation-key="ForPatients2Title">
                 Intimate Hygiene for Girls: Essential Tips for Parents
@@ -35,7 +35,7 @@
         </a>
     </div>
 
-    <div>
+    <div class="news-container" onclick="window.location.href=`{% url 'for_patients3' %}`;" style="cursor: pointer;">
         <a href="{% url 'for_patients3' %}">
             <h1 class="news-title" data-translation-key="ForPatients3Title">
                 Labia Fusion (Labia Adhesions) in Girls: What Every Parent Should Know
@@ -46,7 +46,7 @@
         </a>
     </div>
 
-    <div>
+    <div class="news-container" onclick="window.location.href=`{% url 'for_patients4' %}`;" style="cursor: pointer;">
         <a href="{% url 'for_patients4' %}">
             <h1 class="news-title" data-translation-key="ForPatients4Title">
                 Recurrent pregnancy losses
@@ -57,7 +57,7 @@
         </a>
     </div>
 
-    <div>
+    <div class="news-container" onclick="window.location.href=`{% url 'for_patients5' %}`;" style="cursor: pointer;">
         <a href="{% url 'for_patients5' %}">
             <h1 class="news-title" data-translation-key="ForPatients5Title">
                 The Role of Natural Killer Cells in Physiological and Pathological Pregnancy 

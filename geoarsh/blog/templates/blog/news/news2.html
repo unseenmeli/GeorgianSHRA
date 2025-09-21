@@ -2,10 +2,18 @@
 {% load static %}
 {% block content %}
 
-<div class="newsdiv">
-    <h1 data-translation-key="news2Title">
-        Participation of the Georgian Reproductive and Sexual Health Association in the 32nd World Congress on Controversies in Obstetrics, Gynecology, and Infertility
-    </h1>
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title" data-translation-key="news2Title">
+            Participation of the Georgian Reproductive and Sexual Health Association in the 32nd World Congress on Controversies in Obstetrics, Gynecology, and Infertility
+        </h1>
+        <div class="article-meta">
+            <span class="article-date">November 21-23, 2024</span>
+            <span class="article-category">Congress</span>
+        </div>
+    </div>
+
+    <div class="article-content">
 
     <p data-translation-key="news2Paragraph1">
         From November 21 to 23, 2024, the 32nd World Congress on Controversies in Obstetrics, Gynecology, and Infertility (COGI) was held in Lisbon, Portugal, bringing together leading experts from around the world to discuss the latest advancements and challenges in the field.
@@ -19,7 +27,12 @@
         Both presentations garnered significant interest and positive feedback from congress participants, further solidifying the Association’s contributions to global research in reproductive and sexual health. Notably, Prof. Elene Asanidze has been invited as a keynote speaker at the upcoming 33rd World Congress on Controversies in Obstetrics, Gynecology, and Infertility, which will be held in November 2025 in Rome, Italy.
         The Georgian Reproductive and Sexual Health Association remains dedicated to advancing scientific research and fostering international collaboration to improve reproductive healthcare worldwide.
     </p>
-</div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+    </div>
+</article>
 
 <hr>
 <hr>
@@ -28,6 +41,6 @@
     <img src="{% static 'blog/images/elene1.jpeg' %}">
     <img src="{% static 'blog/images/elene2.jpeg' %}">
     <img src="{% static 'blog/images/elene3.jpeg' %}">
-</div>
+</article>
 
 {% endblock content %}

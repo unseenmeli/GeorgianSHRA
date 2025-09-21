@@ -2,10 +2,18 @@
 {% load static %}
 {% block content %}
 
-<div class="newsdiv">
-    <h1 data-translation-key="news13Title">
-        Professor Jenaro Kristesashvili Honored with the 'Doctor of the Century' Award
-    </h1>
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title" data-translation-key="news13Title">
+            Professor Jenaro Kristesashvili Honored with the 'Doctor of the Century' Award
+        </h1>
+        <div class="article-meta">
+            <span class="article-date">March 2024</span>
+            <span class="article-category">Award</span>
+        </div>
+    </div>
+
+    <div class="article-content">
 
     <p data-translation-key="news13Paragraph1">
         The Georgian Reproductive and Sexual Health Association proudly announces that Professor Jenaro Kristesashvili, Co-founder and Chief Expert of the Association and Professor of Obstetrics and Gynecology at the Faculty of Medicine of Ivane Javakhishvili Tbilisi State Medical University, has been awarded the prestigious 'Doctor of the Century' title.
@@ -18,7 +26,12 @@
     <p data-translation-key="news13Paragraph3">
         This award serves as a testament to his lifelong commitment to medical excellence, innovation, and the advancement of reproductive healthcare in Georgia and beyond.
     </p>
-</div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+    </div>
+</article>
 
 <hr>
 <hr>

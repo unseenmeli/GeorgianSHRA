@@ -2,10 +2,18 @@
 {% load static %}
 {% block content %}
 
-<div class="newsdiv">
-    <h1 data-translation-key="news6Title">
-        Scientific Paper Co-Authored by Members of the Georgian Reproductive and Sexual Health Association Published in a High-Impact Journal 
-    </h1>
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title" data-translation-key="news6Title">
+            Scientific Paper Co-Authored by Members of the Georgian Reproductive and Sexual Health Association Published in a High-Impact Journal
+        </h1>
+        <div class="article-meta">
+            <span class="article-date">September 2024</span>
+            <span class="article-category">Publication</span>
+        </div>
+    </div>
+
+    <div class="article-content">
 
     <p data-translation-key="news6Paragraph1">
         The Georgian Reproductive and Sexual Health Association is proud to announce the publication of a significant original research article in a high-impact, SCOPUS- and WOS-indexed journal.
@@ -28,7 +36,12 @@ Gender assessment in individuals with androgen resistance remains a complex and 
 🔗 Read the full article here: https://ijrm.ir/article-1-2570-en.html&sw=Kristesashvili
 The Georgian Reproductive and Sexual Health Association remains committed to advancing research and contributing to the global medical discourse. We congratulate our esteemed authors on this remarkable achievement!
         </p>
-</div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+    </div>
+</article>
 
 <hr>
 <hr>

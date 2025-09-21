@@ -2,10 +2,18 @@
 {% load static %}
 {% block content %}
 
-<div class="newsdiv">
-    <h1 data-translation-key="news14Title">
-        Board Members of the Georgian Reproductive and Sexual Health Association as Guests on the TV/Program 'Personal Doctor'
-    </h1>
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title" data-translation-key="news14Title">
+            Board Members of the Georgian Reproductive and Sexual Health Association as Guests on the TV/Program 'Personal Doctor'
+        </h1>
+        <div class="article-meta">
+            <span class="article-date">February 2024</span>
+            <span class="article-category">Media</span>
+        </div>
+    </div>
+
+    <div class="article-content">
 
     <p data-translation-key="news14Paragraph1">
         The Georgian ReproductiveThis and Sexual Health Association is pleased to announce that its board members were featured as guests on the television program 'Personal Doctor' with Mari Malazonia, where they discussed the topic:🔹 Sexual Development Disorders
@@ -18,7 +26,12 @@
     <p data-translation-key="news14Paragraph3">
         📌 Dr. Mariam Chipashvili – Doctor of Genetics, Doctor of Medicine, and Board Member of the Georgian Reproductive and Sexual Health Association. The discussion provided expert insights into the diagnosis, management, and latest scientific advancements in the field of sexual development disorders, addressing both clinical and genetic perspectives. The Georgian Reproductive and Sexual Health Association remains committed to public education, professional dialogue, and advancing awareness in reproductive and sexual health.
     </p>
-</div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+    </div>
+</article>
 
 <hr>
 <hr>

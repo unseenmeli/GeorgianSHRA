@@ -2,10 +2,18 @@
 {% load static %}
 {% block content %}
 
-<div class="newsdiv">
-    <h1 data-translation-key="news10Title">
-        Scientific-Practical Conference Organized by the Georgian Reproductive and Sexual Health Association
-    </h1>
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title" data-translation-key="news10Title">
+            Scientific-Practical Conference Organized by the Georgian Reproductive and Sexual Health Association
+        </h1>
+        <div class="article-meta">
+            <span class="article-date">May 2024</span>
+            <span class="article-category">Conference</span>
+        </div>
+    </div>
+
+    <div class="article-content">
 
     <p data-translation-key="news10Paragraph1">
         The Georgian Reproductive and Sexual Health Association successfully organized a scientific-practical conference dedicated to the topic:🔹  'Disorders of Sexual Development: Innovations in Diagnosis and Treatment'
@@ -18,7 +26,12 @@
     <p data-translation-key="news10Paragraph3">
         A key highlight of the event was the presentation of the book:📖 'Disorders of Sexual Development' authored by Professor Jenaro Kristesashvili and Mariam Chipashvili. This conference underscored the Association’s commitment to advancing scientific research, enhancing clinical expertise, and fostering professional dialogue in the field of reproductive and sexual health.
     </p>
-</div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+    </div>
+</article>
 
 <hr>
 <hr>

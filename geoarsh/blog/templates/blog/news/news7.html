@@ -2,10 +2,18 @@
 {% load static %}
 {% block content %}
 
-<div class="newsdiv">
-    <h1 data-translation-key="news7Title">
-        Georgian Reproductive and Sexual Health Association’s Participation in the 5th International Scientific Conference “Infertility 35+”
-    </h1>
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title" data-translation-key="news7Title">
+            Georgian Reproductive and Sexual Health Association’s Participation in the 5th International Scientific Conference “Infertility 35+”
+        </h1>
+        <div class="article-meta">
+            <span class="article-date">September 21-22, 2024</span>
+            <span class="article-category">Conference</span>
+        </div>
+    </div>
+
+    <div class="article-content">
 
     <p data-translation-key="news7Paragraph1">
         On September 21-22, 2024, the 5th International Scientific Conference “Infertility 35+” was held in Tbilisi, bringing together experts in reproductive medicine to discuss the latest advancements in infertility research and treatment.
@@ -23,7 +31,12 @@ At the conference, Professor Fnaro Kristesashvili, Chief Expert and Founder of t
 was also published, further showcasing the important contributions of Georgian researchers in the field of reproductive medicine.
 The Georgian Reproductive and Sexual Health Association remains dedicated to advancing scientific research and participating in international discussions to improve reproductive healthcare.
     </p>
-</div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+    </div>
+</article>
 
 <hr>
 <hr>

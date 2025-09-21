@@ -2,10 +2,18 @@
 {% load static %}
 {% block content %}
 
-<div class="newsdiv">
-    <h1 data-translation-key="news20Title">
-        Georgian Reproductive and Sexual Health Association on the World Stage! 🌍
-    </h1>
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title" data-translation-key="news20Title">
+            Georgian Reproductive and Sexual Health Association on the World Stage! 🌍
+        </h1>
+        <div class="article-meta">
+            <span class="article-date">March 19-22, 2025</span>
+            <span class="article-category">Congress</span>
+        </div>
+    </div>
+
+    <div class="article-content">
 
     <p data-translation-key="news20Paragraph1">
         The 16th Congress of the European Society of Gynecology was held in Riga, Latvia, from March 19–22, 2025, bringing together global experts in gynecology and reproductive health.
@@ -18,7 +26,12 @@
         Members of the Association, Shorena Gogokhia and Nana Tabukashvili, also actively participated in the congress, contributing to high-level discussions and global networking.
 👏 The Georgian Reproductive and Sexual Health Association proudly continues to strengthen Georgia's presence in the international reproductive health arena—deepening global cooperation and advancing reproductive health both at home and worldwide.
     </p>
-</div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+    </div>
+</article>
 
 <hr>
 <hr>
@@ -27,6 +40,6 @@
     <img src="{% static 'blog/images/eleneoncongress.jpeg' %}" id="news20pic1">
     <img src="{% static 'blog/images/congress2.jpeg' %}" id="pic3">
     <img src="{% static 'blog/images/eleneoncongress2.jpeg' %}">
-</div>
+</article>
 
 {% endblock content %}

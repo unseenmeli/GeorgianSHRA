@@ -2,10 +2,18 @@
 {% load static %}
 {% block content %}
 
-<div class="newsdiv">
-    <h1 data-translation-key="news15Title">
-        Scientific Paper Co-Authored by Members of the Georgian Reproductive and Sexual Health Association Published in a High-Impact Journal
-    </h1>
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title" data-translation-key="news15Title">
+            Scientific Paper Co-Authored by Members of the Georgian Reproductive and Sexual Health Association Published in a High-Impact Journal
+        </h1>
+        <div class="article-meta">
+            <span class="article-date">January 2024</span>
+            <span class="article-category">Publication</span>
+        </div>
+    </div>
+
+    <div class="article-content">
 
     <p data-translation-key="news15Paragraph1">
         The Georgian Reproductive and Sexual Health Association is pleased to announce the publication of a significant scientific article in the International Journal of Reproductive BioMedicine, a PubMed Central- and Scopus-indexed journal with an impact factor of 1.424. 📌 Title of the Article:🔹 'Hyperhomocysteinemia and Pregnancy Outcomes in Women with Polycystic Ovary Syndrome: A Case-Control Study.'
@@ -18,7 +26,12 @@
     <p data-translation-key="news15Paragraph3">
         🔗 To access the full article, visit: DOI: 10.18502/ijrm.v21i2.12807 The Georgian Reproductive and Sexual Health Association remains committed to advancing medical research, fostering international collaboration, and contributing to the global body of knowledge in reproductive medicine.
     </p>
-</div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+    </div>
+</article>
 
 <hr>
 <hr>

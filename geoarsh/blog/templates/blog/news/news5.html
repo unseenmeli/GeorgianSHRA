@@ -2,10 +2,18 @@
 {% load static %}
 {% block content %}
 
-<div class="newsdiv">
-    <h1 data-translation-key="news5Title">
-        Participation of the Georgian Reproductive and Sexual Health Association in the FIGO World Congress
-    </h1>
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title" data-translation-key="news5Title">
+            Participation of the Georgian Reproductive and Sexual Health Association in the FIGO World Congress
+        </h1>
+        <div class="article-meta">
+            <span class="article-date">October 9-12, 2024</span>
+            <span class="article-category">Congress</span>
+        </div>
+    </div>
+
+    <div class="article-content">
 
     <p data-translation-key="news5Paragraph1">
         From October 9-12, 2024, the XXIV FIGO World Congress of Gynecology and Obstetrics convened in Paris, France, bringing together leading experts, researchers, and healthcare professionals from over 130 countries. As the largest international congress in obstetrics and gynecology, FIGO fosters global collaboration and knowledge exchange to advance women's health.
@@ -18,7 +26,12 @@
         FIGO, as the official representative of the World Health Organization (WHO) in gynecology and obstetrics, holds consultative status with the United Nations and unites over 130 national obstetric and gynecological associations. Its congress serves as a key platform for advancing evidence-based practices and global health policies.
         The Georgian Reproductive and Sexual Health Association remains dedicated to scientific innovation, international collaboration, and the continuous advancement of reproductive and sexual healthcare.    </p>  
 
-</div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+    </div>
+</article>
 
 <hr>
 <hr>
@@ -27,5 +40,6 @@
     <img src="{% static 'blog/images/figo1.jpg' %}">
     <img src="{% static 'blog/images/figo2.jpg' %}">
     <img src="{% static 'blog/images/figo3.jpg' %}">
-</div>
+</article>
+
 {% endblock content %}

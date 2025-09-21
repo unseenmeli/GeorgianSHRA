@@ -2,10 +2,18 @@
 {% load static %}
 {% block content %}
 
-<div class="newsdiv">
-    <h1 data-translation-key="news16Title">
-        Participation of the Georgian Reproductive and Sexual Health Association in the 19th World Congress of the International Academy of Human Reproduction
-    </h1>
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title" data-translation-key="news16Title">
+            Participation of the Georgian Reproductive and Sexual Health Association in the 19th World Congress of the International Academy of Human Reproduction
+        </h1>
+        <div class="article-meta">
+            <span class="article-date">March 15-18, 2023</span>
+            <span class="article-category">Congress</span>
+        </div>
+    </div>
+
+    <div class="article-content">
 
     <p data-translation-key="news16Paragraph1">
         From March 15-18, 2023, the 19th World Congress of the International Academy of Human Reproduction took place in Venice, Italy, bringing together leading experts to discuss groundbreaking advancements in reproductive medicine. Representatives of the Georgian Reproductive and Sexual Health Association presented novel and original scientific research findings, contributing valuable insights to the global discourse.
@@ -18,7 +26,12 @@
     <p data-translation-key="news16Paragraph3">
         These presentations garnered significant attention from congress participants, emphasizing the scientific and clinical importance of the research. Notably, the contributions of the Georgian delegation received high praise from distinguished global experts, including: 📌 Professor Andrea Genazzani – President of the International Academy of Human Reproduction📌 Professor Howard Carp – Renowned expert in reproductive immunology and pregnancy loss📌 Professor Liselotte Mettler – Leader in reproductive surgery and endocrinology The recognition of these contributions at such a prestigious congress underscores the growing influence of Georgian scientists in reproductive medicine and reinforces the Association’s commitment to scientific excellence and international collaboration.
     </p>
-</div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+    </div>
+</article>
 
 <hr>
 <hr>
@@ -33,6 +46,6 @@
     <img src="{% static 'blog/images/19th4.jpg' %}">
     <img src="{% static 'blog/images/19th5.jpg' %}">
     <img src="{% static 'blog/images/19th6.jpg' %}">
-</div>
+</article>
 
 {% endblock content %}

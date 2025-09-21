@@ -2,10 +2,18 @@
 {% load static %}
 {% block content %}
 
-<div class="newsdiv">
-    <h1 data-translation-key="news4Title">
-        Scientific Paper Co-Authored by Members of the Georgian Reproductive and Sexual Health Association Published in a High-Impact Journal
-    </h1>
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title" data-translation-key="news4Title">
+            Scientific Paper Co-Authored by Members of the Georgian Reproductive and Sexual Health Association Published in a High-Impact Journal
+        </h1>
+        <div class="article-meta">
+            <span class="article-date">October 2024</span>
+            <span class="article-category">Publication</span>
+        </div>
+    </div>
+
+    <div class="article-content">
 
     <p data-translation-key="news4Paragraph1">
         The Georgian Reproductive and Sexual Health Association proudly announces another significant achievement— the publication of a scientific article in a highly esteemed British journal. The article, titled "Complexities of Complete Androgen Insensitivity Syndrome: Insights from a Case Report and Literature Review," has been published in the Journal of International Medical Research (SAGE), further contributing to the advancement of medical knowledge in the field.        </p>
@@ -24,7 +32,12 @@ This publication underscores the Georgian Reproductive and Sexual Health Associa
 🔗 To access the full article, visit: <a href="DOI: 10.1177/03000605241300058">DOI: 10.1177/03000605241300058</a>
 The Association remains dedicated to supporting and promoting high-quality research that enhances global understanding and clinical approaches to reproductive health disorders.
     </p>
-</div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+    </div>
+</article>
 
 <hr>
 <hr>

@@ -2,10 +2,18 @@
 {% load static %}
 {% block content %}
 
-<div class="newsdiv">
-    <h1 data-translation-key="news19Title">
-        Dr. David Skhirtladze Earns Doctor of Medicine Degree
-    </h1>
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title" data-translation-key="news19Title">
+            Dr. David Skhirtladze Earns Doctor of Medicine Degree
+        </h1>
+        <div class="article-meta">
+            <span class="article-date">December 19, 2024</span>
+            <span class="article-category">Award</span>
+        </div>
+    </div>
+
+    <div class="article-content">
 
     <p data-translation-key="news19Paragraph1">
         On December 19, 2024, Dr. David Skhirtladze was awarded the degree of Doctor of Medicine by the Faculty of Medicine at Ivane Javakhishvili Tbilisi State University. His dissertation, “Efficacy of Combined Surgical and Hormonal Therapy for Infertile Patients with Deep Endometriosis,” was supervised by Professors Jenaro Kristesashvili and Ramaz Charekishvili.    </p>
@@ -16,7 +24,12 @@
     <p data-translation-key="news19Paragraph3">
         
     </p>
-</div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+    </div>
+</article>
 
 <hr>
 <hr>

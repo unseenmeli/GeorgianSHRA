@@ -2,10 +2,18 @@
 {% load static %}
 {% block content %}
 
-<div class="newsdiv">
-    <h1 data-translation-key="news3Title">
-        Manuscript Published by Members of the Georgian Reproductive and Sexual Health Association in an Esteemed Elsevier Journal
-    </h1>
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title" data-translation-key="news3Title">
+            Manuscript Published by Members of the Georgian Reproductive and Sexual Health Association in an Esteemed Elsevier Journal
+        </h1>
+        <div class="article-meta">
+            <span class="article-date">November 2024</span>
+            <span class="article-category">Publication</span>
+        </div>
+    </div>
+
+    <div class="article-content">
 
     <p data-translation-key="news3Paragraph1">
         The Georgian Reproductive and Sexual Health Association is pleased to announce the publication of a highly significant research article in a prestigious Elsevier journal, co-authored by distinguished members of the Association:
@@ -31,7 +39,12 @@
         To access the full article, visit: <a href="//doi.org/10.1016/j.jpag.2024.11.001">//doi.org/10.1016/j.jpag.2024.11.001</a>
         The Georgian Reproductive and Sexual Health Association remains dedicated to promoting scientific research, fostering medical advancements, and contributing to global progress in reproductive and adolescent gynecology.
     </p>
-</div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+    </div>
+</article>
 
 <hr>
 <hr>

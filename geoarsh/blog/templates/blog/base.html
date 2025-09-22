@@ -164,9 +164,257 @@
       text-decoration: none;
       padding: 0.5rem;
     }
+
+    /* Mobile Menu Styles */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 1001;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 30px;
+    }
+
+    .mobile-menu-toggle span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: #1a2332;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-toggle {
+        display: flex !important;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .main-nav {
+        display: none !important;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 350px;
+        height: 100vh;
+        background: #20b4b9;
+        transition: right 0.3s ease;
+        z-index: 1000;
+        overflow-y: auto;
+        padding-top: 80px;
+      }
+
+      .main-nav.active {
+        display: block !important;
+        right: 0;
+      }
+
+      .nav-list {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 1rem;
+        gap: 0;
+      }
+
+      .nav-item {
+        width: 100%;
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .nav-link {
+        width: 100%;
+        padding: 1rem !important;
+        display: block;
+        text-align: left;
+        font-size: 1.1rem !important;
+      }
+
+      .dropdown-content {
+        position: static;
+        background: rgba(26, 147, 153, 0.3);
+        box-shadow: none;
+        padding-left: 1rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        opacity: 0;
+      }
+
+      .nav-item.dropdown-active .dropdown-content {
+        max-height: 500px;
+        opacity: 1;
+      }
+
+      .dropdown-toggle {
+        float: right;
+        padding: 0 0.5rem;
+        font-size: 0.8rem;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        display: inline-block;
+      }
+
+      .nav-item.dropdown-active .dropdown-toggle {
+        transform: rotate(180deg);
+      }
+
+      .dropdown-content a {
+        display: block;
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+        color: white !important;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-content a:hover {
+        background: rgba(255, 255, 255, 0.1) !important;
+      }
+
+      .header-actions {
+        display: none !important;
+      }
+
+      .site-header {
+        padding: 1rem 0;
+        background: #20b4b9 !important;
+        position: relative;
+        z-index: 1002;
+      }
+
+      .header-container {
+        padding: 0 1rem !important;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+      }
+
+      .logo-section {
+        flex: 1;
+        background: none !important;
+        border: none !important;
+      }
+
+      .logo-section .org-acronym {
+        color: white !important;
+        font-size: 1.2rem !important;
+      }
+
+      .org-full {
+        display: block !important;
+        color: white !important;
+        font-size: 0.7rem !important;
+        opacity: 0.9;
+      }
+
+      .logo-img {
+        width: 45px !important;
+        height: 45px !important;
+      }
+
+      .nav-link::before,
+      .nav-link::after {
+        display: none;
+      }
+
+      .nav-item:hover {
+        transform: none;
+      }
+
+      /* Overlay */
+      .mobile-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+      }
+
+      .mobile-overlay.active {
+        display: block;
+      }
+
+      .mobile-language-item {
+        display: block !important;
+        margin-top: 2rem;
+        padding: 1rem;
+        border-top: 2px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .language-select-mobile {
+        width: 100%;
+        padding: 0.8rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+
+      .language-select-mobile option {
+        background: #20b4b9;
+        color: white;
+      }
+    }
+
+    /* Hide mobile items on desktop */
+    @media (min-width: 769px) {
+      .mobile-language-item,
+      .mobile-only {
+        display: none !important;
+      }
+    }
+
+    /* Hide dropdown content on mobile, show mobile-only items */
+    @media (max-width: 768px) {
+      .dropdown-content {
+        display: none !important;
+      }
+
+      .dropdownhome,
+      .dropdownabout,
+      .dropdownscient,
+      .dropdownguide,
+      .nav-item:not(.mobile-only):not(.mobile-language-item) {
+        display: none !important;
+      }
+
+      .mobile-only {
+        display: block !important;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
   <header class="site-header">
     <div class="header-container">
       <div class="logo-section">
@@ -178,7 +426,12 @@
           </div>
         </a>
       </div>
-      <nav class="main-nav">
+      <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="main-nav" id="mainNav">
         <ul class="nav-list">
           <li class="nav-item dropdownhome">
             <a class="nav-link" id="homeLink" href="{% url 'home' %}" data-translation-key="home">Home</a>
@@ -187,21 +440,21 @@
             </div>
           </li>
           <li class="nav-item dropdownabout">
-            <a class="nav-link" href="{% url 'about' %}" id="aboutLink" data-translation-key="about">About</a>
+            <a class="nav-link" id="aboutLink" href="{% url 'about' %}" data-translation-key="about">About</a>
             <div class="dropdown-content dropdown-contentA">
               <a href="{% url 'about_association' %}" data-translation-key="aboutAssociation" id="aboutAssociationLink">About Association</a>
               <a href="{% url 'become_member' %}" data-translation-key="becomeMember" id="becomeMemberLink">Become a Member</a>
             </div>
           </li>
           <li class="nav-item dropdownscient">
-            <a class="nav-link" href="{% url 'scientific_information' %}" id="scientificLink" data-translation-key="scientific">Research</a>
+            <a class="nav-link" id="scientificLink" href="{% url 'scientific_information' %}" data-translation-key="scientific">Research</a>
             <div class="dropdown-content dropdown-contentS">
               <a href="{% url 'publications' %}" data-translation-key="publications" id="publicationsLink">Publications</a>
               <a href="{% url 'about_congresses' %}" data-translation-key="congresses" id="congressesLink">Congresses</a>
             </div>
           </li>
           <li class="nav-item dropdownguide">
-            <a class="nav-link" href="{% url 'guidelines' %}" id="guidelinesLink" data-translation-key="guidelines">Guidelines</a>
+            <a class="nav-link" id="guidelinesLink" href="{% url 'guidelines' %}" data-translation-key="guidelines">Guidelines</a>
             <div class="dropdown-content dropdown-contentG">
               <a href="{% url 'national_guidelines' %}" data-translation-key="national" id="nationalLink">National</a>
               <a href="{% url 'translated_guidelines' %}" data-translation-key="translated" id="translatedLink">Translated</a>
@@ -210,6 +463,30 @@
           </li>
           <li class="nav-item"><a class="nav-link" href="{% url 'events' %}" id="eventsLink" data-translation-key="events">Events</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'for_patients' %}" id="patientsLink" data-translation-key="patients">For Patients</a></li>
+
+          <!-- Mobile-only items (hidden on desktop) -->
+          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'home' %}" data-translation-key="home">Home</a></li>
+          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'news' %}" data-translation-key="news">News</a></li>
+          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'about' %}" data-translation-key="about">About</a></li>
+          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'about_association' %}" data-translation-key="aboutAssociation">About Association</a></li>
+          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'become_member' %}" data-translation-key="becomeMember">Become a Member</a></li>
+          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'scientific_information' %}" data-translation-key="scientific">Research</a></li>
+          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'publications' %}" data-translation-key="publications">Publications</a></li>
+          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'about_congresses' %}" data-translation-key="congresses">Congresses</a></li>
+          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'guidelines' %}" data-translation-key="guidelines">Guidelines</a></li>
+          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'national_guidelines' %}" data-translation-key="national">National Guidelines</a></li>
+          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'translated_guidelines' %}" data-translation-key="translated">Translated Guidelines</a></li>
+          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'english_guidelines' %}" data-translation-key="english">International Guidelines</a></li>
+          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'events' %}" data-translation-key="events">Events</a></li>
+          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'for_patients' %}" data-translation-key="patients">For Patients</a></li>
+          <li class="nav-item mobile-language-item">
+            <div class="mobile-language-selector">
+              <select id="mobile-language" class="language-select-mobile" onchange="changeLanguage()">
+                <option value="english">EN</option>
+                <option value="georgian">GE</option>
+              </select>
+            </div>
+          </li>
         </ul>
         <div class="header-actions">
           <div class="language-selector">
@@ -269,7 +546,64 @@
     </div>
   </footer>
   <script>
+    function toggleMobileMenu() {
+      const nav = document.getElementById('mainNav');
+      const overlay = document.getElementById('mobileOverlay');
+      const toggle = document.querySelector('.mobile-menu-toggle');
 
+      nav.classList.toggle('active');
+      overlay.classList.toggle('active');
+      toggle.classList.toggle('active');
+    }
+
+    function toggleDropdown(event, element) {
+      // Only work on mobile
+      if (window.innerWidth > 768) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      const parentItem = element.closest('.nav-item');
+      const isActive = parentItem.classList.contains('dropdown-active');
+
+      // Close all dropdowns first
+      document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('dropdown-active');
+      });
+
+      // Toggle current dropdown if it wasn't active
+      if (!isActive) {
+        parentItem.classList.add('dropdown-active');
+      }
+
+      return false;
+    }
+
+    // Close menu when clicking on dropdown item links
+    document.querySelectorAll('.dropdown-content a').forEach(link => {
+      link.addEventListener('click', () => {
+        const nav = document.getElementById('mainNav');
+        const overlay = document.getElementById('mobileOverlay');
+        const toggle = document.querySelector('.mobile-menu-toggle');
+
+        nav.classList.remove('active');
+        overlay.classList.remove('active');
+        toggle.classList.remove('active');
+      });
+    });
+
+    // Close menu when clicking on nav links without dropdowns
+    document.querySelectorAll('.nav-link:not(.has-dropdown)').forEach(link => {
+      link.addEventListener('click', () => {
+        const nav = document.getElementById('mainNav');
+        const overlay = document.getElementById('mobileOverlay');
+        const toggle = document.querySelector('.mobile-menu-toggle');
+
+        nav.classList.remove('active');
+        overlay.classList.remove('active');
+        toggle.classList.remove('active');
+      });
+    });
 
     function getZoomLevel() {
     return window.devicePixelRatio;
@@ -286,7 +620,15 @@
 
 window.onload = function () {
     async function changeLanguage() {
-        const selectedLanguage = document.getElementById("language").value;
+        // Check both desktop and mobile language selectors
+        const desktopSelector = document.getElementById("language");
+        const mobileSelector = document.getElementById("mobile-language");
+        const selectedLanguage = desktopSelector ? desktopSelector.value : mobileSelector.value;
+
+        // Sync both selectors
+        if (desktopSelector) desktopSelector.value = selectedLanguage;
+        if (mobileSelector) mobileSelector.value = selectedLanguage;
+
         localStorage.setItem("language", selectedLanguage); // optional
 
         try {
@@ -306,11 +648,19 @@ window.onload = function () {
 
 
     const savedLanguage = localStorage.getItem("language") || "english";
-    document.getElementById("language").value = savedLanguage;
+    const desktopSelector = document.getElementById("language");
+    const mobileSelector = document.getElementById("mobile-language");
+    if (desktopSelector) desktopSelector.value = savedLanguage;
+    if (mobileSelector) mobileSelector.value = savedLanguage;
     changeLanguage();
 
 
-    document.getElementById("language").addEventListener("change", changeLanguage);
+    if (document.getElementById("language")) {
+        document.getElementById("language").addEventListener("change", changeLanguage);
+    }
+    if (document.getElementById("mobile-language")) {
+        document.getElementById("mobile-language").addEventListener("change", changeLanguage);
+    }
 };
 </script>
 </body>

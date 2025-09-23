@@ -9,10 +9,10 @@ urlpatterns = [
     path('scientific-information/', views.scientific_information, name='scientific_information'),
     path('scientific-information/publications/', views.publications, name='publications'),
     path('scientific-information/about-congresses/', views.about_congresses, name='about_congresses'),
-    path('guidelines/', views.guidelines, name='guidelines'),
-    path('guidelines/national/', views.national_guidelines, name='national_guidelines'),
-    path('guidelines/translated/', views.translated_guidelines, name='translated_guidelines'),
-    path('guidelines/english/', views.english_guidelines, name='english_guidelines'),
+    path('GAPAG/', views.guidelines, name='guidelines'),
+    path('GAPAG/About/', views.national_guidelines, name='national_guidelines'),
+    path('GAPAG/News/', views.translated_guidelines, name='translated_guidelines'),
+    path('GAPAG/Events/', views.english_guidelines, name='english_guidelines'),
     path('events/', views.events, name='events'),
 
     # for patients posts from here !!!
@@ -56,6 +56,12 @@ urlpatterns = [
     path('news23/', views.news23, name='news23'),
     path('news24/', views.news24, name='news24'),
     path('news25/', views.news25, name='news25'),
+    path('news26/', views.news26, name='news26'),
+    path('news27/', views.news27, name='news27'),
+    path('news28/', views.news28, name='news28'),
+    path('news29/', views.news29, name='news29'),
+    path('news30/', views.news30, name='news30'),
+    path('news31/', views.news31, name='news31'),
 
     # for news posts to here !!!
 
@@ -64,9 +70,15 @@ urlpatterns = [
     path('events2/', views.events2, name='events2'),
     path('events2res/', views.events2res, name='events2res'),
 
-    # translation thing 
-    
+    # translation thing
+
     path('api/translations/<str:lang>/', views.get_translations, name='get_translations'),
 
     # translation end
+
+    # Post creator URLs
+    path('create-post-admin/', views.post_creator_auth, name='post_creator_auth'),
+    path('create-post/', views.post_creator, name='post_creator'),
+    path('post/<slug:slug>/', views.view_dynamic_post, name='view_dynamic_post'),
+    path('posts/<str:category>/', views.list_dynamic_posts, name='list_dynamic_posts'),
 ]

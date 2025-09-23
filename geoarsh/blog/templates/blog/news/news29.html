@@ -1,0 +1,126 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+    .language-toggle {
+        position: fixed;
+        top: 100px;
+        right: 30px;
+        background: white;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+    .lang-btn {
+        display: block;
+        width: 60px;
+        padding: 10px;
+        margin: 5px 0;
+        background: #f8fafc;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+    }
+    .lang-btn.active {
+        background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+        border-color: #20b4b9;
+    }
+    .content-lang {
+        display: none;
+    }
+    .content-lang.active {
+        display: block;
+    }
+    .main-image {
+        width: 100%;
+        max-width: 800px;
+        margin: 2rem auto;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<div class="language-toggle">
+    <button class="lang-btn active" onclick="switchLanguage('en')">🇬🇧</button>
+    <button class="lang-btn" onclick="switchLanguage('ge')">🇬🇪</button>
+</div>
+
+<div class="content-lang active" id="content-en">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">h</h1>
+        <div class="article-meta">
+            <span class="article-date">September 23, 2025</span>
+            <span class="article-category">News</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            ee
+        </p>
+    </div>
+    
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+        <div class="share-buttons">
+            <span>Share:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<div class="content-lang" id="content-ge">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">ჰ</h1>
+        <div class="article-meta">
+            <span class="article-date">2025 წლის 23 September</span>
+            <span class="article-category">სიახლეები</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            ეე
+        </p>
+    </div>
+    
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← სიახლეებზე დაბრუნება</a>
+        <div class="share-buttons">
+            <span>გაზიარება:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<script>
+function switchLanguage(lang) {
+    document.querySelectorAll('.content-lang').forEach(el => {
+        el.classList.remove('active');
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.getElementById('content-' + lang).classList.add('active');
+    event.target.classList.add('active');
+}
+</script>
+
+{% endblock content %}

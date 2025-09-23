@@ -454,7 +454,7 @@
             </div>
           </li>
           <li class="nav-item dropdownguide">
-            <a class="nav-link" id="guidelinesLink" href="{% url 'guidelines' %}" data-translation-key="guidelines">Guidelines</a>
+            <a class="nav-link" id="guidelinesLink" href="{% url 'guidelines' %}" data-translation-key="guidelines">Gapag</a>
             <div class="dropdown-content dropdown-contentG">
               <a href="{% url 'national_guidelines' %}" data-translation-key="national" id="nationalLink">National</a>
               <a href="{% url 'translated_guidelines' %}" data-translation-key="translated" id="translatedLink">Translated</a>
@@ -464,7 +464,6 @@
           <li class="nav-item"><a class="nav-link" href="{% url 'events' %}" id="eventsLink" data-translation-key="events">Events</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'for_patients' %}" id="patientsLink" data-translation-key="patients">For Patients</a></li>
 
-          <!-- Mobile-only items (hidden on desktop) -->
           <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'home' %}" data-translation-key="home">Home</a></li>
           <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'news' %}" data-translation-key="news">News</a></li>
           <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'about' %}" data-translation-key="about">About</a></li>
@@ -566,12 +565,10 @@
       const parentItem = element.closest('.nav-item');
       const isActive = parentItem.classList.contains('dropdown-active');
 
-      // Close all dropdowns first
       document.querySelectorAll('.nav-item').forEach(item => {
         item.classList.remove('dropdown-active');
       });
 
-      // Toggle current dropdown if it wasn't active
       if (!isActive) {
         parentItem.classList.add('dropdown-active');
       }
@@ -579,7 +576,6 @@
       return false;
     }
 
-    // Close menu when clicking on dropdown item links
     document.querySelectorAll('.dropdown-content a').forEach(link => {
       link.addEventListener('click', () => {
         const nav = document.getElementById('mainNav');
@@ -592,7 +588,6 @@
       });
     });
 
-    // Close menu when clicking on nav links without dropdowns
     document.querySelectorAll('.nav-link:not(.has-dropdown)').forEach(link => {
       link.addEventListener('click', () => {
         const nav = document.getElementById('mainNav');
@@ -620,16 +615,13 @@
 
 window.onload = function () {
     async function changeLanguage() {
-        // Check both desktop and mobile language selectors
         const desktopSelector = document.getElementById("language");
         const mobileSelector = document.getElementById("mobile-language");
         const selectedLanguage = desktopSelector ? desktopSelector.value : mobileSelector.value;
-
-        // Sync both selectors
         if (desktopSelector) desktopSelector.value = selectedLanguage;
         if (mobileSelector) mobileSelector.value = selectedLanguage;
 
-        localStorage.setItem("language", selectedLanguage); // optional
+        localStorage.setItem("language", selectedLanguage);
 
         try {
             const response = await fetch(`/api/translations/${selectedLanguage}/`);

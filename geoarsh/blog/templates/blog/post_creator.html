@@ -1,0 +1,491 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<style>
+    .creator-container {
+        min-height: 100vh;
+        padding: 40px 20px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+
+    .creator-header {
+        max-width: 1400px;
+        margin: 0 auto 40px;
+        text-align: center;
+    }
+
+    .creator-title {
+        font-size: 3rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 10px;
+    }
+
+    .creator-subtitle {
+        color: #64748b;
+        font-size: 1.2rem;
+    }
+
+    .creator-form {
+        max-width: 1400px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .category-section {
+        margin-bottom: 40px;
+        padding-bottom: 30px;
+        border-bottom: 2px solid #e2e8f0;
+    }
+
+    .category-label {
+        display: block;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 20px;
+    }
+
+    .category-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .category-option {
+        position: relative;
+    }
+
+    .category-option input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+    }
+
+    .category-option label {
+        display: block;
+        padding: 15px 20px;
+        background: #f8fafc;
+        border: 2px solid #e2e8f0;
+        border-radius: 10px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        color: #475569;
+    }
+
+    .category-option input[type="radio"]:checked + label {
+        background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+        color: white;
+        border-color: #20b4b9;
+        box-shadow: 0 5px 20px rgba(32, 180, 185, 0.3);
+    }
+
+    .category-option label:hover {
+        border-color: #20b4b9;
+        transform: translateY(-2px);
+    }
+
+    .content-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+
+    .language-section {
+        background: #f8fafc;
+        padding: 30px;
+        border-radius: 15px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .language-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1e293b;
+    }
+
+    .language-flag {
+        font-size: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .form-label {
+        display: block;
+        color: #475569;
+        font-weight: 600;
+        margin-bottom: 8px;
+        font-size: 1rem;
+    }
+
+    .form-input, .form-textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: white;
+        font-family: inherit;
+    }
+
+    .form-textarea {
+        min-height: 300px;
+        resize: vertical;
+    }
+
+    .form-input:focus, .form-textarea:focus {
+        outline: none;
+        border-color: #20b4b9;
+        box-shadow: 0 0 0 3px rgba(32, 180, 185, 0.1);
+    }
+
+    .submit-section {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 2px solid #e2e8f0;
+    }
+
+    .submit-btn {
+        padding: 15px 40px;
+        background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(32, 180, 185, 0.3);
+    }
+
+    .success-message {
+        background: #d1fae5;
+        border: 1px solid #a7f3d0;
+        color: #065f46;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: 500;
+    }
+
+    .logout-btn {
+        position: fixed;
+        top: 100px;
+        right: 30px;
+        padding: 10px 20px;
+        background: #ef4444;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        z-index: 100;
+    }
+
+    .logout-btn:hover {
+        background: #dc2626;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 1024px) {
+        .content-section {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .creator-form {
+            padding: 20px;
+        }
+
+        .language-section {
+            padding: 20px;
+        }
+
+        .creator-title {
+            font-size: 2rem;
+        }
+
+        .category-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .logout-btn {
+            top: auto;
+            bottom: 20px;
+            right: 20px;
+        }
+    }
+</style>
+
+<div class="creator-container">
+    <a href="{% url 'post_creator_auth' %}" class="logout-btn" onclick="return confirm('Are you sure you want to logout?')">Logout</a>
+
+    <div class="creator-header">
+        <h1 class="creator-title">Create New Post</h1>
+        <p class="creator-subtitle">Add content in both English and Georgian</p>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="success-message">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST" class="creator-form" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="category-section">
+            <label class="category-label">Select Post Category</label>
+            <div class="category-grid">
+                <div class="category-option">
+                    <input type="radio" id="cat_news" name="category" value="news" required>
+                    <label for="cat_news">News</label>
+                </div>
+                <div class="category-option">
+                    <input type="radio" id="cat_pub" name="category" value="publications">
+                    <label for="cat_pub">Publications</label>
+                </div>
+                <div class="category-option">
+                    <input type="radio" id="cat_events" name="category" value="events">
+                    <label for="cat_events">Events</label>
+                </div>
+                <div class="category-option">
+                    <input type="radio" id="cat_gapag_news" name="category" value="gapag_news">
+                    <label for="cat_gapag_news">GAPAG News</label>
+                </div>
+                <div class="category-option">
+                    <input type="radio" id="cat_gapag_events" name="category" value="gapag_events">
+                    <label for="cat_gapag_events">GAPAG Events</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <label class="category-label">Main Image (Required)</label>
+            <div class="form-group">
+                <input
+                    type="file"
+                    class="form-input"
+                    id="main_image"
+                    name="main_image"
+                    accept="image/*"
+                    required
+                    style="padding: 10px; border: 2px dashed #20b4b9;"
+                >
+                <small style="color: #64748b; display: block; margin-top: 5px;">
+                    This image will appear at the top of your post
+                </small>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="language-section">
+                <div class="language-header">
+                    <span class="language-flag">🇬🇧</span>
+                    <span>English Content</span>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="title_en">Post Title</label>
+                    <input
+                        type="text"
+                        class="form-input"
+                        id="title_en"
+                        name="title_en"
+                        placeholder="Enter post title in English"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="content_en">Post Content</label>
+                    <textarea
+                        class="form-textarea"
+                        id="content_en"
+                        name="content_en"
+                        placeholder="Enter post content in English. You can use HTML tags for formatting."
+                        required
+                    ></textarea>
+                </div>
+            </div>
+
+            <div class="language-section">
+                <div class="language-header">
+                    <span class="language-flag">🇬🇪</span>
+                    <span>Georgian Content / ქართული კონტენტი</span>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="title_ge">პოსტის სათაური</label>
+                    <input
+                        type="text"
+                        class="form-input"
+                        id="title_ge"
+                        name="title_ge"
+                        placeholder="შეიყვანეთ პოსტის სათაური ქართულად"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="content_ge">პოსტის შინაარსი</label>
+                    <textarea
+                        class="form-textarea"
+                        id="content_ge"
+                        name="content_ge"
+                        placeholder="შეიყვანეთ პოსტის შინაარსი ქართულად. შეგიძლიათ გამოიყენოთ HTML ტეგები ფორმატირებისთვის."
+                        required
+                    ></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <label class="category-label">Additional Images (Optional)</label>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div class="language-section">
+                    <div class="language-header">
+                        <span class="language-flag">🇬🇧</span>
+                        <span>English Captions</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="additional_image1">Image 1</label>
+                        <input
+                            type="file"
+                            class="form-input"
+                            id="additional_image1"
+                            name="additional_image1"
+                            accept="image/*"
+                            style="padding: 10px; border: 2px dashed #e2e8f0;"
+                        >
+                        <input
+                            type="text"
+                            class="form-input"
+                            name="image1_caption_en"
+                            placeholder="Caption for image 1 (English)"
+                            style="margin-top: 10px;"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="additional_image2">Image 2</label>
+                        <input
+                            type="file"
+                            class="form-input"
+                            id="additional_image2"
+                            name="additional_image2"
+                            accept="image/*"
+                            style="padding: 10px; border: 2px dashed #e2e8f0;"
+                        >
+                        <input
+                            type="text"
+                            class="form-input"
+                            name="image2_caption_en"
+                            placeholder="Caption for image 2 (English)"
+                            style="margin-top: 10px;"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="additional_image3">Image 3</label>
+                        <input
+                            type="file"
+                            class="form-input"
+                            id="additional_image3"
+                            name="additional_image3"
+                            accept="image/*"
+                            style="padding: 10px; border: 2px dashed #e2e8f0;"
+                        >
+                        <input
+                            type="text"
+                            class="form-input"
+                            name="image3_caption_en"
+                            placeholder="Caption for image 3 (English)"
+                            style="margin-top: 10px;"
+                        >
+                    </div>
+                </div>
+
+                <div class="language-section">
+                    <div class="language-header">
+                        <span class="language-flag">🇬🇪</span>
+                        <span>Georgian Captions / ქართული წარწერები</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">სურათი 1</label>
+                        <div style="padding: 10px; border: 2px dashed #e2e8f0; background: #f8fafc; text-align: center; color: #94a3b8;">
+                            Same as English →
+                        </div>
+                        <input
+                            type="text"
+                            class="form-input"
+                            name="image1_caption_ge"
+                            placeholder="წარწერა სურათისთვის 1 (ქართულად)"
+                            style="margin-top: 10px;"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">სურათი 2</label>
+                        <div style="padding: 10px; border: 2px dashed #e2e8f0; background: #f8fafc; text-align: center; color: #94a3b8;">
+                            Same as English →
+                        </div>
+                        <input
+                            type="text"
+                            class="form-input"
+                            name="image2_caption_ge"
+                            placeholder="წარწერა სურათისთვის 2 (ქართულად)"
+                            style="margin-top: 10px;"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">სურათი 3</label>
+                        <div style="padding: 10px; border: 2px dashed #e2e8f0; background: #f8fafc; text-align: center; color: #94a3b8;">
+                            Same as English →
+                        </div>
+                        <input
+                            type="text"
+                            class="form-input"
+                            name="image3_caption_ge"
+                            placeholder="წარწერა სურათისთვის 3 (ქართულად)"
+                            style="margin-top: 10px;"
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="submit-section">
+            <button type="submit" class="submit-btn">Create Post</button>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

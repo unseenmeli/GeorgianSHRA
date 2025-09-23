@@ -1,4 +1,246 @@
 {% extends "blog/base.html" %}
+{% load static %}
 {% block content %}
+<style>
+    .gapag-container {
+        min-height: 100vh;
+        padding: 40px 20px;
+    }
+
+    .background-image {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60%;
+        max-width: 600px;
+        opacity: 50%;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .gapag-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 10;
+    }
+
+    .gapag-header {
+        text-align: center;
+        margin-bottom: 60px;
+        animation: slideDown 0.8s ease-out;
+    }
+
+    .gapag-title {
+        font-size: 4.5rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 15px;
+        letter-spacing: -2px;
+    }
+
+    .gapag-subtitle {
+        font-size: 1.4rem;
+        color: #1a9399;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+    }
+
+    .gapag-main {
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 24px;
+        padding: 60px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.5);
+        animation: slideUp 0.8s ease-out;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .gapag-main::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(32, 180, 185, 0.05) 0%, transparent 70%);
+        border-radius: 50%;
+    }
+
+    .gapag-section {
+        margin-bottom: 45px;
+        position: relative;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #1a9399 0%, #156469 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 25px;
+        line-height: 1.3;
+    }
+
+    .section-content {
+        font-size: 1.2rem;
+        line-height: 1.9;
+        color: #475569;
+        text-align: left;
+        font-weight: 400;
+    }
+
+    .highlight-box {
+        background: linear-gradient(135deg, rgba(32, 180, 185, 0.05) 0%, rgba(26, 147, 153, 0.05) 100%);
+        border-left: 4px solid;
+        border-image: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%) 1;
+        padding: 30px 35px;
+        border-radius: 12px;
+        margin: 40px 0;
+        position: relative;
+    }
+
+    .highlight-text {
+        font-size: 1.15rem;
+        color: #334155;
+        line-height: 1.8;
+        font-weight: 500;
+    }
+
+    .decorative-element {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, rgba(32, 180, 185, 0.1) 0%, rgba(26, 147, 153, 0.1) 100%);
+        border-radius: 50%;
+        top: -40px;
+        right: 40px;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .gapag-container {
+            padding: 40px 15px;
+        }
+
+        .gapag-title {
+            font-size: 2rem;
+        }
+
+        .gapag-subtitle {
+            font-size: 1.2rem;
+        }
+
+        .gapag-main {
+            padding: 30px 20px;
+            border-radius: 15px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+        }
+
+        .section-content {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .gapag-title {
+            font-size: 1.5rem;
+        }
+
+        .gapag-subtitle {
+            font-size: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            width: 3px;
+            height: 20px;
+        }
+    }
+</style>
+
+<div class="gapag-container">
+    <img src="{% static 'blog/images/kids.png' %}" alt="Background" class="background-image">
+
+    <div class="gapag-content">
+        <div class="gapag-header">
+            <h1 class="gapag-title">GAPAG</h1>
+            <p class="gapag-subtitle">Georgian Academy of Pediatric and Adolescent Gynecology</p>
+        </div>
+
+        <div class="gapag-main">
+            <div class="decorative-element"></div>
+
+            <div class="gapag-section">
+                <h2 class="section-title">The Georgian Academy of Pediatric and Adolescent Gynecology (GAPAG)</h2>
+                <p class="section-content">
+                    The Georgian Academy of Pediatric and Adolescent Gynecology (GAPAG) operates as a division of the Georgian Association of Reproductive and Sexual Health (GARSH).
+                </p>
+            </div>
+
+            <div class="highlight-box">
+                <p class="highlight-text">
+                    Our mission is to advance education, scientific research, and clinical excellence in the care of children and adolescents, with a particular focus on reproductive and sexual health. Through collaboration, training, and innovation, the Academy strives to improve standards of care and promote the well-being of young people across Georgia.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock content %}

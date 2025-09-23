@@ -1,0 +1,189 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<style>
+    .post-container {
+        min-height: 80vh;
+        padding: 40px 20px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+
+    .post-content {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .post-category {
+        display: inline-block;
+        padding: 8px 16px;
+        background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+        color: white;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 20px;
+    }
+
+    .post-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 20px;
+        line-height: 1.3;
+    }
+
+    .post-meta {
+        color: #64748b;
+        font-size: 1rem;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #e2e8f0;
+    }
+
+    .post-body {
+        color: #475569;
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+
+    .post-body h1, .post-body h2, .post-body h3 {
+        color: #1e293b;
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+
+    .post-body p {
+        margin-bottom: 20px;
+    }
+
+    .post-body ul, .post-body ol {
+        margin-bottom: 20px;
+        padding-left: 30px;
+    }
+
+    .post-body li {
+        margin-bottom: 10px;
+    }
+
+    .language-toggle {
+        position: fixed;
+        top: 100px;
+        right: 30px;
+        background: white;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+
+    .lang-btn {
+        display: block;
+        width: 60px;
+        padding: 10px;
+        margin: 5px 0;
+        background: #f8fafc;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .lang-btn.active {
+        background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+        border-color: #20b4b9;
+    }
+
+    .lang-btn:hover {
+        transform: scale(1.1);
+    }
+
+    .content-lang {
+        display: none;
+    }
+
+    .content-lang.active {
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        .post-content {
+            padding: 30px 20px;
+        }
+
+        .post-title {
+            font-size: 2rem;
+        }
+
+        .language-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            top: auto;
+            display: flex;
+            padding: 5px;
+        }
+
+        .lang-btn {
+            margin: 0 5px;
+        }
+    }
+</style>
+
+<div class="post-container">
+    <div class="language-toggle">
+        <button class="lang-btn active" onclick="switchLanguage('en')">🇬🇧</button>
+        <button class="lang-btn" onclick="switchLanguage('ge')">🇬🇪</button>
+    </div>
+
+    <div class="post-content">
+        <span class="post-category">{{ post.get_category_display }}</span>
+
+        <div class="content-lang active" id="content-en">
+            <h1 class="post-title">{{ post.title_en }}</h1>
+            <div class="post-meta">
+                Posted on {{ post.created_at|date:"F d, Y" }}
+            </div>
+            <div class="post-body">
+                {{ post.content_en|safe }}
+            </div>
+        </div>
+
+        <div class="content-lang" id="content-ge">
+            <h1 class="post-title">{{ post.title_ge }}</h1>
+            <div class="post-meta">
+                გამოქვეყნდა {{ post.created_at|date:"Y წლის d F" }}
+            </div>
+            <div class="post-body">
+                {{ post.content_ge|safe }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function switchLanguage(lang) {
+    // Hide all content
+    document.querySelectorAll('.content-lang').forEach(el => {
+        el.classList.remove('active');
+    });
+
+    // Remove active from all buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // Show selected language
+    document.getElementById('content-' + lang).classList.add('active');
+
+    // Activate the button
+    event.target.classList.add('active');
+}
+</script>
+
+{% endblock content %}

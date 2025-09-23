@@ -27,6 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['.fly.dev', 'localhost', '127.0.0.1']
 
+# CSRF trusted origins for production
+CSRF_TRUSTED_ORIGINS = [
+    'https://geoarsh.fly.dev',
+    'https://*.fly.dev',
+]
+
 
 
 # Application definition

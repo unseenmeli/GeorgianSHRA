@@ -1,0 +1,159 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+    .language-toggle {
+        position: fixed;
+        top: 100px;
+        right: 30px;
+        background: white;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+    .lang-btn {
+        display: block;
+        width: 60px;
+        padding: 10px;
+        margin: 5px 0;
+        background: #f8fafc;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+    }
+    .lang-btn.active {
+        background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+        border-color: #20b4b9;
+    }
+    .content-lang {
+        display: none;
+    }
+    .content-lang.active {
+        display: block;
+    }
+    .main-image {
+        width: 100%;
+        max-width: 800px;
+        margin: 2rem auto;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<div class="language-toggle">
+    <button class="lang-btn active" onclick="switchLanguage('en')">🇬🇧</button>
+    <button class="lang-btn" onclick="switchLanguage('ge')">🇬🇪</button>
+</div>
+
+<div class="content-lang active" id="content-en">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">🌍 Georgian Delegation Participates in Fidia Academy Workshop on Hidden Challenges in Gynecology</h1>
+        <div class="article-meta">
+            <span class="article-date">September 24, 2025</span>
+            <span class="article-category">News</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            🌍Organized by Fidia Academy, a workshop titled “Fidia Academy: Her Journey, Her Voice: Overcoming the Hidden Challenges in Gynecology” was held at the Fidia headquarters in Abano Terme, Italy.
+🎓The event brought together leading experts in gynecology to share experiences and engage in meaningful discussions about hidden challenges and pressing issues in the field.
+🎓 With the support of InnoTeam, a Georgian delegation actively participated in the scientific sessions, discussions, and experience-sharing activities.
+🎓Among the participants from Georgia was Prof. Elene Asanidze, obstetrician-gynecologist and President of the Georgian Association of Reproductive and Sexual Health.
+        </p>
+    </div>
+    
+    <div class="article-gallery">
+        <h2 class="gallery-title">Gallery</h2>
+        <div class="gallery-grid">
+            <figure class="gallery-item">
+                <img src="{% static 'blog/images/georgian-delegation-participates-in-fidia-academy-workshop-on-hidden-challenges-in-gynecology_add1_postpost1.jpg' %}" alt="" class="gallery-image">
+                <figcaption></figcaption>
+            </figure>
+            <figure class="gallery-item">
+                <img src="{% static 'blog/images/georgian-delegation-participates-in-fidia-academy-workshop-on-hidden-challenges-in-gynecology_add2_postpost13.jpg' %}" alt="" class="gallery-image">
+                <figcaption></figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+        <div class="share-buttons">
+            <span>Share:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<div class="content-lang" id="content-ge">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">🌍 საქართველოს დელეგაციის მონაწილეობა Fidia აკადემიის სემინარში „გინეკოლოგიის ფარული გამოწვევები“</h1>
+        <div class="article-meta">
+            <span class="article-date">2025 წლის 24 September</span>
+            <span class="article-category">სიახლეები</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            🌍Fidia Academy-ის ორგანიზებით, იტალიაში, Fidia -ას სათაო ოფისში გაიმართა ვორქშოპი:
+“Fidia Academy: Her Journey, Her Voice: Overcoming the Hidden Challenges in Gynecology”
+🎓🌍 ღონისძიებაში მონაწილეობდნენ გინეკოლოგიის წამყვანი საერთაშორისო ექსპერტები, რომლებმაც განიხილეს ქალთა ჯანმრთელობისთვის უმნიშვნელოვანესი, ხშირად უხილავი და მწვავე საკითხები.
+🎓 კომპანია „ინოთიმის“ ორგანიზებით, საქართველოდან დელეგაცია აქტიურად იყო ჩაერთული სამეცნიერო სესიებში, დისკუსიებსა და გამოცდილების გაზიარებაში.
+🎓 ვორქშოპში საქართველოდან მონაწილეობა მიიღო საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაციის პრეზიდენტმა, მეან-გინეკოლოგმა, პროფესორმა ელენე ასანიძემ.
+        </p>
+    </div>
+    
+    <div class="article-gallery">
+        <h2 class="gallery-title">გალერეა</h2>
+        <div class="gallery-grid">
+            <figure class="gallery-item">
+                <img src="{% static 'blog/images/georgian-delegation-participates-in-fidia-academy-workshop-on-hidden-challenges-in-gynecology_add1_postpost1.jpg' %}" alt="" class="gallery-image">
+                <figcaption></figcaption>
+            </figure>
+            <figure class="gallery-item">
+                <img src="{% static 'blog/images/georgian-delegation-participates-in-fidia-academy-workshop-on-hidden-challenges-in-gynecology_add2_postpost13.jpg' %}" alt="" class="gallery-image">
+                <figcaption></figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← სიახლეებზე დაბრუნება</a>
+        <div class="share-buttons">
+            <span>გაზიარება:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<script>
+function switchLanguage(lang) {
+    document.querySelectorAll('.content-lang').forEach(el => {
+        el.classList.remove('active');
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.getElementById('content-' + lang).classList.add('active');
+    event.target.classList.add('active');
+}
+</script>
+
+{% endblock content %}

@@ -62,6 +62,10 @@ urlpatterns = [
     path('news29/', views.news29, name='news29'),
     path('news30/', views.news30, name='news30'),
     path('news31/', views.news31, name='news31'),
+    path('news32/', views.news32, name='news32'),
+    path('news33/', views.news33, name='news33'),
+    path('news34/', views.news34, name='news34'),
+    path('news35/', views.news35, name='news35'),
 
     # for news posts to here !!!
 
@@ -69,6 +73,8 @@ urlpatterns = [
     path('events1res/', views.events1res, name='events1res'),
     path('events2/', views.events2, name='events2'),
     path('events2res/', views.events2res, name='events2res'),
+    path('events3/', views.events3, name='events3'),
+    path('events4/', views.events4, name='events4'),
 
     # translation thing
 

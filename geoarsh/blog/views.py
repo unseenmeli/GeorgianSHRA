@@ -160,6 +160,14 @@ def news30(request):
 
 def news31(request):
     return render(request, "blog/news/news31.html")
+def news32(request):
+    return render(request, "blog/news/news32.html")
+def news33(request):
+    return render(request, "blog/news/news33.html")
+def news34(request):
+    return render(request, "blog/news/news34.html")
+def news35(request):
+    return render(request, "blog/news/news35.html")
 # for news posts to here !!!
 
 def events1(request):
@@ -174,6 +182,11 @@ def events2(request):
 def events2res(request):
     return render(request, "blog/for_events/events2res.html")
 
+def events3(request):
+    return render(request, "blog/for_events/events3.html")
+
+def events4(request):
+    return render(request, "blog/for_events/events4.html")
 # translations from here !!!
 
 from django.conf import settings

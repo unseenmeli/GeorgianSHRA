@@ -4,7 +4,32 @@
 
 <!-- each event -->
 
-<div class="news-container">
+<div class="news-container" onclick="window.location.href=`{% url 'events4' %}`;" style="cursor: pointer;">
+    <a href="{% url 'events4' %}">
+        <img src="{% static 'blog/images/the-georgian-association-of-reproductive-and-sexual-health-is-pleased-to-announce-a-training-session-on-november-14-15-2025_confe1415.jpg' %}" class="news-image">
+    </a>
+    <div>
+        <h1 class="news-title" data-translation-key="Events4Title">
+        </h1>
+        <p class="news-text" data-translation-key="Events4ParagraphT">
+        </p>
+    </div>
+</div>
+
+<div class="news-container" onclick="window.location.href=`{% url 'events3' %}`;" style="cursor: pointer;">
+    <a href="{% url 'events3' %}">
+        <img src="{% static 'blog/images/the-georgian-association-of-reproductive-and-sexual-health-is-pleased-to-announce-a-training-session-on-october-10-11-2025_confe1011.jpg' %}" class="news-image">
+    </a>
+    <div>
+        <h1 class="news-title" data-translation-key="Events3Title">
+        </h1>
+        <p class="news-text" data-translation-key="Events3ParagraphT">
+        </p>
+    </div>
+</div>
+
+
+<div class="news-container" onclick="window.location.href=`{% url 'events2' %}`;" style="cursor: pointer;">
     <a href="{% url 'events2' %}">
         <img src="{% static 'blog/images/events2.jpg' %}" class="news-image">
     </a>
@@ -23,7 +48,7 @@
 <hr>
 <br>
 
-<div class="news-container">
+<div class="news-container" onclick="window.location.href=`{% url 'events1res' %}`;" style="cursor: pointer;">
     <a href="{% url 'events1res' %}">
         <img src="{% static 'blog/images/event1res.jpg' %}" class="news-image">
     </a>
@@ -37,7 +62,7 @@
     </div>
 </div>
 
-<div class="news-container">
+<div class="news-container" onclick="window.location.href=`{% url 'events1' %}`;" style="cursor: pointer;">
     <a href="{% url 'events1' %}">
         <img src="{% static 'blog/images/training1.jpg' %}" class="news-image">
     </a>
@@ -56,7 +81,7 @@
 <hr>
 <br>
 
-<div class="news-container">
+<div class="news-container" onclick="window.location.href=`{% url 'news10' %}`;" style="cursor: pointer;">
     <a href="{% url 'news10' %}">
         <img src="{% static 'blog/images/racxa1.jpg' %}" class="news-image">
     </a>

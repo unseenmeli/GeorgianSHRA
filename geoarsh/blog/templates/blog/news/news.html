@@ -1,7 +1,35 @@
 {% extends "blog/base.html" %}
 {% load static %}
 {% block content %}
+<div class="news-container" onclick="window.location.href=`{% url 'news35' %}`;" style="cursor: pointer;">
+        <a href="{% url 'news35' %}">
+            <img src="{% static 'blog/images/georgian-delegation-participates-in-fidia-academy-workshop-on-hidden-challenges-in-gynecology_postpost12.jpeg' %}" class="news-image">
+        </a>
+        <div>
+            <h1 class="news-title" data-translation-key="news35Title">
+                🌍 Georgian Delegation Participates in Fidia Academy Workshop on Hidden Challenges in Gynecology
+            </h1>
+            <p class="news-text" data-translation-key="homeNews35Paragraph">
+                🌍Organized by Fidia Academy, a workshop titled “Fidia Academy: Her Journey, Her Voice: Overcoming the Hidden Challenges in Gynecology” was held at the Fidia headquarters in Abano Terme, Italy.
+🎓The e...
+            </p>
+        </div>
+    </div>`
 
+<div class="news-container" onclick="window.location.href=`{% url 'news34' %}`;" style="cursor: pointer;">
+        <a href="{% url 'news34' %}">
+            <img src="{% static 'blog/images/ekaterine-chikhashvili-earns-doctor-of-medicine-degree_maineka.jpg' %}" class="news-image">
+        </a>
+        <div>
+            <h1 class="news-title" data-translation-key="news34Title">
+                Ekaterine Chikhashvili Earns Doctor of Medicine Degree
+            </h1>
+            <p class="news-text" data-translation-key="homeNews34Paragraph">
+                On July 18, 2025, at the Faculty of Medicine of Ivane Javakhishvili Tbilisi State University, Ekaterine Chikhashvili successfully defended her dissertation on the topic:
+Effectiveness of Combined Sur...
+            </p>
+        </div>
+    </div>
 
     <div class="news-container" onclick="window.location.href=`{% url 'news25' %}`;" style="cursor: pointer;">
         <a href="{% url 'news25' %}">
@@ -152,11 +180,7 @@
             <p class="news-text" data-translation-key="homeNews4Paragraph">
                 The Georgian Reproductive and Sexual Health Association proudly announces another significant achievement— the publication of a scientific article in a highly esteemed British journal. The article, titled "Complexities of Complete Androgen Insensitivity Syndrome: </div>
     </div>
-</div>
 
-
-
-<div class="body-container">
     <div class="news-container" onclick="window.location.href=`{% url 'news5' %}`;" style="cursor: pointer;">
         <a href="{% url 'news5' %}">
             <img src="{% static 'blog/images/figo.jpg' %}" class="news-image">
@@ -364,6 +388,5 @@
         </div>
     </div>
 
-</div>
 
 {% endblock content %}

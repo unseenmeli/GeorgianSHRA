@@ -98,6 +98,55 @@
         }
     }
 
+    .scroll-animate {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .scroll-animate.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .scroll-animate:nth-child(1) { transition-delay: 0.1s; }
+    .scroll-animate:nth-child(2) { transition-delay: 0.2s; }
+    .scroll-animate:nth-child(3) { transition-delay: 0.3s; }
+    .scroll-animate:nth-child(4) { transition-delay: 0.4s; }
+
+    .slide-in-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.8s ease-out;
+    }
+
+    .slide-in-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .slide-in-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.8s ease-out;
+    }
+
+    .slide-in-right.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .fade-scale {
+        opacity: 0;
+        transform: scale(0.95);
+        transition: all 0.6s ease-out;
+    }
+
+    .fade-scale.visible {
+        opacity: 1;
+        transform: scale(1);
+    }
+
     @media (max-width: 768px) {
         .hero-heading {
             padding: 1.5rem 0.5rem;
@@ -128,35 +177,35 @@
     <div class="hero-slider">
         <div class="slider-container">
             <div class="slide active">
+                <img src="{% static 'blog/images/georgian-delegation-participates-in-fidia-academy-workshop-on-hidden-challenges-in-gynecology_postpost12.jpeg' %}" alt="Research">
+                <div class="slide-content">
+                    <h2 data-translation-key="slide3Title">Fidia Academy Workshop in Italy</h2>
+                    <p data-translation-key="slide3Text">Georgian delegation tackles hidden gynecological challenges</p>
+                    <a href="{% url 'news35' %}" class="slide-btn">Discover</a>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="{% static 'blog/images/ekaterine-chikhashvili-earns-doctor-of-medicine-degree_maineka.jpg' %}" alt="Guidelines">
+                <div class="slide-content">
+                    <h2 data-translation-key="slide4Title">Dr. Chikhashvili's Academic Achievement</h2>
+                    <p data-translation-key="slide4Text">Doctoral defense on endometrioma treatment effectiveness</p>
+                    <a href="{% url 'news34' %}" class="slide-btn">View Details</a>
+                </div>
+            </div>
+            <div class="slide">
                 <img src="{% static 'blog/images/elenerustavi.jpg' %}" alt="Conference">
                 <div class="slide-content">
-                    <h2 data-translation-key="slide1Title">Latest Conference Highlights</h2>
-                    <p data-translation-key="slide1Text">Advancing reproductive health through collaboration</p>
+                    <h2 data-translation-key="slide1Title">Rustavi Conference on Estrogen Deficiency</h2>
+                    <p data-translation-key="slide1Text">Exploring past, present, and future of hormone health</p>
                     <a href="{% url 'news25' %}" class="slide-btn">Learn More</a>
                 </div>
             </div>
             <div class="slide">
                 <img src="{% static 'blog/images/xatunasuxadze.jpg' %}" alt="Medical Education">
                 <div class="slide-content">
-                    <h2 data-translation-key="slide2Title">Medical Education Excellence</h2>
-                    <p data-translation-key="slide2Text">Training the next generation of healthcare professionals</p>
+                    <h2 data-translation-key="slide2Title">34th Scientific Conference Presentation</h2>
+                    <p data-translation-key="slide2Text">Dr. Sokhadze on progesterone's role in reproductive disorders</p>
                     <a href="{% url 'news24' %}" class="slide-btn">Read More</a>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="{% static 'blog/images/ia chapidze.jpeg' %}" alt="Research">
-                <div class="slide-content">
-                    <h2 data-translation-key="slide3Title">Groundbreaking Research</h2>
-                    <p data-translation-key="slide3Text">Leading innovative studies in reproductive health</p>
-                    <a href="{% url 'news23' %}" class="slide-btn">Discover</a>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="{% static 'blog/images/news22main.jpg' %}" alt="Guidelines">
-                <div class="slide-content">
-                    <h2 data-translation-key="slide4Title">Updated Clinical Guidelines</h2>
-                    <p data-translation-key="slide4Text">Latest recommendations for healthcare providers</p>
-                    <a href="{% url 'news22' %}" class="slide-btn">View Details</a>
                 </div>
             </div>
         </div>
@@ -172,15 +221,45 @@
         </div>
     </div>
 
-    <h1 id="homeh1" data-translation-key="homesecondh1">
+    <h1 id="homeh1" class="scroll-animate" data-translation-key="homesecondh1">
         Latest news!
     </h1>
 
-    <hr>
-    <hr>
+    <hr class="scroll-animate">
+    <hr class="scroll-animate">
+
+    <div class="news-container scroll-animate" onclick="window.location.href=`{% url 'news35' %}`;" style="cursor: pointer;">
+        <a href="{% url 'news35' %}">
+            <img src="{% static 'blog/images/georgian-delegation-participates-in-fidia-academy-workshop-on-hidden-challenges-in-gynecology_postpost12.jpeg' %}" class="news-image">
+        </a>
+        <div>
+            <h1 class="news-title" data-translation-key="news35Title">
+                🌍 Georgian Delegation Participates in Fidia Academy Workshop on Hidden Challenges in Gynecology
+            </h1>
+            <p class="news-text" data-translation-key="homeNews35Paragraph">
+                🌍Organized by Fidia Academy, a workshop titled "Fidia Academy: Her Journey, Her Voice: Overcoming the Hidden Challenges in Gynecology" was held at the Fidia headquarters in Abano Terme, Italy.
+🎓The e...
+            </p>
+        </div>
+    </div>`
+
+<div class="news-container scroll-animate" onclick="window.location.href=`{% url 'news34' %}`;" style="cursor: pointer;">
+        <a href="{% url 'news34' %}">
+            <img src="{% static 'blog/images/ekaterine-chikhashvili-earns-doctor-of-medicine-degree_maineka.jpg' %}" class="news-image">
+        </a>
+        <div>
+            <h1 class="news-title" data-translation-key="news34Title">
+                Ekaterine Chikhashvili Earns Doctor of Medicine Degree
+            </h1>
+            <p class="news-text" data-translation-key="homeNews34Paragraph">
+                On July 18, 2025, at the Faculty of Medicine of Ivane Javakhishvili Tbilisi State University, Ekaterine Chikhashvili successfully defended her dissertation on the topic:
+Effectiveness of Combined Sur...
+            </p>
+        </div>
+    </div>
 
     <a href="{% url 'news25' %}" class="news-container-link">
-        <div class="news-container">
+        <div class="news-container scroll-animate">
             <img src="{% static 'blog/images/elenerustavi.jpg' %}" class="news-image">
             <div>
                 <h1 class="news-title" data-translation-key="news25Title">
@@ -192,7 +271,7 @@
     </a>
 
     <a href="{% url 'news24' %}" class="news-container-link">
-        <div class="news-container">
+        <div class="news-container scroll-animate">
             <img src="{% static 'blog/images/xatunasuxadze.jpg' %}" class="news-image">
             <div>
                 <h1 class="news-title" data-translation-key="news23Title">
@@ -204,35 +283,6 @@
             </div>
         </div>
     </a>
-
-    <a href="{% url 'news23' %}" class="news-container-link">
-        <div class="news-container">
-            <img src="{% static 'blog/images/ia chapidze.jpeg' %}" class="news-image">
-            <div>
-                <h1 class="news-title" data-translation-key="news23Title">
-                    Conference Highlight
-                </h1>
-                <p class="news-text" data-translation-key="homeNews23Paragraph">
-                    On May 9–12, 2025, the 34th United Multidisciplinary Scientific Conference, "International Standards of Clinical Practice," organized by the Association of Medical Education and Evidence-Based Medicine, was held.
-                </p>
-            </div>
-        </div>
-    </a>
-
-    <a href="{% url 'news22' %}" class="news-container-link">
-        <div class="news-container">
-            <img src="{% static 'blog/images/news22main.jpg' %}" class="news-image">
-            <div>
-                <h1 class="news-title" data-translation-key="news22Title">
-                    On April 25, a scientific conference was held on the topic: Latest Recommendations for the Management of Premature Ovarian Insufficiency (POI).
-                </h1>
-                <p class="news-text" data-translation-key="homeNews22Paragraph">
-                    The event featured a key lecture by Professor Elene Asanidze, who delivered a comprehensive overview of the newly updated international guidelines for the diagnosis and management of POI.
-                </p>
-            </div>
-        </div>
-    </a>
-
 
     <hr>
 <div class="formore">
@@ -665,6 +715,24 @@ function autoSlide() {
 
 document.addEventListener('DOMContentLoaded', function() {
     autoSlide();
+
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    const animatedElements = document.querySelectorAll('.scroll-animate, .slide-in-left, .slide-in-right, .fade-scale');
+    animatedElements.forEach(el => {
+        observer.observe(el);
+    });
 });
 </script>
 

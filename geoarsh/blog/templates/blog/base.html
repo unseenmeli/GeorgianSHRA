@@ -456,7 +456,6 @@
           <li class="nav-item dropdownguide">
             <a class="nav-link" id="guidelinesLink" href="{% url 'guidelines' %}" data-translation-key="guidelines">Gapag</a>
             <div class="dropdown-content dropdown-contentG">
-              <a href="{% url 'national_guidelines' %}" data-translation-key="national" id="nationalLink">National</a>
               <a href="{% url 'translated_guidelines' %}" data-translation-key="translated" id="translatedLink">Translated</a>
               <a href="{% url 'english_guidelines' %}" data-translation-key="english" id="englishLink">International</a>
             </div>
@@ -538,7 +537,7 @@
           </ul>
         </div>
       </div>
-      <div class="footer-bottom">
+      <div class="footer-bottom" style="z-index: 1000;">
         <p>&copy; 2022 Georgian Association of Reproductive and Sexual Health. All rights reserved.</p>
         <p class="footer-tech">Technical Support: <a href="mailto:unseenmeli@gmail.com">unseenmeli@gmail.com</a></p>
       </div>

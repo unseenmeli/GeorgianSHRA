@@ -80,15 +80,17 @@
       padding: 0 2rem !important;
     }
 
-    .dropdown-content a {
-      transition: all 0.3s ease;
-    }
+    @media (min-width: 769px) {
+      .dropdown-content a {
+        transition: all 0.3s ease;
+      }
 
-    .dropdown-content a:hover {
-      color: #ffffff !important;
-      background: rgba(255, 255, 255, 0.1);
-      transform: translateX(5px);
-      text-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+      .dropdown-content a:hover {
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateX(5px);
+        text-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+      }
     }
 
     .logo-section {
@@ -166,41 +168,8 @@
     }
 
     /* Mobile Menu Styles */
-    .mobile-menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 10px;
-      z-index: 1001;
-      flex-direction: column;
-      justify-content: space-around;
-      width: 30px;
-      height: 30px;
-    }
-
-    .mobile-menu-toggle span {
-      display: block;
-      height: 3px;
-      width: 100%;
-      background: #1a2332;
-      border-radius: 3px;
-      transition: all 0.3s ease;
-    }
-
-    .mobile-menu-toggle.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .mobile-menu-toggle.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .mobile-menu-toggle.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -6px);
-    }
-
     @media (max-width: 768px) {
+      /* Hamburger button */
       .mobile-menu-toggle {
         display: flex !important;
         position: absolute;
@@ -210,8 +179,45 @@
         background: rgba(255, 255, 255, 0.9);
         border-radius: 5px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 1001;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 30px;
       }
 
+      .mobile-menu-toggle span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background: #1a2332;
+        border-radius: 3px;
+      }
+
+      .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+
+      /* Fixed position for active hamburger button */
+      .mobile-menu-toggle.active {
+        position: fixed !important;
+        right: 1rem;
+        top: 2rem;
+        z-index: 1003;
+      }
+
+      /* Mobile navigation panel */
       .main-nav {
         display: none !important;
         position: fixed;
@@ -221,7 +227,6 @@
         max-width: 350px;
         height: 100vh;
         background: #20b4b9;
-        transition: right 0.3s ease;
         z-index: 1000;
         overflow-y: auto;
         padding-top: 80px;
@@ -232,11 +237,13 @@
         right: 0;
       }
 
+      /* Mobile nav list */
       .nav-list {
         flex-direction: column;
         align-items: flex-start;
-        padding: 0 1rem;
+        padding: 0;
         gap: 0;
+        width: 100%;
       }
 
       .nav-item {
@@ -251,54 +258,60 @@
         display: block;
         text-align: left;
         font-size: 1.1rem !important;
-      }
-
-      .dropdown-content {
-        position: static;
-        background: rgba(26, 147, 153, 0.3);
-        box-shadow: none;
-        padding-left: 1rem;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-        opacity: 0;
-      }
-
-      .nav-item.dropdown-active .dropdown-content {
-        max-height: 500px;
-        opacity: 1;
-      }
-
-      .dropdown-toggle {
-        float: right;
-        padding: 0 0.5rem;
-        font-size: 0.8rem;
-        transition: transform 0.3s ease;
-        cursor: pointer;
-        display: inline-block;
-      }
-
-      .nav-item.dropdown-active .dropdown-toggle {
-        transform: rotate(180deg);
-      }
-
-      .dropdown-content a {
-        display: block;
-        padding: 0.8rem 1rem;
-        font-size: 1rem;
         color: white !important;
-        text-decoration: none;
-        transition: all 0.3s ease;
       }
 
-      .dropdown-content a:hover {
-        background: rgba(255, 255, 255, 0.1) !important;
-      }
-
+      /* Hide desktop elements */
       .header-actions {
         display: none !important;
       }
 
+      /* Mobile dropdown as absolute positioned overlay */
+      .nav-item {
+        position: relative;
+      }
+
+      .dropdown-content {
+        display: flex !important;
+        flex-direction: column;
+        position: sticky !important;
+        top: 75%;
+        left: 65%;
+        width: 250px;
+        background: #20b4b9;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.2s ease, visibility 0.2s ease;
+        z-index: 2000;
+        border-radius: 8px;
+        position: fixed !important;
+      }
+
+      .nav-item.dropdown-active .dropdown-content {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      .dropdown-content a {
+        display: block;
+        padding: 1rem 1.5rem;
+        color: white;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .dropdown-content a:last-child {
+        border-bottom: none;
+      }
+
+      .dropdown-content a:active {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      /* Mobile header */
       .site-header {
         padding: 1rem 0;
         background: #20b4b9 !important;
@@ -314,6 +327,7 @@
         position: relative;
       }
 
+      /* Mobile logo adjustments */
       .logo-section {
         flex: 1;
         background: none !important;
@@ -337,16 +351,17 @@
         height: 45px !important;
       }
 
+      /* Disable hover effects on mobile */
       .nav-link::before,
       .nav-link::after {
-        display: none;
+        display: none !important;
       }
 
       .nav-item:hover {
-        transform: none;
+        transform: none !important;
       }
 
-      /* Overlay */
+      /* Mobile overlay */
       .mobile-overlay {
         display: none;
         position: fixed;
@@ -362,7 +377,9 @@
         display: block;
       }
 
+      /* Mobile language selector */
       .mobile-language-item {
+        padding-top: 200px !important;
         display: block !important;
         margin-top: 2rem;
         padding: 1rem;
@@ -372,45 +389,38 @@
       .language-select-mobile {
         width: 100%;
         padding: 0.8rem;
-        background: rgba(255, 255, 255, 0.1);
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        color: white;
+        background: white;
+        border: 2px solid #20b4b9;
+        color: #1a2332;
         border-radius: 8px;
         font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 0.7rem center;
+        background-size: 1.5em;
+        padding-right: 2.5rem;
       }
 
       .language-select-mobile option {
-        background: #20b4b9;
-        color: white;
+        background: white;
+        color: #1a2332;
       }
     }
 
-    /* Hide mobile items on desktop */
+    /* Hide hamburger on desktop */
     @media (min-width: 769px) {
-      .mobile-language-item,
-      .mobile-only {
+      .mobile-menu-toggle {
+        display: none !important;
+      }
+
+      .mobile-language-item {
         display: none !important;
       }
     }
 
-    /* Hide dropdown content on mobile, show mobile-only items */
-    @media (max-width: 768px) {
-      .dropdown-content {
-        display: none !important;
-      }
-
-      .dropdownhome,
-      .dropdownabout,
-      .dropdownscient,
-      .dropdownguide,
-      .nav-item:not(.mobile-only):not(.mobile-language-item) {
-        display: none !important;
-      }
-
-      .mobile-only {
-        display: block !important;
-      }
-    }
   </style>
 </head>
 <body>
@@ -433,53 +443,43 @@
       </button>
       <nav class="main-nav" id="mainNav">
         <ul class="nav-list">
-          <li class="nav-item dropdownhome">
-            <a class="nav-link" id="homeLink" href="{% url 'home' %}" data-translation-key="home">Home</a>
+          <li class="nav-item dropdownhome has-dropdown">
+            <a class="nav-link" id="homeLink" href="{% url 'home' %}" data-translation-key="home" onclick="return toggleMobileDropdown(event, this)">Home</a>
             <div class="dropdown-content dropdown-contentH">
-              <a href="{% url 'news' %}" data-translation-key="news" id="newsLink">News</a>
+              <a href="{% url 'home' %}" data-translation-key="homePage">Home</a>
+              <a href="{% url 'news' %}" data-translation-key="news">News</a>
             </div>
           </li>
-          <li class="nav-item dropdownabout">
-            <a class="nav-link" id="aboutLink" href="{% url 'about' %}" data-translation-key="about">About</a>
+          <li class="nav-item dropdownabout has-dropdown">
+            <a class="nav-link" id="aboutLink" href="{% url 'about' %}" data-translation-key="about" onclick="return toggleMobileDropdown(event, this)">About</a>
             <div class="dropdown-content dropdown-contentA">
-              <a href="{% url 'about_association' %}" data-translation-key="aboutAssociation" id="aboutAssociationLink">About Association</a>
-              <a href="{% url 'become_member' %}" data-translation-key="becomeMember" id="becomeMemberLink">Become a Member</a>
+              <a href="{% url 'about' %}" data-translation-key="aboutPage">About</a>
+              <a href="{% url 'about_association' %}" data-translation-key="aboutAssociation">About Association</a>
+              <a href="{% url 'become_member' %}" data-translation-key="becomeMember">Become a Member</a>
             </div>
           </li>
-          <li class="nav-item dropdownscient">
-            <a class="nav-link" id="scientificLink" href="{% url 'scientific_information' %}" data-translation-key="scientific">Research</a>
+          <li class="nav-item dropdownscient has-dropdown">
+            <a class="nav-link" id="scientificLink" href="{% url 'scientific_information' %}" data-translation-key="scientific" onclick="return toggleMobileDropdown(event, this)">Research</a>
             <div class="dropdown-content dropdown-contentS">
-              <a href="{% url 'publications' %}" data-translation-key="publications" id="publicationsLink">Publications</a>
-              <a href="{% url 'about_congresses' %}" data-translation-key="congresses" id="congressesLink">Congresses</a>
+              <a href="{% url 'scientific_information' %}" data-translation-key="researchPage">Research</a>
+              <a href="{% url 'publications' %}" data-translation-key="publications">Publications</a>
+              <a href="{% url 'about_congresses' %}" data-translation-key="congresses">Congresses</a>
             </div>
           </li>
-          <li class="nav-item dropdownguide">
-            <a class="nav-link" id="guidelinesLink" href="{% url 'guidelines' %}" data-translation-key="guidelines">Gapag</a>
+          <li class="nav-item dropdownguide has-dropdown">
+            <a class="nav-link" id="guidelinesLink" href="{% url 'guidelines' %}" data-translation-key="guidelines" onclick="return toggleMobileDropdown(event, this)">Guidelines</a>
             <div class="dropdown-content dropdown-contentG">
-              <a href="{% url 'translated_guidelines' %}" data-translation-key="translated" id="translatedLink">Translated</a>
-              <a href="{% url 'english_guidelines' %}" data-translation-key="english" id="englishLink">International</a>
+              <a href="{% url 'guidelines' %}" data-translation-key="guidelinesPage">Guidelines</a>
+              <a href="{% url 'translated_guidelines' %}" data-translation-key="translated">Translated</a>
+              <a href="{% url 'english_guidelines' %}" data-translation-key="english">International</a>
             </div>
           </li>
           <li class="nav-item"><a class="nav-link" href="{% url 'events' %}" id="eventsLink" data-translation-key="events">Events</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'for_patients' %}" id="patientsLink" data-translation-key="patients">For Patients</a></li>
 
-          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'home' %}" data-translation-key="home">Home</a></li>
-          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'news' %}" data-translation-key="news">News</a></li>
-          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'about' %}" data-translation-key="about">About</a></li>
-          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'about_association' %}" data-translation-key="aboutAssociation">About Association</a></li>
-          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'become_member' %}" data-translation-key="becomeMember">Become a Member</a></li>
-          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'scientific_information' %}" data-translation-key="scientific">Research</a></li>
-          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'publications' %}" data-translation-key="publications">Publications</a></li>
-          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'about_congresses' %}" data-translation-key="congresses">Congresses</a></li>
-          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'guidelines' %}" data-translation-key="guidelines">Guidelines</a></li>
-          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'national_guidelines' %}" data-translation-key="national">National Guidelines</a></li>
-          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'translated_guidelines' %}" data-translation-key="translated">Translated Guidelines</a></li>
-          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'english_guidelines' %}" data-translation-key="english">International Guidelines</a></li>
-          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'events' %}" data-translation-key="events">Events</a></li>
-          <li class="nav-item mobile-only"><a class="nav-link" href="{% url 'for_patients' %}" data-translation-key="patients">For Patients</a></li>
           <li class="nav-item mobile-language-item">
             <div class="mobile-language-selector">
-              <select id="mobile-language" class="language-select-mobile" onchange="changeLanguage()">
+              <select id="language" class="language-select" onchange="changeLanguage()">
                 <option value="english">EN</option>
                 <option value="georgian">GE</option>
               </select>
@@ -554,19 +554,33 @@
       toggle.classList.toggle('active');
     }
 
-    function toggleDropdown(event, element) {
-      if (window.innerWidth > 768) return;
+    function toggleMobileDropdown(event, element) {
+      if (window.innerWidth > 768) {
+        // On desktop, allow normal navigation
+        return true;
+      }
 
+      const parentItem = element.closest('.nav-item');
+      const hasDropdown = parentItem.classList.contains('has-dropdown');
+
+      if (!hasDropdown) {
+        // If no dropdown, allow normal navigation
+        return true;
+      }
+
+      // Prevent navigation for items with dropdowns on mobile
       event.preventDefault();
       event.stopPropagation();
 
-      const parentItem = element.closest('.nav-item');
+      // Toggle active class for dropdown
       const isActive = parentItem.classList.contains('dropdown-active');
 
-      document.querySelectorAll('.nav-item').forEach(item => {
+      // Close all other dropdowns
+      document.querySelectorAll('.nav-item.has-dropdown').forEach(item => {
         item.classList.remove('dropdown-active');
       });
 
+      // Toggle current dropdown
       if (!isActive) {
         parentItem.classList.add('dropdown-active');
       }
@@ -574,6 +588,47 @@
       return false;
     }
 
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      if (window.innerWidth > 768) return;
+
+      // If clicking outside any dropdown menu
+      if (!event.target.closest('.nav-item.has-dropdown')) {
+        document.querySelectorAll('.nav-item.has-dropdown').forEach(item => {
+          item.classList.remove('dropdown-active');
+        });
+      }
+    });
+
+    // Close dropdowns when scrolling the mobile menu - attach immediately
+    window.addEventListener('load', function() {
+      const mainNav = document.getElementById('mainNav');
+      if (mainNav) {
+        // Use a more aggressive approach - any scroll immediately closes dropdowns
+        let scrollTimeout;
+        mainNav.addEventListener('scroll', function(e) {
+          // Clear any existing timeout
+          clearTimeout(scrollTimeout);
+
+          // Immediately close all dropdowns
+          document.querySelectorAll('.nav-item.dropdown-active').forEach(item => {
+            item.classList.remove('dropdown-active');
+          });
+
+          // Also prevent scroll from bubbling
+          e.stopPropagation();
+        }, { passive: true });
+
+        // Also listen for touch move which might trigger scroll
+        mainNav.addEventListener('touchmove', function() {
+          document.querySelectorAll('.nav-item.dropdown-active').forEach(item => {
+            item.classList.remove('dropdown-active');
+          });
+        }, { passive: true });
+      }
+    });
+
+    // Only close menu when clicking on dropdown links (submenu items)
     document.querySelectorAll('.dropdown-content a').forEach(link => {
       link.addEventListener('click', () => {
         const nav = document.getElementById('mainNav');
@@ -586,15 +641,18 @@
       });
     });
 
-    document.querySelectorAll('.nav-link:not(.has-dropdown)').forEach(link => {
+    // Only close menu for nav items without dropdowns
+    document.querySelectorAll('.nav-item:not(.has-dropdown) .nav-link').forEach(link => {
       link.addEventListener('click', () => {
-        const nav = document.getElementById('mainNav');
-        const overlay = document.getElementById('mobileOverlay');
-        const toggle = document.querySelector('.mobile-menu-toggle');
+        if (window.innerWidth <= 768) {
+          const nav = document.getElementById('mainNav');
+          const overlay = document.getElementById('mobileOverlay');
+          const toggle = document.querySelector('.mobile-menu-toggle');
 
-        nav.classList.remove('active');
-        overlay.classList.remove('active');
-        toggle.classList.remove('active');
+          nav.classList.remove('active');
+          overlay.classList.remove('active');
+          toggle.classList.remove('active');
+        }
       });
     });
 
@@ -611,32 +669,32 @@
     }
     });
 
-window.onload = function () {
-    async function changeLanguage() {
-        const desktopSelector = document.getElementById("language");
-        const mobileSelector = document.getElementById("mobile-language");
-        const selectedLanguage = desktopSelector ? desktopSelector.value : mobileSelector.value;
-        if (desktopSelector) desktopSelector.value = selectedLanguage;
-        if (mobileSelector) mobileSelector.value = selectedLanguage;
+// Define changeLanguage globally so it can be called from HTML
+async function changeLanguage() {
+    const desktopSelector = document.getElementById("language");
+    const mobileSelector = document.getElementById("mobile-language");
+    const selectedLanguage = desktopSelector ? desktopSelector.value : mobileSelector.value;
+    if (desktopSelector) desktopSelector.value = selectedLanguage;
+    if (mobileSelector) mobileSelector.value = selectedLanguage;
 
-        localStorage.setItem("language", selectedLanguage);
+    localStorage.setItem("language", selectedLanguage);
 
-        try {
-            const response = await fetch(`/api/translations/${selectedLanguage}/`);
-            const translations = await response.json();
+    try {
+        const response = await fetch(`/api/translations/${selectedLanguage}/`);
+        const translations = await response.json();
 
-            document.querySelectorAll("[data-translation-key]").forEach(el => {
-                const key = el.getAttribute("data-translation-key");
-                if (translations[key]) {
-                    el.innerHTML = translations[key];
-                }
-            });
-        } catch (error) {
-            console.error("Error fetching translations:", error);
-        }
+        document.querySelectorAll("[data-translation-key]").forEach(el => {
+            const key = el.getAttribute("data-translation-key");
+            if (translations[key]) {
+                el.innerHTML = translations[key];
+            }
+        });
+    } catch (error) {
+        console.error("Error fetching translations:", error);
     }
+}
 
-
+window.onload = function () {
     const savedLanguage = localStorage.getItem("language") || "english";
     const desktopSelector = document.getElementById("language");
     const mobileSelector = document.getElementById("mobile-language");
@@ -644,7 +702,7 @@ window.onload = function () {
     if (mobileSelector) mobileSelector.value = savedLanguage;
     changeLanguage();
 
-
+    // Add event listeners for language selectors
     if (document.getElementById("language")) {
         document.getElementById("language").addEventListener("change", changeLanguage);
     }

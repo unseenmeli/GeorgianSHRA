@@ -479,7 +479,7 @@
 
           <li class="nav-item mobile-language-item">
             <div class="mobile-language-selector">
-              <select id="language" class="language-select" onchange="changeLanguage()">
+              <select id="mobile-language" class="language-select" onchange="changeLanguage(event)">
                 <option value="english">EN</option>
                 <option value="georgian">GE</option>
               </select>
@@ -488,7 +488,7 @@
         </ul>
         <div class="header-actions">
           <div class="language-selector">
-            <select id="language" class="language-select" onchange="changeLanguage()">
+            <select id="language" class="language-select" onchange="changeLanguage(event)">
               <option value="english">EN</option>
               <option value="georgian">GE</option>
             </select>
@@ -670,10 +670,19 @@
     });
 
 // Define changeLanguage globally so it can be called from HTML
-async function changeLanguage() {
+async function changeLanguage(event) {
     const desktopSelector = document.getElementById("language");
     const mobileSelector = document.getElementById("mobile-language");
-    const selectedLanguage = desktopSelector ? desktopSelector.value : mobileSelector.value;
+
+    // Determine which selector triggered the change
+    let selectedLanguage;
+    if (event && event.target) {
+        selectedLanguage = event.target.value;
+    } else {
+        selectedLanguage = (mobileSelector && mobileSelector.value) || (desktopSelector && desktopSelector.value);
+    }
+
+    // Sync both selectors
     if (desktopSelector) desktopSelector.value = selectedLanguage;
     if (mobileSelector) mobileSelector.value = selectedLanguage;
 

@@ -1,0 +1,192 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+    .language-toggle {
+        position: fixed;
+        top: 100px;
+        right: 30px;
+        background: white;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+    .lang-btn {
+        display: block;
+        width: 60px;
+        padding: 10px;
+        margin: 5px 0;
+        background: #f8fafc;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+    }
+    .lang-btn.active {
+        background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+        border-color: #20b4b9;
+    }
+    .content-lang {
+        display: none;
+    }
+    .content-lang.active {
+        display: block;
+    }
+    .main-image {
+        width: 100%;
+        max-width: 800px;
+        margin: 2rem auto;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<div class="language-toggle">
+    <button class="lang-btn active" onclick="switchLanguage('en')">🇬🇧</button>
+    <button class="lang-btn" onclick="switchLanguage('ge')">🇬🇪</button>
+</div>
+
+<div class="content-lang active" id="content-en">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">🌍🎉 GARSH at the 20th World Congress of the Academy of Human Reproduction  🌍From September 18–21, 2025, for the first time in Georgia, Tbilisi proudly hosted the 20th World Congress of the Academy of Human Reproduction.</h1>
+        <div class="article-meta">
+            <span class="article-date">October 13, 2025</span>
+            <span class="article-category">News</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            🌍🎉 GARSH at the 20th World Congress of the Academy of Human Reproduction
+ 🌍From September 18–21, 2025, for the first time in Georgia, Tbilisi proudly hosted the 20th World Congress of the Academy of Human Reproduction.
+This prestigious event brought together leading specialists in reproductive medicine from Georgia and around the world. Participants delivered cutting-edge presentations, shared clinical experiences, and engaged in discussions to advance reproductive health.
+✨ Members of the Georgian Association of Reproductive and Sexual Health (GARSH) were honored to contribute, underscoring our commitment to international collaboration, knowledge exchange, and the continuous development of reproductive and sexual health in Georgia.
+Plenary Session Speakers:
+🧑‍🎓 Elene Asanidze  (GE): Genetic and Metabolic Impact in PCOS: MTHFR Polymorphisms, Homocysteine, Insulin-Resistance, and Pregnancy Outcome
+🧑‍🎓 Jenaro Kristesashvili  (GE): X Chromosome Anomalies as a Cause of Non-Iatrogenic Premature Ovarian Insufficiency (POI)
+🧑‍🎓@Alla Vash-Margita (US): Müllerian Anomalies: Current Practice and Genetic Landscape (online)
+🧑‍🎓Teimuraz Gagnidze (GE): Sperm DNA Fragmentation in Male Partners of Couples with Unexplained Infertility and Recurrent Pregnancy Loss
+🧑‍🎓Ludmila Luda Barbakadze  (GE): Fertility Preservation: Current Trends, Challenges, and Opportunities
+Symposium Presentations:
+🧑‍🎓Levan Kobalade (GE): Female Sexual Dysfunctions and Gynecological Pathologies
+🧑‍🎓David Skhirtladze (GE): Combined Surgical and Hormonal Therapy in Deep Endometriosis
+🧑‍🎓Maka Chipashvili (GE): Reproductive Genetic Advances: Solutions or New Challenges?
+🧑‍🎓 Maka Chipashvili (GE): Genetic Aspects of Male Infertility
+Oral Presentations:
+🧑‍🎓Maka Jorbenadz (GE): Reproductive Health of Adolescent Girls in Georgia
+🧑‍🎓Anna Jibladze  (GE): Tetrasomy X in an Adolescent Girl
+🧑‍🎓 Manana  Mancho Urjumelashvili (GE): Homocysteine Levels in Patients with PCOS
+🧑‍🎓 Ia Chapidze  (GE): Diagnostic Capabilities for Müllerian Anomalies
+🧑‍🎓 Nino Nuka Abesadze  (GE): Vitamin D and Endometriosis in Fertile Women
+🧑‍🎓Ana Ghviniashvili & Mariam Kharaishvili  (GE): Impact of Post-Cesarean Section Isthmocele
+Posters:
+🧑‍🎓Shorena Tchiokadze (GE): Prevalence and Distribution of High-Risk HPV Genotypes Among Women with Cytological Abnormalities in Georgia
+🧑‍🎓Shorena Tchiokadze (GE): Insulin Resistance and Hyperhomocysteinemia as Risk Factors for Recurrent Pregnancy Loss in Polycystic Ovary Syndrome 
+🧑‍🎓Sopho Kvaliashvili  (GE): Nonclassical Congenital Adrenal Hyperplasia
+🧑‍🎓Irakli Simonia (GE): Postoperative Management of Hysteroscopic Metroplasty.
+👏 Congratulations to all participants for representing Georgia at such a high international level!
+        </p>
+    </div>
+    
+    <div class="article-gallery">
+        <h2 class="gallery-title">Gallery</h2>
+        <div class="gallery-grid">
+            <figure class="gallery-item">
+                <img src="{% static 'blog/images/garsh-at-the-20th-world-congress-of-the-academy-of-human-reproduction-from-september-1821-2025-for-the-first-time-in-georgia-tbilisi-proudly-hosted-the-20th-world-congress-of-the-academy-of-human-reproduction_add1_20thcong1.jpg' %}" alt="" class="gallery-image">
+                <figcaption></figcaption>
+            </figure>
+            <figure class="gallery-item">
+                <img src="{% static 'blog/images/garsh-at-the-20th-world-congress-of-the-academy-of-human-reproduction-from-september-1821-2025-for-the-first-time-in-georgia-tbilisi-proudly-hosted-the-20th-world-congress-of-the-academy-of-human-reproduction_add2_20thcong2.jpg' %}" alt="" class="gallery-image">
+                <figcaption></figcaption>
+            </figure>
+            <figure class="gallery-item">
+                <img src="{% static 'blog/images/garsh-at-the-20th-world-congress-of-the-academy-of-human-reproduction-from-september-1821-2025-for-the-first-time-in-georgia-tbilisi-proudly-hosted-the-20th-world-congress-of-the-academy-of-human-reproduction_add3_20thcong3.jpg' %}" alt="" class="gallery-image">
+                <figcaption></figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+        <div class="share-buttons">
+            <span>Share:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<div class="content-lang" id="content-ge">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაცია ადამიანის რეპროდუქციის საერთაშორისო აკადემიის მე-20 მსოფლიო კონგრესზე</h1>
+        <div class="article-meta">
+            <span class="article-date">2025 წლის 13 October</span>
+            <span class="article-category">სიახლეები</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაცია ადამიანის რეპროდუქციის საერთაშორისო აკადემიის მე-20 მსოფლიო კონგრესზე
+
+🌍 18-21 სექტემბერს, პირველად საქართველოში გაიმართა ადამიანის რეპროდუქციის საერთაშორისო აკადემიის მე-20 მსოფლიო კონგრესი (20th World Congress of the International Academy on Human Reproduction).
+
+🌍 ამ პრესტიჟულმა ღონისძიებამ გააერთიანა რეპროდუქციული მედიცინის წამყვანი სპეციალისტები მსოფლიოს სხვადასხვა ქვეყნიდან, მათ შორის საქართველოდან. სპიკერებმა წარმოადგინეს სამეცნიერო მოხსენებები, გააზიარეს  კლინიკური გამოცდილება და აქტიურად იმსჯელეს რეპროდუქციული ჯანმრთელობის გაუმჯობესების გზებზე.
+✨ საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაციის (GARSH) წევრებისთვის დიდი პატივი იყო ამ ისტორიულ კონგრესში მონაწილეობა. ასოციაციის აქტიური ჩართულობა  ხაზს  უსვამს მის მზაობას საერთაშორისო თანამშრომლობის, ცოდნის გაცვლისა და  რეპროდუქციული და სქესობრივი ჯანმრთელობის უწყვეტი გაუმჯობესების ხელშეწყობას.
+        </p>
+    </div>
+    
+    <div class="article-gallery">
+        <h2 class="gallery-title">გალერეა</h2>
+        <div class="gallery-grid">
+            <figure class="gallery-item">
+                <img src="{% static 'blog/images/garsh-at-the-20th-world-congress-of-the-academy-of-human-reproduction-from-september-1821-2025-for-the-first-time-in-georgia-tbilisi-proudly-hosted-the-20th-world-congress-of-the-academy-of-human-reproduction_add1_20thcong1.jpg' %}" alt="" class="gallery-image">
+                <figcaption></figcaption>
+            </figure>
+            <figure class="gallery-item">
+                <img src="{% static 'blog/images/garsh-at-the-20th-world-congress-of-the-academy-of-human-reproduction-from-september-1821-2025-for-the-first-time-in-georgia-tbilisi-proudly-hosted-the-20th-world-congress-of-the-academy-of-human-reproduction_add2_20thcong2.jpg' %}" alt="" class="gallery-image">
+                <figcaption></figcaption>
+            </figure>
+            <figure class="gallery-item">
+                <img src="{% static 'blog/images/garsh-at-the-20th-world-congress-of-the-academy-of-human-reproduction-from-september-1821-2025-for-the-first-time-in-georgia-tbilisi-proudly-hosted-the-20th-world-congress-of-the-academy-of-human-reproduction_add3_20thcong3.jpg' %}" alt="" class="gallery-image">
+                <figcaption></figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← სიახლეებზე დაბრუნება</a>
+        <div class="share-buttons">
+            <span>გაზიარება:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<script>
+function switchLanguage(lang) {
+    document.querySelectorAll('.content-lang').forEach(el => {
+        el.classList.remove('active');
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.getElementById('content-' + lang).classList.add('active');
+    event.target.classList.add('active');
+}
+</script>
+
+{% endblock content %}

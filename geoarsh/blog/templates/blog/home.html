@@ -177,6 +177,22 @@
     <div class="hero-slider">
         <div class="slider-container">
             <div class="slide active">
+                <img src="{% static 'blog/images/garsh-at-the-20th-world-congress-of-the-academy-of-human-reproduction-from-september-1821-2025-for-the-first-time-in-georgia-tbilisi-proudly-hosted-the-20th-world-congress-of-the-academy-of-human-reproduction_conf2pic.jpeg' %}" alt="World Congress">
+                <div class="slide-content">
+                    <h2 data-translation-key="slide1Title">20th World Congress in Tbilisi</h2>
+                    <p data-translation-key="slide1Text">GARSH hosts Academy of Human Reproduction in Georgia</p>
+                    <a href="{% url 'news37' %}" class="slide-btn">Learn More</a>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="{% static 'blog/images/the-georgian-association-of-reproductive-and-sexual-health-held-a-continuing-medical-education-cme-training-on-july-4-5_conf1pic.jpg' %}" alt="CME Training">
+                <div class="slide-content">
+                    <h2 data-translation-key="slide2Title">CME Training on Estrogen Deficiency</h2>
+                    <p data-translation-key="slide2Text">Modern principles for management of estrogen deficiency</p>
+                    <a href="{% url 'news36' %}" class="slide-btn">Read More</a>
+                </div>
+            </div>
+            <div class="slide">
                 <img src="{% static 'blog/images/georgian-delegation-participates-in-fidia-academy-workshop-on-hidden-challenges-in-gynecology_postpost12.jpeg' %}" alt="Research">
                 <div class="slide-content">
                     <h2 data-translation-key="slide3Title">Fidia Academy Workshop in Italy</h2>
@@ -190,22 +206,6 @@
                     <h2 data-translation-key="slide4Title">Dr. Chikhashvili's Academic Achievement</h2>
                     <p data-translation-key="slide4Text">Doctoral defense on endometrioma treatment effectiveness</p>
                     <a href="{% url 'news34' %}" class="slide-btn">View Details</a>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="{% static 'blog/images/elenerustavi.jpg' %}" alt="Conference">
-                <div class="slide-content">
-                    <h2 data-translation-key="slide1Title">Rustavi Conference on Estrogen Deficiency</h2>
-                    <p data-translation-key="slide1Text">Exploring past, present, and future of hormone health</p>
-                    <a href="{% url 'news25' %}" class="slide-btn">Learn More</a>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="{% static 'blog/images/xatunasuxadze.jpg' %}" alt="Medical Education">
-                <div class="slide-content">
-                    <h2 data-translation-key="slide2Title">34th Scientific Conference Presentation</h2>
-                    <p data-translation-key="slide2Text">Dr. Sokhadze on progesterone's role in reproductive disorders</p>
-                    <a href="{% url 'news24' %}" class="slide-btn">Read More</a>
                 </div>
             </div>
         </div>
@@ -227,6 +227,36 @@
 
     <hr class="scroll-animate">
     <hr class="scroll-animate">
+
+    <div class="news-container scroll-animate" onclick="window.location.href=`{% url 'news35' %}`;" style="cursor: pointer;">
+        <a href="{% url 'news37' %}">
+            <img src="{% static 'blog/images/garsh-at-the-20th-world-congress-of-the-academy-of-human-reproduction-from-september-1821-2025-for-the-first-time-in-georgia-tbilisi-proudly-hosted-the-20th-world-congress-of-the-academy-of-human-reproduction_conf2pic.jpeg' %}" class="news-image">
+        </a>
+        <div>
+            <h1 class="news-title" data-translation-key="news37Title">
+                🌍🎉 GARSH at the 20th World Congress of the Academy of Human Reproduction  🌍From September 18–21, 2025, for the first time in Georgia, Tbilisi proudly hosted the 20th World Congress of the Academy of Human Reproduction.
+            </h1>
+            <p class="news-text" data-translation-key="homeNews37Paragraph">
+                🌍🎉 GARSH at the 20th World Congress of the Academy of Human Reproduction
+ 🌍From September 18–21, 2025, for the first time in Georgia, Tbilisi proudly hosted the 20th World Congress of the Academy of ...
+            </p>
+        </div>
+    </div>
+
+    <div class="news-container scroll-animate" onclick="window.location.href=`{% url 'news35' %}`;" style="cursor: pointer;">
+        <a href="{% url 'news36' %}">
+            <img src="{% static 'blog/images/the-georgian-association-of-reproductive-and-sexual-health-held-a-continuing-medical-education-cme-training-on-july-4-5_conf1pic.jpg' %}" class="news-image">
+        </a>
+        <div>
+            <h1 class="news-title" data-translation-key="news36Title">
+                The Georgian Association of Reproductive and Sexual Health held a Continuing Medical Education (CME) training on July 4-5
+            </h1>
+            <p class="news-text" data-translation-key="homeNews36Paragraph">
+                The Georgian Association of Reproductive and Sexual Health held a Continuing Medical Education (CME) training on July 4-5, 2025, on the topic:
+"Modern Principles for the Management of Estrogen Defici...
+            </p>
+        </div>
+    </div>
 
     <div class="news-container scroll-animate" onclick="window.location.href=`{% url 'news35' %}`;" style="cursor: pointer;">
         <a href="{% url 'news35' %}">

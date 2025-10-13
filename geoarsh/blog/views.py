@@ -172,6 +172,10 @@ def news36(request):
     return render(request, "blog/news/news36.html")
 def news37(request):
     return render(request, "blog/news/news37.html")
+def news38(request):
+    return render(request, "blog/news/news38.html")
+def news39(request):
+    return render(request, "blog/news/news39.html")
 # for news posts to here !!!
 
 def events1(request):

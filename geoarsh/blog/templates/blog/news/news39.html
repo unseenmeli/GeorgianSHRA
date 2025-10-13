@@ -1,0 +1,153 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+    .language-toggle {
+        position: fixed;
+        top: 100px;
+        right: 30px;
+        background: white;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+    .lang-btn {
+        display: block;
+        width: 60px;
+        padding: 10px;
+        margin: 5px 0;
+        background: #f8fafc;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+    }
+    .lang-btn.active {
+        background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+        border-color: #20b4b9;
+    }
+    .content-lang {
+        display: none;
+    }
+    .content-lang.active {
+        display: block;
+    }
+    .main-image {
+        width: 100%;
+        max-width: 800px;
+        margin: 2rem auto;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<div class="language-toggle">
+    <button class="lang-btn active" onclick="switchLanguage('en')">🇬🇧</button>
+    <button class="lang-btn" onclick="switchLanguage('ge')">🇬🇪</button>
+</div>
+
+<div class="content-lang active" id="content-en">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">🎉 Important news! 🎉 The Georgian Association of Reproductive and Sexual Health congratulates the Association’s co-founder and chief expert, Prof. Jenaro Kristesashvili, on being awarded the title of Honorary Citizen of Tbilisi!</h1>
+        <div class="article-meta">
+            <span class="article-date">September 26, 2025</span>
+            <span class="article-category">News</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            <br>🎉 Important news! 🎉
+<br>The Georgian Association of Reproductive and Sexual Health congratulates the Association's co-founder and chief expert, Prof. Jenaro Kristesashvili, on being awarded the title of Honorary Citizen of Tbilisi!
+<br>
+<br>In response to the question of what this title means to him, he said:
+<br>
+<br>For me, as a Tbilisian of several generations, there is probably no title more important or more emotional than being an Honorary Citizen of Tbilisi.
+<br>My childhood, adulthood, professional development, and personal formation have always been closely connected to Tbilisi. It is this city that taught me core values and instilled in me a love for my surroundings, for people, and for my work.
+<br>For me, Tbilisi is one of the most beautiful cities—not only for its appearance, architecture, and nature, but, above all, for the people who live here. Here live my family members, relatives, friends, loved ones, and complete strangers—yet true Tbilisians—distinguished by tolerance, sincerity, mutual respect, and a deep love for their city.
+<br>Throughout my life, despite many attractive opportunities, I have never considered leaving Tbilisi, because I believe my knowledge and experience should be shared with the people living in my city and country, and that I should help nurture new generations of doctors and scientists.
+<br>The title of Honorary Citizen of Tbilisi is a great honor and, at the same time, a responsibility. My greatest wish is for Tbilisi to continually develop and grow stronger without losing what truly makes it special—warmth, love, and mutual respect.
+<br>My deepest thanks to everyone who deemed me worthy of this honor, and to all who congratulated me and shared in this joy.
+        </p>
+    </div>
+    
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+        <div class="share-buttons">
+            <span>Share:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<div class="content-lang" id="content-ge">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაცია ულოცავს ასოციაციის თანადამფუძნებელს და მთავარ ექსპერტს, პროფესორ ჯენარო ქრისტესაშვილს საპატიო თბილისელის წოდების მინიჭებას!</h1>
+        <div class="article-meta">
+            <span class="article-date">2025 წლის 26 სექტემბერი</span>
+            <span class="article-category">სიახლეები</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            <br>🎉 მნიშვნელოვანი სიახლე! 🎉
+<br>
+<br>საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაცია ულოცავს ასოციაციის თანადამფუძნებელს და მთავარ ექსპერტს, პროფესორ ჯენარო ქრისტესაშვილს საპატიო თბილისელის წოდების მინიჭებას!
+<br>
+<br>შეკითხვაზე, რას ნიშნავს მისთვის ამ წოდების მინიჭება, მან გვიპასუხა:
+<br>
+<br>ჩემთვის, როგორც რამდენიმე თაობის თბილისელისთვის, ალბათ არ არსებობს უფრო მნიშვნელოვანი და ემოციური წოდება, ვიდრე საპატიო თბილისელობაა.
+<br>
+<br>ჩემი ბავშვობა, ზრდასრულობა, პროფესიული განვითარება და პიროვნული ჩამოყალიბება ყოველთვის მჭიდროდ იყო დაკავშირებული თბილისთან. სწორედ ამ ქალაქმა მასწავლა მთავარი ღირებულებები, ჩამინერგა სიყვარული საკუთარი გარემოს, ადამიანებისა და საქმის მიმართ.
+<br>
+<br>თბილისი ჩემთვის არის ერთ-ერთი უმშვენიერესი ქალაქი არა მხოლოდ თავისი იერსახით, არქიტექტურითა და ბუნებით, არამედ უპირველესად ადამიანებით, რომლებიც აქ ცხოვრობენ. აქ ცხოვრობენ ჩემი ოჯახის წევრები, ნათესავები, მეგობრები, ახლობლები და სრულიად უცნობები, მაგრამ ნამდვილი თბილისელები, რომლებიც გამოირჩევიან ტოლერანტობით, გულწრფელობით, ურთიერთპატივისცემით და ღრმა სიყვარულით საკუთარი ქალაქის მიმართ.
+<br>
+<br>ცხოვრების განმავლობაში, მიუხედავად მრავალი მომხიბვლელი შესაძლებლობისა, არასდროს მიფიქრია თბილისის დატოვება. ვინაიდან მიმაჩნია, რომ ჩემი ცოდნა და გამოცდილება უნდა გამეზიარებინა ჩემს ქალაქში და ქვეყანაში მცხოვრები ადამიანებისთვის და აღმეზარდა ექიმებისა და მეცნიერების ახალი თაობები.
+<br>
+<br>საპატიო თბილისელობის წოდება ჩემთვის უდიდესი პატივია და ამავდროულად პასუხისმგებლობაც. ჩემი დიდი სურვილია, რომ თბილისი მუდამ განვითარდეს და გაძლიერდეს ისე, რომ არ დაკარგოს ის მთავარი, რაც მას მართლაც განსაკუთრებულს ხდის სითბო, სიყვარული და ურთიერთპატივისცემა.
+<br>
+<br>უღრმესი მადლობა ყველას, ვინც ამ საპატიო წოდების ღირსად ჩამთვალა და ასევე ყველა იმ ადამიანს, რომლებმაც მომილოცა და გაიზირა ეს სიხარული.
+<br>Jenaro Kristesashvili 
+        </p>
+    </div>
+    
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← სიახლეებზე დაბრუნება</a>
+        <div class="share-buttons">
+            <span>გაზიარება:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<script>
+function switchLanguage(lang) {
+    document.querySelectorAll('.content-lang').forEach(el => {
+        el.classList.remove('active');
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.getElementById('content-' + lang).classList.add('active');
+    event.target.classList.add('active');
+}
+</script>
+
+{% endblock content %}

@@ -192,6 +192,7 @@
         width: 100%;
         background: #1a2332;
         border-radius: 3px;
+        transition: all 0.3s ease;
       }
 
       .mobile-menu-toggle.active span:nth-child(1) {
@@ -220,13 +221,13 @@
         position: fixed;
         top: 0;
         right: -100%;
-        width: 80%;
-        max-width: 350px;
+        width: 280px;
         height: 100vh;
         background: #20b4b9;
         z-index: 1000;
         overflow-y: auto;
         padding-top: 80px;
+        transition: right 0.3s ease;
       }
 
       .main-nav.active {
@@ -249,13 +250,92 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
 
-      .nav-link {
+      /* Navigation header (contains link + toggle) */
+      .nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         width: 100%;
-        padding: 1rem !important;
+        cursor: pointer;
+        background: transparent;
+        transition: background 0.2s ease;
+      }
+
+      .nav-header:active {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .nav-link {
+        flex: 1;
+        padding: 1.2rem 1.5rem !important;
         display: block;
         text-align: left;
-        font-size: 1.1rem !important;
+        font-size: 1rem !important;
+        color: #ffffff !important;
+        text-decoration: none;
+        background: transparent;
+      }
+
+      .nav-item:not(.has-dropdown) .nav-link {
+        padding: 1.2rem 1.5rem !important;
+      }
+
+      /* Dropdown toggle button (+) */
+      .dropdown-toggle {
+        color: #ffffff;
+        font-size: 1.8rem;
+        font-weight: 300;
+        padding: 0 1.5rem;
+        line-height: 1;
+        transition: transform 0.3s ease;
+        user-select: none;
+      }
+
+      .nav-item.open .dropdown-toggle {
+        transform: rotate(45deg);
+      }
+
+      /* Dropdown content - simple accordion */
+      .dropdown-content {
+        position: static !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        overflow: hidden !important;
+        max-height: 0 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        min-width: auto !important;
+        width: 100% !important;
+        transition: max-height 0.3s ease !important;
+        display: block !important;
+      }
+
+      .nav-item.open .dropdown-content {
+        max-height: 800px !important;
+      }
+
+      .dropdown-content a {
+        display: block !important;
+        padding: 1rem 1.5rem !important;
+        padding-left: 2.5rem !important;
         color: white !important;
+        background: transparent !important;
+        text-decoration: none !important;
+        font-size: 0.95rem !important;
+        transition: all 0.2s ease !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+      }
+
+      .dropdown-content a:first-child {
+        border-top: none;
+      }
+
+      .dropdown-content a:active {
+        background: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
       }
 
       /* Hide desktop elements */
@@ -263,82 +343,9 @@
         display: none !important;
       }
 
-      /* Mobile dropdown overlay */
+      /* Mobile dropdown overlay - simplified */
       .dropdown-overlay {
         display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-        z-index: 1001;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      .dropdown-overlay.active {
-        display: block;
-        opacity: 1;
-      }
-
-      /* Hide entire header when dropdown overlay is active */
-      .dropdown-overlay.active ~ .site-header {
-        opacity: 0;
-        pointer-events: none;
-      }
-
-      /* Mobile dropdown modal style */
-      .nav-item {
-        position: relative;
-      }
-
-      .dropdown-content {
-        display: flex !important;
-        flex-direction: column;
-        position: fixed !important;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0.9);
-        width: 85%;
-        max-width: 300px;
-        background: #20b4b9;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        z-index: 999999 !important;
-        border-radius: 12px;
-        overflow: hidden;
-      }
-
-      .nav-item.dropdown-active .dropdown-content,
-      .dropdown-content.active {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        transform: translate(-50%, -50%) scale(1);
-      }
-
-      .dropdown-content a {
-        display: block;
-        padding: 1.2rem 1.5rem;
-        color: white;
-        text-decoration: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        font-size: 1.05rem;
-        transition: background 0.2s ease;
-      }
-
-      .dropdown-content a:last-child {
-        border-bottom: none;
-      }
-
-      .dropdown-content a:active {
-        background: rgba(255, 255, 255, 0.15);
       }
 
       /* Mobile header */
@@ -431,7 +438,6 @@
 
       /* Mobile language selector */
       .mobile-language-item {
-        padding-top: 200px !important;
         display: block !important;
         margin-top: 2rem;
         padding: 1rem;
@@ -477,7 +483,6 @@
 </head>
 <body>
   <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
-  <div class="dropdown-overlay" id="dropdownOverlay" onclick="closeDropdownOverlay()"></div>
   <header class="site-header">
     <div class="header-container">
       <div class="logo-section">
@@ -496,35 +501,55 @@
       </button>
       <nav class="main-nav" id="mainNav">
         <ul class="nav-list">
-          <li class="nav-item dropdownhome has-dropdown">
-            <a class="nav-link" id="homeLink" href="{% url 'home' %}" data-translation-key="home" onclick="return toggleMobileDropdown(event, this)">Home</a>
-            <div class="dropdown-content dropdown-contentH">
+          <li class="nav-item has-dropdown">
+            <div class="nav-header" onclick="toggleDropdown(this)">
+              <a class="nav-link" href="{% url 'home' %}" data-translation-key="home" onclick="event.stopPropagation();">Home</a>
+              <span class="dropdown-toggle">+</span>
+            </div>
+            <div class="dropdown-content">
+              <a class="nav-link" href="{% url 'home' %}" data-translation-key="home">Home</a>
               <a href="{% url 'news' %}" data-translation-key="news">News</a>
             </div>
           </li>
-          <li class="nav-item dropdownabout has-dropdown">
-            <a class="nav-link" id="aboutLink" href="{% url 'about' %}" data-translation-key="about" onclick="return toggleMobileDropdown(event, this)">About</a>
-            <div class="dropdown-content dropdown-contentA">
+          <li class="nav-item has-dropdown">
+            <div class="nav-header" onclick="toggleDropdown(this)">
+              <a class="nav-link" href="{% url 'about' %}" data-translation-key="about" onclick="event.stopPropagation();">About</a>
+              <span class="dropdown-toggle">+</span>
+            </div>
+            <div class="dropdown-content">
+              <a class="nav-link" href="{% url 'about' %}" data-translation-key="about">About</a>
               <a href="{% url 'about_association' %}" data-translation-key="aboutAssociation">About Association</a>
               <a href="{% url 'become_member' %}" data-translation-key="becomeMember">Become a Member</a>
             </div>
           </li>
-          <li class="nav-item dropdownscient has-dropdown">
-            <a class="nav-link" id="scientificLink" href="{% url 'scientific_information' %}" data-translation-key="scientific" onclick="return toggleMobileDropdown(event, this)">Research</a>
-            <div class="dropdown-content dropdown-contentS">
+          <li class="nav-item has-dropdown">
+            <div class="nav-header" onclick="toggleDropdown(this)">
+              <a class="nav-link" href="{% url 'scientific_information' %}" data-translation-key="scientific" onclick="event.stopPropagation();">Research</a>
+              <span class="dropdown-toggle">+</span>
+            </div>
+            <div class="dropdown-content">
+              <a class="nav-link" href="{% url 'scientific_information' %}" data-translation-key="scientific">Research</a>
               <a href="{% url 'publications' %}" data-translation-key="publications">Publications</a>
               <a href="{% url 'about_congresses' %}" data-translation-key="congresses">Congresses</a>
             </div>
           </li>
-          <li class="nav-item dropdownguide has-dropdown">
-            <a class="nav-link" id="guidelinesLink" href="{% url 'guidelines' %}" data-translation-key="guidelines" onclick="return toggleMobileDropdown(event, this)">Guidelines</a>
-            <div class="dropdown-content dropdown-contentG">
+          <li class="nav-item has-dropdown">
+            <div class="nav-header" onclick="toggleDropdown(this)">
+              <a class="nav-link" href="{% url 'guidelines' %}" data-translation-key="guidelines" onclick="event.stopPropagation();">Guidelines</a>
+              <span class="dropdown-toggle">+</span>
+            </div>
+            <div class="dropdown-content">
+              <a class="nav-link" href="{% url 'guidelines' %}" data-translation-key="guidelines">Guidelines</a>
               <a href="{% url 'translated_guidelines' %}" data-translation-key="translated">Translated</a>
               <a href="{% url 'english_guidelines' %}" data-translation-key="english">International</a>
             </div>
           </li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'events' %}" id="eventsLink" data-translation-key="events">Events</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'for_patients' %}" id="patientsLink" data-translation-key="patients">For Patients</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'events' %}" data-translation-key="events">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'for_patients' %}" data-translation-key="patients">For Patients</a>
+          </li>
 
           <li class="nav-item mobile-language-item">
             <div class="mobile-language-selector">
@@ -603,134 +628,45 @@
       toggle.classList.toggle('active');
     }
 
-    function toggleMobileDropdown(event, element) {
+    function toggleDropdown(element) {
+      // Only work on mobile
       if (window.innerWidth > 768) {
-        // On desktop, allow normal navigation
-        return true;
+        return;
       }
 
-      const parentItem = element.closest('.nav-item');
-      const hasDropdown = parentItem.classList.contains('has-dropdown');
-
-      if (!hasDropdown) {
-        // If no dropdown, allow normal navigation
-        return true;
-      }
-
-      // Prevent navigation for items with dropdowns on mobile
-      event.preventDefault();
-      event.stopPropagation();
-
-      // Toggle active class for dropdown
-      const isActive = parentItem.classList.contains('dropdown-active');
-      const dropdownOverlay = document.getElementById('dropdownOverlay');
-      const dropdownContent = parentItem.querySelector('.dropdown-content');
+      const navItem = element.closest('.nav-item');
+      const isOpen = navItem.classList.contains('open');
 
       // Close all other dropdowns
       document.querySelectorAll('.nav-item.has-dropdown').forEach(item => {
-        item.classList.remove('dropdown-active');
+        if (item !== navItem) {
+          item.classList.remove('open');
+        }
       });
 
       // Toggle current dropdown
-      if (!isActive) {
-        // Move dropdown to body to escape stacking context
-        document.body.appendChild(dropdownContent);
-        dropdownContent.classList.add('active');
-        parentItem.classList.add('dropdown-active');
-        dropdownOverlay.classList.add('active');
-      } else {
-        dropdownContent.classList.remove('active');
-        dropdownOverlay.classList.remove('active');
-        // Move dropdown back to parent
-        parentItem.appendChild(dropdownContent);
-      }
-
-      return false;
+      navItem.classList.toggle('open');
     }
 
-    function closeDropdownOverlay() {
-      // Move any dropdown-content back to its parent nav-item
-      document.querySelectorAll('body > .dropdown-content').forEach(dropdown => {
-        dropdown.classList.remove('active');
-        const parentClass = dropdown.classList[1]; // e.g., 'dropdown-contentH'
-        const parentItem = document.querySelector(`.${parentClass.replace('dropdown-content', 'dropdown')}`);
-        if (parentItem) {
-          parentItem.appendChild(dropdown);
-        }
-      });
+    // Close menu when clicking on any link
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.nav-link, .dropdown-content a').forEach(link => {
+        link.addEventListener('click', (e) => {
+          if (window.innerWidth <= 768) {
+            // If it's a nav-header link and has dropdown, let toggleDropdown handle it
+            if (e.target.closest('.nav-header')) {
+              return;
+            }
+            // Otherwise close the menu
+            const nav = document.getElementById('mainNav');
+            const overlay = document.getElementById('mobileOverlay');
+            const toggle = document.querySelector('.mobile-menu-toggle');
 
-      document.querySelectorAll('.nav-item.has-dropdown').forEach(item => {
-        item.classList.remove('dropdown-active');
-      });
-      document.querySelectorAll('.dropdown-content').forEach(dropdown => {
-        dropdown.classList.remove('active');
-      });
-      document.getElementById('dropdownOverlay').classList.remove('active');
-    }
-
-    // Close dropdown when clicking outside (now handled by overlay)
-    document.addEventListener('click', function(event) {
-      if (window.innerWidth > 768) return;
-
-      // If clicking outside any dropdown menu
-      if (!event.target.closest('.nav-item.has-dropdown')) {
-        closeDropdownOverlay();
-      }
-    });
-
-    // Close dropdowns when scrolling the mobile menu - attach immediately
-    window.addEventListener('load', function() {
-      const mainNav = document.getElementById('mainNav');
-      if (mainNav) {
-        // Use a more aggressive approach - any scroll immediately closes dropdowns
-        let scrollTimeout;
-        mainNav.addEventListener('scroll', function(e) {
-          // Clear any existing timeout
-          clearTimeout(scrollTimeout);
-
-          // Immediately close all dropdowns and overlay
-          closeDropdownOverlay();
-
-          // Also prevent scroll from bubbling
-          e.stopPropagation();
-        }, { passive: true });
-
-        // Also listen for touch move which might trigger scroll
-        mainNav.addEventListener('touchmove', function() {
-          closeDropdownOverlay();
-        }, { passive: true });
-      }
-    });
-
-    // Only close menu when clicking on dropdown links (submenu items)
-    document.querySelectorAll('.dropdown-content a').forEach(link => {
-      link.addEventListener('click', () => {
-        const nav = document.getElementById('mainNav');
-        const overlay = document.getElementById('mobileOverlay');
-        const toggle = document.querySelector('.mobile-menu-toggle');
-
-        // Close dropdown overlay first
-        closeDropdownOverlay();
-
-        // Then close main menu
-        nav.classList.remove('active');
-        overlay.classList.remove('active');
-        toggle.classList.remove('active');
-      });
-    });
-
-    // Only close menu for nav items without dropdowns
-    document.querySelectorAll('.nav-item:not(.has-dropdown) .nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-          const nav = document.getElementById('mainNav');
-          const overlay = document.getElementById('mobileOverlay');
-          const toggle = document.querySelector('.mobile-menu-toggle');
-
-          nav.classList.remove('active');
-          overlay.classList.remove('active');
-          toggle.classList.remove('active');
-        }
+            nav.classList.remove('active');
+            overlay.classList.remove('active');
+            toggle.classList.remove('active');
+          }
+        });
       });
     });
 

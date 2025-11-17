@@ -416,6 +416,15 @@ a:hover {
     flex-shrink: 0;
 }
 
+#news41-image {
+    object-fit: contain;
+}
+
+#news41-slider-image {
+    object-fit: contain;
+    background-color: white;
+}
+
 .news-title {
     font-size: 1.5rem;
     font-weight: 600;

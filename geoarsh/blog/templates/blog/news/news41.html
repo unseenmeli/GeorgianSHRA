@@ -1,0 +1,126 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+    .language-toggle {
+        position: fixed;
+        top: 100px;
+        right: 30px;
+        background: white;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+    .lang-btn {
+        display: block;
+        width: 60px;
+        padding: 10px;
+        margin: 5px 0;
+        background: #f8fafc;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+    }
+    .lang-btn.active {
+        background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+        border-color: #20b4b9;
+    }
+    .content-lang {
+        display: none;
+    }
+    .content-lang.active {
+        display: block;
+    }
+    .main-image {
+        width: 100%;
+        max-width: 800px;
+        margin: 2rem auto;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<div class="language-toggle">
+    <button class="lang-btn active" onclick="switchLanguage('en')">🇬🇧</button>
+    <button class="lang-btn" onclick="switchLanguage('ge')">🇬🇪</button>
+</div>
+
+<div class="content-lang active" id="content-en">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">Wonderful News from the Georgian Association of Reproductive and Sexual Health! We are delighted to announce that the Georgian Association of Reproductive and Sexual Health has become an Associate Member of the European Society of Endocrinology (ESE)! ✨</h1>
+        <div class="article-meta">
+            <span class="article-date">November 17, 2025</span>
+            <span class="article-category">News</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            🎉🌍 Wonderful News from the Georgian Association of Reproductive and Sexual Health!<br>We are delighted to announce that the Georgian Association of Reproductive and Sexual Health has become an Associate Member of the European Society of Endocrinology (ESE)! ✨<br>This recognition reflects the strong academic, scientific, and clinical achievements of our President and leadership team, as well as the Association’s expanding engagement and contributions on the international stage.<br>🌍 ESE unites leading medical societies worldwide that are dedicated to advancing research and clinical practice in endocrinology.<br>Its vision is “to shape the future of endocrinology to improve science, knowledge, and health.”<br>ESE brings together and supports the global endocrine community, fostering collaboration and enabling the development and sharing of the highest standards in endocrine science and medicine.<br>🌍 Becoming an Associate Member creates significant new opportunities for our Association, including:<br>• deeper integration into the global medical and scientific community<br>• participation in international research and professional networks<br>• exchange of expertise and involvement in collaborative projects<br>• contributing to the advancement of endocrinology and reproductive endocrinology<br>We look forward to strengthening our collaboration with the European Society of Endocrinology and continuing our shared mission of advancing the field! 💙 <br>Elene Asanidze Mariam Kharaishvili Tiko Gorshkova   Nuka Abesadze Anna Jibladze Maka Chipashvili Sandro Asanidze Mancho Urjumelashvili Eka Gorgoshidze  Shorena Tchiokadze Alexandra Shorena Gogokhia  Ia Chapidze Sopho Kvaliashvili Luda Barbakadze Natalia Karelishvili Davit Sxirtladze Maka Mazmishvili
+        </p>
+    </div>
+    
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+        <div class="share-buttons">
+            <span>Share:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<div class="content-lang" id="content-ge">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">მოხარულნი ვართ გაცნობოთ, რომ საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაცია გახდა ევროპული ენდოკრინოლოგთა საზოგადოების (European Society of Endocrinology – ESE) ასოცირებული წევრი! ✨</h1>
+        <div class="article-meta">
+            <span class="article-date">2025 წლის 17 November</span>
+            <span class="article-category">სიახლეები</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            🧑‍🎓 მოხარულნი ვართ გაცნობოთ, რომ საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაცია გახდა ევროპული ენდოკრინოლოგთა საზოგადოების (European Society of Endocrinology – ESE) ასოცირებული წევრი! ✨<br>ეს მნიშვნელოვანი საერთაშორისო აღიარება ემყარება ჩვენი ასოციაციის პრეზიდენტისა და მმართველი გუნდის მრავალწლიან აკადემიურ, სამეცნიერო, კლინიკურ გამოცდილებას, ასევე საერთაშორისო მონაწილეობის, პარტნიორობისა და წარმატებული თანამშრომლობების მდგრად განვითარებას.<br>🧑‍🎓 ESE აერთიანებს მსოფლიოს წამყვან სამედიცინო საზოგადოებებს, რომლებიც აქტიურად მუშაობენ ენდოკრინოლოგიის სფეროს კვლევისა და პრაქტიკის გაძლიერებაზე.<br>მისი ხედვაა:<br>„ენდოკრინოლოგიის მომავლის ფორმირება მეცნიერების, ცოდნისა და ჯანმრთელობის გასაუმჯობესებლად“.<br>ESE ამასთანავე აერთიანებს, მხარს უჭერს და წარმოადგენს ენდოკრინოლოგიის პროფესიულ საზოგადოებებს, რათა უზრუნველყოფილი იყოს საუკეთესო სამეცნიერო და კლინიკური ცოდნის გავრცელება.<br>🌍 ასოცირებული წევრობის სტატუსი ჩვენს ასოციაციას უხსნის ახალ შესაძლებლობებს:<br>• გლობალურ სამედიცინო-საგანმანათლებლო სივრცეში ინტეგრაცია<br>• საერთაშორისო კვლევით და პროფესიულ ქსელებში აქტიური ჩართულობა<br>• გამოცდილების გაცვლა და ერთობლივ საერთაშორისო პროექტებში მონაწილეობა<br>• ენდოკრინოლოგიისა და რეპროდუქციული ენდოკრინოლოგიის განვითარების მხარდაჭერა<br>💙 მოუთმენლად ველით მჭიდრო და შედეგიან თანამშრომლობას ევროპის ენდოკრინოლოგთა საზოგადოებასთან და ჩვენი საერთო მისიის — დარგის განვითარებისა და ცოდნის გაძლიერების — გაგრძელებას!
+        </p>
+    </div>
+    
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← სიახლეებზე დაბრუნება</a>
+        <div class="share-buttons">
+            <span>გაზიარება:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<script>
+function switchLanguage(lang) {
+    document.querySelectorAll('.content-lang').forEach(el => {
+        el.classList.remove('active');
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.getElementById('content-' + lang).classList.add('active');
+    event.target.classList.add('active');
+}
+</script>
+
+{% endblock content %}

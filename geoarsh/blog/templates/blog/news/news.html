@@ -2,6 +2,37 @@
 {% load static %}
 {% block content %}
 
+    <div class="news-container" onclick="window.location.href=`{% url 'news41' %}`;" style="cursor: pointer;">
+        <a href="{% url 'news41' %}">
+            <img id="news41-image" src="{% static 'blog/images/wonderful-news-from-the-georgian-association-of-reproductive-and-sexual-health-we-are-delighted-to-announce-that-the-georgian-association-of-reproductive-and-sexual-health-has-become-an-associate-member-of-the-european-society-of-endocrinology-ese_2.jpg' %}" class="news-image">
+        </a>
+        <div>
+            <h1 class="news-title" data-translation-key="news41Title">
+                Wonderful News from the Georgian Association of Reproductive and Sexual Health! We are delighted to announce that the Georgian Association of Reproductive and Sexual Health has become an Associate Member of the European Society of Endocrinology (ESE)! ✨
+            </h1>
+            <p class="news-text" data-translation-key="homeNews41Paragraph">
+                🎉🌍 Wonderful News from the Georgian Association of Reproductive and Sexual Health!
+<br>We are delighted to announce that the Georgian Association of Reproductive and Sexual Health has become an Associ...
+            </p>
+        </div>
+    </div>
+
+
+<div class="news-container" onclick="window.location.href=`{% url 'news40' %}`;" style="cursor: pointer;">
+        <a href="{% url 'news40' %}">
+            <img src="{% static 'blog/images/the-georgian-association-of-reproductive-and-sexual-health-successfully-conducted-a-continuing-medical-education-cme-training-on-the-topic_aa.jpg' %}" class="news-image">
+        </a>
+        <div>
+            <h1 class="news-title" data-translation-key="news40Title">
+                The Georgian Association of Reproductive and Sexual Health successfully conducted a Continuing Medical Education (CME) training on the topic
+            </h1>
+            <p class="news-text" data-translation-key="homeNews40Paragraph">
+                📣 The Georgian Association of Reproductive and Sexual Health successfully conducted a Continuing Medical Education (CME) training on the topic:
+<br>🩺 “Modern Principles of Management of Estrogen Defic...
+            </p>
+        </div>
+    </div>
+
  <div class="news-container" onclick="window.location.href=`{% url 'news39' %}`;" style="cursor: pointer;">
         <a href="{% url 'news39' %}">
             <img src="{% static 'blog/images/important-news-the-georgian-association-of-reproductive-and-sexual-health-congratulates-the-associations-co-founder-and-chief-expert-prof-jenaro-kristesashvili-on-being-awarded-the-title-of-honorary-citizen-of-tbilisi_jenaro.jpg' %}" class="news-image">

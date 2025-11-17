@@ -176,6 +176,10 @@ def news38(request):
     return render(request, "blog/news/news38.html")
 def news39(request):
     return render(request, "blog/news/news39.html")
+def news40(request):
+    return render(request, "blog/news/news40.html")
+def news41(request):
+    return render(request, "blog/news/news41.html")
 # for news posts to here !!!
 
 def events1(request):
@@ -255,8 +259,8 @@ def post_creator(request):
         category = request.POST.get('category')
         title_en = request.POST.get('title_en')
         title_ge = request.POST.get('title_ge')
-        content_en = request.POST.get('content_en')
-        content_ge = request.POST.get('content_ge')
+        content_en = request.POST.get('content_en', '').replace('\n', '<br>')
+        content_ge = request.POST.get('content_ge', '').replace('\n', '<br>')
 
         # Get main image (required)
         main_image = request.FILES.get('main_image')
@@ -291,8 +295,8 @@ def post_creator(request):
                 additional_images.append(add_image_filename)
 
                 # Get captions
-                caption_en = request.POST.get(f'image{i}_caption_en', '')
-                caption_ge = request.POST.get(f'image{i}_caption_ge', '')
+                caption_en = request.POST.get(f'image{i}_caption_en', '').replace('\n', '<br>')
+                caption_ge = request.POST.get(f'image{i}_caption_ge', '').replace('\n', '<br>')
                 image_captions_en.append(caption_en)
                 image_captions_ge.append(caption_ge)
             else:

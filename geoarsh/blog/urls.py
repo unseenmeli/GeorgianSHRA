@@ -13,7 +13,9 @@ urlpatterns = [
     path('GAPAG/About/', views.national_guidelines, name='national_guidelines'),
     path('GAPAG/News/', views.translated_guidelines, name='translated_guidelines'),
     path('GAPAG/Events/', views.english_guidelines, name='english_guidelines'),
-    path('events/', views.events, name='events'),
+    path('education/', views.education, name='education'),
+    path('education/upcoming-events/', views.upcoming_events, name='upcoming_events'),
+    path('education/completed-events/', views.events, name='events'),
 
     # for patients posts from here !!!
     

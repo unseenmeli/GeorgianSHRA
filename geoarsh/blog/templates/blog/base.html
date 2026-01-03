@@ -22,6 +22,16 @@
       white-space: nowrap;
     }
 
+    .nav-link-nonclickable {
+      cursor: default !important;
+      pointer-events: none;
+    }
+
+    .nav-link-nonclickable::before,
+    .nav-link-nonclickable::after {
+      display: none !important;
+    }
+
     .nav-link::before {
       content: '';
       position: absolute;
@@ -87,6 +97,14 @@
 
       .dropdown-content a:hover {
         background: rgba(255, 255, 255, 0.15);
+      }
+
+      .dropdown-item-disabled {
+        display: block;
+        padding: 0.75rem 1.5rem;
+        color: rgba(255, 255, 255, 0.4);
+        cursor: not-allowed;
+        pointer-events: none;
       }
     }
 
@@ -339,6 +357,17 @@
         color: #ffffff;
       }
 
+      .dropdown-item-disabled {
+        display: block !important;
+        padding: 1rem 1.5rem !important;
+        padding-left: 2.5rem !important;
+        color: rgba(255, 255, 255, 0.4) !important;
+        cursor: not-allowed !important;
+        pointer-events: none !important;
+        font-size: 0.95rem !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+      }
+
       /* Hide desktop elements */
       .header-actions {
         display: none !important;
@@ -533,11 +562,11 @@
           </li>
           <li class="nav-item has-dropdown">
             <div class="nav-header" onclick="toggleDropdown(this)">
-              <a class="nav-link" href="{% url 'scientific_information' %}" data-translation-key="scientific" onclick="event.stopPropagation();">Research</a>
+              <span class="nav-link nav-link-nonclickable" data-translation-key="scientific" onclick="event.stopPropagation();">Research</span>
               <span class="dropdown-toggle">+</span>
             </div>
             <div class="dropdown-content">
-              <a class="nav-link" href="{% url 'scientific_information' %}" data-translation-key="scientific">Research</a>
+              <a href="{% url 'education' %}" data-translation-key="education">Education</a>
               <a href="{% url 'publications' %}" data-translation-key="publications">Publications</a>
             </div>
           </li>
@@ -553,21 +582,10 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'events' %}" data-translation-key="events">Events</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="{% url 'for_patients' %}" data-translation-key="patients">For Patients</a>
           </li>
-          <li class="nav-item has-dropdown">
-            <div class="nav-header" onclick="toggleDropdown(this)">
-              <a class="nav-link" href="#" data-translation-key="usefulLinks" onclick="event.preventDefault(); event.stopPropagation();">Useful Links</a>
-              <span class="dropdown-toggle">+</span>
-            </div>
-            <div class="dropdown-content">
-              <a class="nav-link" href="#" data-translation-key="usefulLinks">Useful Links</a>
-              <a href="{% url 'about_congresses' %}" data-translation-key="conferences">Related Conferences</a>
-              <a href="#" data-translation-key="photoGalleries">Photo Galleries</a>
-            </div>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'about_congresses' %}" data-translation-key="usefulLinks">Useful Links</a>
           </li>
 
           <li class="nav-item mobile-language-item">

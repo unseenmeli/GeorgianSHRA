@@ -415,7 +415,8 @@ a:hover {
 .news-image {
     width: 280px;
     height: 200px;
-    object-fit: cover;
+    object-fit: contain;
+    background-color: white;
     border-radius: 12px;
     flex-shrink: 0;
 }
@@ -574,6 +575,8 @@ a:hover {
     .news-image {
         width: 100%;
         height: 200px;
+        object-fit: contain;
+        background-color: white;
     }
 }
 

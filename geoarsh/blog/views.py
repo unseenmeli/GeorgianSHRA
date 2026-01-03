@@ -33,6 +33,12 @@ def translated_guidelines(request):
 def english_guidelines(request):
     return render(request, 'blog/guident.html')
 
+def education(request):
+    return render(request, 'blog/education.html')
+
+def upcoming_events(request):
+    return render(request, 'blog/upcoming_events.html')
+
 def events(request):
     return render(request, 'blog/events.html')
 

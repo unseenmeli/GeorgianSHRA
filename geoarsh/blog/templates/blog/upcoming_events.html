@@ -1,0 +1,27 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+.events-section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 2rem 0 1.5rem 0;
+    padding-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .events-section-title {
+        font-size: 1.8rem;
+    }
+}
+</style>
+
+<h1 class="events-section-title" data-translation-key="upcomingEvents">Upcoming Events</h1>
+
+{% endblock content %}

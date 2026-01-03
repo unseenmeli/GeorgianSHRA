@@ -1,0 +1,121 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+.education-container {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 2rem;
+}
+
+.education-cards {
+    display: flex;
+    gap: 3rem;
+    max-width: 1200px;
+    width: 100%;
+    justify-content: center;
+}
+
+.education-card {
+    flex: 1;
+    max-width: 450px;
+    background: linear-gradient(135deg, rgba(32, 180, 185, 0.05) 0%, rgba(26, 147, 153, 0.05) 100%);
+    border: 2px solid rgba(32, 180, 185, 0.2);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    display: block;
+}
+
+.education-card:hover {
+    transform: scale(1.08);
+    box-shadow: 0 20px 50px rgba(32, 180, 185, 0.3);
+    border-color: rgba(32, 180, 185, 0.5);
+    background: linear-gradient(135deg, rgba(32, 180, 185, 0.1) 0%, rgba(26, 147, 153, 0.1) 100%);
+}
+
+.education-card:active {
+    transform: scale(0.95);
+}
+
+.card-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 2rem;
+    filter: drop-shadow(0 4px 8px rgba(32, 180, 185, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.education-card:hover .card-icon {
+    transform: translateY(-10px);
+}
+
+.card-title {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+}
+
+@media (max-width: 968px) {
+    .education-cards {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+
+    .education-card {
+        max-width: 100%;
+    }
+
+    .card-title {
+        font-size: 1.8rem;
+    }
+
+    .card-icon {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .education-container {
+        padding: 2rem 1rem;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+
+    .card-icon {
+        width: 80px;
+        height: 80px;
+    }
+}
+</style>
+
+<div class="education-container">
+    <div class="education-cards">
+        <a href="{% url 'upcoming_events' %}" class="education-card">
+            <img src="{% static 'blog/images/to-do-svgrepo-com.svg' %}" alt="Upcoming Events" class="card-icon">
+            <h2 class="card-title" data-translation-key="upcomingEvents">Upcoming Events</h2>
+        </a>
+
+        <a href="{% url 'events' %}" class="education-card">
+            <img src="{% static 'blog/images/completed-order-svgrepo-com.svg' %}" alt="Completed Events" class="card-icon">
+            <h2 class="card-title" data-translation-key="completedEvents">Completed Events</h2>
+        </a>
+    </div>
+</div>
+
+{% endblock content %}

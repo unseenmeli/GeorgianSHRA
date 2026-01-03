@@ -12,8 +12,14 @@
     align-items: flex-start;
 }
 
-.sidebar {
+.sidebar-wrapper {
     min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar {
     background: #f8f9fa;
     border-radius: 8px;
     overflow: hidden;
@@ -170,6 +176,10 @@
         flex-direction: column;
     }
 
+    .sidebar-wrapper {
+        min-width: 100%;
+    }
+
     .sidebar {
         min-width: 100%;
     }
@@ -217,32 +227,50 @@
 </style>
 
 <div class="useful-links-container">
-    <aside class="sidebar">
-        <a href="#" class="sidebar-item active" data-section="conferences" data-translation-key="sidebarRelatedConferences">
-            Related Conferences
-        </a>
-        <a href="#" class="sidebar-item" data-section="partners" data-translation-key="sidebarPartnersAndCourses">
-            Partners & Courses
-        </a>
-        <a href="#" class="sidebar-item" data-section="societies" data-translation-key="sidebarSocieties">
-            Societies
-        </a>
-        <a href="#" class="sidebar-item" data-section="galleries" data-translation-key="sidebarPhotoGalleries">
-            Photo Galleries
-        </a>
-        <a href="#" class="sidebar-item" data-section="previous" data-translation-key="sidebarPreviousCongresses">
-            Previous Congresses
-        </a>
-        <a href="#" class="sidebar-item" data-section="contact" data-translation-key="sidebarContact">
-            Contact
-        </a>
+    <aside class="sidebar-wrapper">
+        <div class="sidebar sidebar-featured">
+            <a href="#" class="sidebar-item active" data-section="congresses" data-translation-key="sidebarOurCongresses">
+                GARSH Congresses
+            </a>
+        </div>
+
+        <div class="sidebar">
+            <a href="#" class="sidebar-item" data-section="conferences" data-translation-key="sidebarSuggestedConferences">
+                Suggested Conferences
+            </a>
+            <a href="#" class="sidebar-item" data-section="partners" data-translation-key="sidebarPartnersAndCourses">
+                Partners & Courses
+            </a>
+            <a href="#" class="sidebar-item" data-section="societies" data-translation-key="sidebarSocieties">
+                Societies
+            </a>
+            <a href="#" class="sidebar-item" data-section="galleries" data-translation-key="sidebarPhotoGalleries">
+                Photo Galleries
+            </a>
+            <a href="#" class="sidebar-item" data-section="previous" data-translation-key="sidebarPreviousCongresses">
+                Previous Congresses
+            </a>
+            <a href="#" class="sidebar-item" data-section="contact" data-translation-key="sidebarContact">
+                Contact
+            </a>
+        </div>
     </aside>
 
     <main class="main-content">
-        <!-- Related Conferences Section -->
-        <div id="conferences-section" class="content-section active">
+        <!-- Our Congresses Section -->
+        <div id="congresses-section" class="content-section active">
             <div class="content-header">
-                <h1 data-translation-key="relatedConferencesTitle">Related Conferences</h1>
+                <h1 data-translation-key="sidebarOurCongresses">GARSH Congresses</h1>
+            </div>
+            <div class="coming-soon-box">
+                <h2 data-translation-key="comingSoon">Coming Soon</h2>
+            </div>
+        </div>
+
+        <!-- Suggested Conferences Section -->
+        <div id="conferences-section" class="content-section">
+            <div class="content-header">
+                <h1 data-translation-key="suggestedConferencesTitle">Suggested Conferences</h1>
             </div>
             <div class="conference-banners">
                 <div class="conference-banner">
@@ -372,7 +400,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const hash = window.location.hash.substring(1);
             showSection(hash);
         } else {
-            showSection('conferences'); // Default section
+            showSection('congresses'); // Default section
         }
     });
 });

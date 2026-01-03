@@ -539,7 +539,6 @@
             <div class="dropdown-content">
               <a class="nav-link" href="{% url 'scientific_information' %}" data-translation-key="scientific">Research</a>
               <a href="{% url 'publications' %}" data-translation-key="publications">Publications</a>
-              <a href="{% url 'about_congresses' %}" data-translation-key="congresses">Congresses</a>
             </div>
           </li>
           <li class="nav-item has-dropdown">
@@ -558,6 +557,17 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'for_patients' %}" data-translation-key="patients">For Patients</a>
+          </li>
+          <li class="nav-item has-dropdown">
+            <div class="nav-header" onclick="toggleDropdown(this)">
+              <a class="nav-link" href="#" data-translation-key="usefulLinks" onclick="event.preventDefault(); event.stopPropagation();">Useful Links</a>
+              <span class="dropdown-toggle">+</span>
+            </div>
+            <div class="dropdown-content">
+              <a class="nav-link" href="#" data-translation-key="usefulLinks">Useful Links</a>
+              <a href="{% url 'about_congresses' %}" data-translation-key="conferences">Related Conferences</a>
+              <a href="#" data-translation-key="photoGalleries">Photo Galleries</a>
+            </div>
           </li>
 
           <li class="nav-item mobile-language-item">
@@ -616,7 +626,7 @@
             <li><a href="{% url 'for_patients' %}">Patient Information</a></li>
             <li><a href="{% url 'events' %}">Upcoming Events</a></li>
             <li><a href="{% url 'news' %}">Latest News</a></li>
-            <li><a href="{% url 'contact' %}">Contact Us</a></li>
+            <li><a href="{% url 'about_congresses' %}#contact">Contact Us</a></li>
           </ul>
         </div>
       </div>

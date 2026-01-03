@@ -1,4 +1,381 @@
 {% extends "blog/base.html" %}
+{% load static %}
 {% block content %}
+
+<style>
+.useful-links-container {
+    display: flex;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    align-items: flex-start;
+}
+
+.sidebar {
+    min-width: 280px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+    height: fit-content;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-item {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar-item:last-child {
+    border-bottom: none;
+}
+
+.sidebar-item.active {
+    background: #20b4b9;
+    color: white;
+}
+
+.sidebar-item:not(.active):hover {
+    background: #e8f4f5;
+    padding-left: 2rem;
+}
+
+.main-content {
+    flex: 1;
+}
+
+.content-section {
+    display: none;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.content-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content-header {
+    margin-bottom: 2rem;
+}
+
+.content-header h1 {
+    font-size: 2.5rem;
+    color: #1a2332;
+    margin: 0 0 0.5rem 0;
+}
+
+.conference-banners {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.conference-banner {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.conference-banner:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.conference-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.coming-soon-box {
+    text-align: center;
+    background: linear-gradient(135deg, rgba(32, 180, 185, 0.05) 0%, rgba(26, 147, 153, 0.05) 100%);
+    padding: 3rem 4rem;
+    border-radius: 20px;
+    border: 2px solid rgba(32, 180, 185, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    margin-top: 2rem;
+}
+
+.coming-soon-box h2 {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    font-weight: 800;
+}
+
+.useful-links-container .page-contact-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.useful-links-container .page-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.useful-links-container .page-contact-item {
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #20b4b9;
+}
+
+.useful-links-container .page-contact-label {
+    display: block;
+    font-weight: 600;
+    color: #1a2332;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.useful-links-container .page-contact-link {
+    color: #20b4b9;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.useful-links-container .page-contact-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 968px) {
+    .useful-links-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        min-width: 100%;
+    }
+
+    .sidebar-item {
+        text-align: center;
+    }
+
+    .content-header h1 {
+        font-size: 2rem;
+    }
+
+    .coming-soon-box h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .useful-links-container {
+        padding: 0 1rem;
+        margin: 1rem auto;
+    }
+
+    .content-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .sidebar-item {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+
+    .coming-soon-box {
+        padding: 2rem;
+    }
+
+    .coming-soon-box h2 {
+        font-size: 1.5rem;
+    }
+
+    .useful-links-container .page-contact-section {
+        padding: 1.5rem;
+    }
+}
+</style>
+
+<div class="useful-links-container">
+    <aside class="sidebar">
+        <a href="#" class="sidebar-item active" data-section="conferences" data-translation-key="sidebarRelatedConferences">
+            Related Conferences
+        </a>
+        <a href="#" class="sidebar-item" data-section="partners" data-translation-key="sidebarPartnersAndCourses">
+            Partners & Courses
+        </a>
+        <a href="#" class="sidebar-item" data-section="societies" data-translation-key="sidebarSocieties">
+            Societies
+        </a>
+        <a href="#" class="sidebar-item" data-section="galleries" data-translation-key="sidebarPhotoGalleries">
+            Photo Galleries
+        </a>
+        <a href="#" class="sidebar-item" data-section="previous" data-translation-key="sidebarPreviousCongresses">
+            Previous Congresses
+        </a>
+        <a href="#" class="sidebar-item" data-section="contact" data-translation-key="sidebarContact">
+            Contact
+        </a>
+    </aside>
+
+    <main class="main-content">
+        <!-- Related Conferences Section -->
+        <div id="conferences-section" class="content-section active">
+            <div class="content-header">
+                <h1 data-translation-key="relatedConferencesTitle">Related Conferences</h1>
+            </div>
+            <div class="conference-banners">
+                <div class="conference-banner">
+                    <a href="https://cogi-congress.org/" target="_blank">
+                        <img src="{% static 'blog/images/cogibanner.png' %}" alt="COGI Congress">
+                    </a>
+                </div>
+                <div class="conference-banner">
+                    <a href="https://www.isge.org/" target="_blank">
+                        <img src="{% static 'blog/images/isgebanner.png' %}" alt="ISGE Congress">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Partners & Courses Section -->
+        <div id="partners-section" class="content-section">
+            <div class="content-header">
+                <h1 data-translation-key="sidebarPartnersAndCourses">Partners & Courses</h1>
+            </div>
+            <div class="coming-soon-box">
+                <h2 data-translation-key="comingSoon">Coming Soon</h2>
+            </div>
+        </div>
+
+        <!-- Societies Section -->
+        <div id="societies-section" class="content-section">
+            <div class="content-header">
+                <h1 data-translation-key="sidebarSocieties">Societies</h1>
+            </div>
+            <div class="coming-soon-box">
+                <h2 data-translation-key="comingSoon">Coming Soon</h2>
+            </div>
+        </div>
+
+        <!-- Photo Galleries Section -->
+        <div id="galleries-section" class="content-section">
+            <div class="content-header">
+                <h1 data-translation-key="sidebarPhotoGalleries">Photo Galleries</h1>
+            </div>
+            <div class="coming-soon-box">
+                <h2 data-translation-key="comingSoon">Coming Soon</h2>
+            </div>
+        </div>
+
+        <!-- Previous Congresses Section -->
+        <div id="previous-section" class="content-section">
+            <div class="content-header">
+                <h1 data-translation-key="sidebarPreviousCongresses">Previous Congresses</h1>
+            </div>
+            <div class="coming-soon-box">
+                <h2 data-translation-key="comingSoon">Coming Soon</h2>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div id="contact-section" class="content-section">
+            <div class="content-header">
+                <h1 data-translation-key="sidebarContact">Contact</h1>
+            </div>
+            <div class="page-contact-section">
+                <div class="page-contact-info">
+                    <div class="page-contact-item">
+                        <span class="page-contact-label" data-translation-key="contactGeneral">General Inquiries</span>
+                        <a href="mailto:asanidzeelene@yahoo.com" class="page-contact-link">asanidzeelene@yahoo.com</a>
+                    </div>
+                    <div class="page-contact-item">
+                        <span class="page-contact-label" data-translation-key="contactDirector">Association Director</span>
+                        <a href="mailto:asanidzeelene@yahoo.com" class="page-contact-link">asanidzeelene@yahoo.com</a>
+                    </div>
+                    <div class="page-contact-item">
+                        <span class="page-contact-label" data-translation-key="contactTechnical">Technical Inquiries or Questions</span>
+                        <a href="mailto:unseenmeli@gmail.com" class="page-contact-link">unseenmeli@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebarItems = document.querySelectorAll('.sidebar-item');
+    const contentSections = document.querySelectorAll('.content-section');
+
+    function showSection(sectionName) {
+        // Remove active class from all items
+        sidebarItems.forEach(i => i.classList.remove('active'));
+
+        // Add active class to the corresponding sidebar item
+        const activeItem = document.querySelector(`[data-section="${sectionName}"]`);
+        if (activeItem) {
+            activeItem.classList.add('active');
+        }
+
+        // Hide all sections
+        contentSections.forEach(section => section.classList.remove('active'));
+
+        // Show selected section
+        const sectionId = sectionName + '-section';
+        const targetSection = document.getElementById(sectionId);
+        if (targetSection) {
+            targetSection.classList.add('active');
+        }
+    }
+
+    // Handle sidebar clicks
+    sidebarItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const sectionName = this.getAttribute('data-section');
+            showSection(sectionName);
+            // Update URL hash without scrolling
+            history.pushState(null, null, '#' + sectionName);
+        });
+    });
+
+    // Check for hash in URL on page load
+    if (window.location.hash) {
+        const hash = window.location.hash.substring(1); // Remove the #
+        showSection(hash);
+    }
+
+    // Handle browser back/forward buttons
+    window.addEventListener('hashchange', function() {
+        if (window.location.hash) {
+            const hash = window.location.hash.substring(1);
+            showSection(hash);
+        } else {
+            showSection('conferences'); // Default section
+        }
+    });
+});
+</script>
 
 {% endblock content %}

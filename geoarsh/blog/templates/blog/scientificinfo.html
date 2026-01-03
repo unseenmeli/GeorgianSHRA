@@ -1,4 +1,49 @@
 {% extends "blog/base.html" %}
 {% block content %}
 
+<style>
+.coming-soon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    padding: 2rem;
+}
+
+.coming-soon-box {
+    text-align: center;
+    background: linear-gradient(135deg, rgba(32, 180, 185, 0.05) 0%, rgba(26, 147, 153, 0.05) 100%);
+    padding: 3rem 4rem;
+    border-radius: 20px;
+    border: 2px solid rgba(32, 180, 185, 0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.coming-soon-box h1 {
+    font-size: 3rem;
+    background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    font-weight: 800;
+}
+
+@media (max-width: 768px) {
+    .coming-soon-box {
+        padding: 2rem;
+    }
+
+    .coming-soon-box h1 {
+        font-size: 2rem;
+    }
+}
+</style>
+
+<div class="coming-soon-container">
+    <div class="coming-soon-box">
+        <h1 data-translation-key="comingSoon">Coming Soon</h1>
+    </div>
+</div>
+
 {% endblock content %}

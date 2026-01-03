@@ -177,35 +177,35 @@
     <div class="hero-slider">
         <div class="slider-container">
             <div class="slide active">
+                <img src="{% static 'blog/images/garsh-at-cogi-2025-a-remarkable-participation_c.jpg' %}" alt="COGI 2025">
+                <div class="slide-content">
+                    <h2 data-translation-key="slide1Title">GARSH at COGI 2025</h2>
+                    <p data-translation-key="slide1Text">Remarkable participation at the World Congress</p>
+                    <a href="{% url 'news43' %}" class="slide-btn">Learn More</a>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="{% static 'blog/images/full-congress-package-fcp-scholarship-by-the-international-society-of-gynecological-endocrinology-isge-for-the-year-2026_e.jpg' %}" alt="ISGE Scholarship">
+                <div class="slide-content">
+                    <h2 data-translation-key="slide2Title">ISGE Scholarship 2026</h2>
+                    <p data-translation-key="slide2Text">Full Congress Package awarded to GARSH member</p>
+                    <a href="{% url 'news42' %}" class="slide-btn">Read More</a>
+                </div>
+            </div>
+            <div class="slide">
                 <img id="news41-slider-image" src="{% static 'blog/images/wonderful-news-from-the-georgian-association-of-reproductive-and-sexual-health-we-are-delighted-to-announce-that-the-georgian-association-of-reproductive-and-sexual-health-has-become-an-associate-member-of-the-european-society-of-endocrinology-ese_2.jpg' %}" alt="ESE Membership">
                 <div class="slide-content">
-                    <h2 data-translation-key="slide1Title">Associate Member of ESE!</h2>
-                    <p data-translation-key="slide1Text">GARSH joins the European Society of Endocrinology</p>
+                    <h2 data-translation-key="slide3Title">Associate Member of ESE!</h2>
+                    <p data-translation-key="slide3Text">GARSH joins the European Society of Endocrinology</p>
                     <a href="{% url 'news41' %}" class="slide-btn">Learn More</a>
                 </div>
             </div>
             <div class="slide">
                 <img src="{% static 'blog/images/the-georgian-association-of-reproductive-and-sexual-health-successfully-conducted-a-continuing-medical-education-cme-training-on-the-topic_aa.jpg' %}" alt="CME Training">
                 <div class="slide-content">
-                    <h2 data-translation-key="slide2Title">CME Training Success</h2>
-                    <p data-translation-key="slide2Text">Modern principles of management of estrogen deficiency</p>
-                    <a href="{% url 'news40' %}" class="slide-btn">Read More</a>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="{% static 'blog/images/garsh-at-the-20th-world-congress-of-the-academy-of-human-reproduction-from-september-1821-2025-for-the-first-time-in-georgia-tbilisi-proudly-hosted-the-20th-world-congress-of-the-academy-of-human-reproduction_conf2pic.jpeg' %}" alt="World Congress">
-                <div class="slide-content">
-                    <h2 data-translation-key="slide3Title">20th World Congress in Tbilisi</h2>
-                    <p data-translation-key="slide3Text">Georgia hosts Academy of Human Reproduction</p>
-                    <a href="{% url 'news37' %}" class="slide-btn">Discover</a>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="{% static 'blog/images/important-news-the-georgian-association-of-reproductive-and-sexual-health-congratulates-the-associations-co-founder-and-chief-expert-prof-jenaro-kristesashvili-on-being-awarded-the-title-of-honorary-citizen-of-tbilisi_jenaro.jpg' %}" alt="Honorary Citizen">
-                <div class="slide-content">
-                    <h2 data-translation-key="slide4Title">Prof. Kristesashvili Honored</h2>
-                    <p data-translation-key="slide4Text">Honorary Citizen of Tbilisi award</p>
-                    <a href="{% url 'news39' %}" class="slide-btn">View Details</a>
+                    <h2 data-translation-key="slide4Title">CME Training Success</h2>
+                    <p data-translation-key="slide4Text">Modern principles of management of estrogen deficiency</p>
+                    <a href="{% url 'news40' %}" class="slide-btn">Discover</a>
                 </div>
             </div>
         </div>
@@ -228,7 +228,36 @@
     <hr class="scroll-animate">
     <hr class="scroll-animate">
 
-    <div class="news-container" onclick="window.location.href=`{% url 'news41' %}`;" style="cursor: pointer;">
+    <div class="news-container" onclick="window.location.href=`{% url 'news43' %}`;" style="cursor: pointer;">
+        <a href="{% url 'news43' %}">
+            <img src="{% static 'blog/images/garsh-at-cogi-2025-a-remarkable-participation_c.jpg' %}" class="news-image">
+        </a>
+        <div>
+            <h1 class="news-title" data-translation-key="news43Title">
+                ✨ GARSH at COGI 2025 — a remarkable participation! ✨
+            </h1>
+            <p class="news-text" data-translation-key="homeNews43Paragraph">
+                We're proud to share that the Georgian Association of Reproductive and Sexual Health (GARSH) successfully took part in the 33rd World Congress on Controversies in Obstetrics, Gynecology, and Infertili...
+            </p>
+        </div>
+    </div>
+
+    <div class="news-container scroll-animate" onclick="window.location.href=`{% url 'news42' %}`;" style="cursor: pointer;">
+        <a href="{% url 'news42' %}">
+            <img src="{% static 'blog/images/full-congress-package-fcp-scholarship-by-the-international-society-of-gynecological-endocrinology-isge-for-the-year-2026_e.jpg' %}" class="news-image">
+        </a>
+        <div>
+            <h1 class="news-title" data-translation-key="news42Title">
+                Full Congress Package (FCP) Scholarship by the International Society of Gynecological Endocrinology (ISGE) for the year 2026
+            </h1>
+            <p class="news-text" data-translation-key="homeNews42Paragraph">
+                🌍✨ Important Announcement
+<br>We are pleased to share that Aleksandre Asanidze, Head of Medical Student Membership at the Georgian Association of Reproductive and Sexual Health, has been awarded the F...
+            </p>
+        </div>
+    </div>
+
+    <div class="news-container scroll-animate" onclick="window.location.href=`{% url 'news41' %}`;" style="cursor: pointer;">
         <a href="{% url 'news41' %}">
             <img id="news41-image" src="{% static 'blog/images/wonderful-news-from-the-georgian-association-of-reproductive-and-sexual-health-we-are-delighted-to-announce-that-the-georgian-association-of-reproductive-and-sexual-health-has-become-an-associate-member-of-the-european-society-of-endocrinology-ese_2.jpg' %}" class="news-image">
         </a>
@@ -332,32 +361,6 @@ Effectiveness of Combined Sur...
             </p>
         </div>
     </div>
-
-    <a href="{% url 'news25' %}" class="news-container-link">
-        <div class="news-container scroll-animate">
-            <img src="{% static 'blog/images/elenerustavi.jpg' %}" class="news-image">
-            <div>
-                <h1 class="news-title" data-translation-key="news25Title">
-                </h1>
-                <p class="news-text" data-translation-key="homeNews25Paragraph">
-                </p>
-            </div>
-        </div>
-    </a>
-
-    <a href="{% url 'news24' %}" class="news-container-link">
-        <div class="news-container scroll-animate">
-            <img src="{% static 'blog/images/xatunasuxadze.jpg' %}" class="news-image">
-            <div>
-                <h1 class="news-title" data-translation-key="news23Title">
-                    Conference Highlight
-                </h1>
-                <p class="news-text" data-translation-key="homeNews23Paragraph">
-                    On May 9–12, 2025, the 34th United Multidisciplinary Scientific Conference, "International Standards of Clinical Practice," organized by the Association of Medical Education and Evidence-Based Medicine, was held.
-                </p>
-            </div>
-        </div>
-    </a>
 
     <hr>
 <div class="formore">
@@ -528,6 +531,18 @@ Effectiveness of Combined Sur...
     object-fit: cover;
     animation: kenburns 10s ease-out;
     transform-origin: center;
+}
+
+.slide:nth-child(1),
+.slide:nth-child(2) {
+    background-image: url("{% static 'blog/images/tbilisi.jpg' %}");
+    background-size: cover;
+    background-position: center;
+}
+
+.slide:nth-child(1) img,
+.slide:nth-child(2) img {
+    object-fit: contain;
 }
 
 @keyframes kenburns {

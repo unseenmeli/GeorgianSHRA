@@ -1,0 +1,126 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+    .language-toggle {
+        position: fixed;
+        top: 100px;
+        right: 30px;
+        background: white;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+    .lang-btn {
+        display: block;
+        width: 60px;
+        padding: 10px;
+        margin: 5px 0;
+        background: #f8fafc;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+    }
+    .lang-btn.active {
+        background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+        border-color: #20b4b9;
+    }
+    .content-lang {
+        display: none;
+    }
+    .content-lang.active {
+        display: block;
+    }
+    .main-image {
+        width: 100%;
+        max-width: 800px;
+        margin: 2rem auto;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<div class="language-toggle">
+    <button class="lang-btn active" onclick="switchLanguage('en')">🇬🇧</button>
+    <button class="lang-btn" onclick="switchLanguage('ge')">🇬🇪</button>
+</div>
+
+<div class="content-lang active" id="content-en">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">✨ GARSH at COGI 2025 — a remarkable participation! ✨ </h1>
+        <div class="article-meta">
+            <span class="article-date">December 13, 2025</span>
+            <span class="article-category">News</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            We’re proud to share that the Georgian Association of Reproductive and Sexual Health (GARSH) successfully took part in the 33rd World Congress on Controversies in Obstetrics, Gynecology, and Infertility (COGI), contributing keynote lectures and scientific presentations on the international stage.<br>🌿 Our Scientific Contributions<br>🎓 PCOS Symposium<br> Prof. Elene Asanidze (Georgia)- “Challenges in Diagnosing PCOS in Adolescents”<br>🎓 Oral Presentation – ART/IVF/Infertility: Clinical ART/IVF<br> Prof. Ludmila Barbakadze (Georgia)- “Comparison of Dydrogesterone and GnRH Antagonists in Preventing the LH Surge During IVF/ICSI Cycles”<br>🎓 Oral Presentation – ART/IVF/Infertility: Reproductive Genetics, Case Reports, Endocrinology & Clinical ART/IVF<br> Dr. Anna Jibladze (Georgia)- “An Unusual Presentation of Unicornuate Uterus with a Functional Rudimentary Horn Coexisting with VACTERL Association”<br>We are honored to see Georgian researchers and clinicians share their expertise among global leaders in reproductive medicine. A heartfelt congratulations to all presenters for representing Georgia with excellence.
+        </p>
+    </div>
+    
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+        <div class="share-buttons">
+            <span>Share:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<div class="content-lang" id="content-ge">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">🎉 საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაცია მნიშვნელოვან მსოფლიო კონგრესზე!</h1>
+        <div class="article-meta">
+            <span class="article-date">2025 წლის 13 December</span>
+            <span class="article-category">სიახლეები</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            🎉 საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაცია მნიშვნელოვან მსოფლიო კონგრესზე!<br>2025 წლის 27–29 ნოემბერს იტალიის დედაქალაქ რომში გაიმართა   33-ე მსოფლიო კონგრესი “წინააღმდეგობები მეანობა-გინეკოლოგიასა და უნაყოფობაში“ (#COGI). <br>🧑‍🎓 საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაციის პრეზიდენტი, პროფესორი ელენე ასანიძე მიწვეული იყო კონგრესზე საექსპერტო მოხსენებით, რაც ჩვენი ქვეყნისთვის მნიშვნელოვანი აღიარებაა.<br>🌿 ჩვენი სამეცნიერო მოღვაწეიბა:<br>🎓 სიმპოზიუმი:<br>პროფ. ელენე ასანიძე Elene Asanidze <br>“Challenges in Diagnosing PCOS in Adolescents”<br>🎓 ორალური პრეზენტაცია – ART/IVF/Infertility<br>პროფ. ლუდმილა ბარქაძე Luda Barbakadze <br>“Comparison of Dydrogesterone and GnRH Antagonists in Preventing the LH Surge During IVF/ICSI Cycles”<br>🎓 ორალური პრეზენტაცია – Reproductive Genetics<br>თსუ-ს დოქტორანტი ანნა ჯიბლაძე Anna Jibladze <br>“An Unusual Presentation of Unicornuate Uterus with a Functional Rudimentary Horn Coexisting with VACTERL Association”<br> გულწრფელი მადლობა და მილოცვა ყველა მომხსენებელს, რომლებმაც საქართველო უმაღლესი სტანდარტით წარმოადგინეს.<br>💙 COGI 2025-ში მონაწილეობამ კიდევ უფრო გამოკვეთა GARSH-ის პრიორიტეტი — ხელი შეუწყოს კვლევის, განათლებისა და საერთაშორისო თანამშრომლობის განვითარებას რეპროდუქციულ და სქესობრივ ჯანმრთელობაში.
+        </p>
+    </div>
+    
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← სიახლეებზე დაბრუნება</a>
+        <div class="share-buttons">
+            <span>გაზიარება:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<script>
+function switchLanguage(lang) {
+    document.querySelectorAll('.content-lang').forEach(el => {
+        el.classList.remove('active');
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.getElementById('content-' + lang).classList.add('active');
+    event.target.classList.add('active');
+}
+</script>
+
+{% endblock content %}

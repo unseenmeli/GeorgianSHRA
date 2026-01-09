@@ -190,6 +190,8 @@ def news42(request):
     return render(request, "blog/news/news42.html")
 def news43(request):
     return render(request, "blog/news/news43.html")
+def news44(request):
+    return render(request, "blog/news/news44.html")
 # for news posts to here !!!
 
 def events1(request):

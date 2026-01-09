@@ -1,6 +1,21 @@
 {% extends "blog/base.html" %}
 {% load static %}
 {% block content %}
+
+     <div class="news-container" onclick="window.location.href=`{% url 'news44' %}`;" style="cursor: pointer;">
+        <a href="{% url 'news44' %}">
+            <img src="{% static 'blog/images/strengthening-international-collaboration-professor-elene-asanidze-at-the-xi-international-congress-in-uzbekistan_uzbek.jpeg' %}" class="news-image">
+        </a>
+        <div>
+            <h1 class="news-title" data-translation-key="news44Title">
+                Strengthening International Collaboration: Professor Elene Asanidze at the XI International Congress in Uzbekistan
+            </h1>
+            <p class="news-text" data-translation-key="homeNews44Paragraph">
+                From November 24–26, 2025, the XI International Congress of Obstetricians and Gynecologists of the Republic of Uzbekistan, entitled “Women’s Health in the 21st Century: Quality of Life of Mother and C...
+            </p>
+        </div>
+    </div>
+
     <div class="news-container" onclick="window.location.href=`{% url 'news43' %}`;" style="cursor: pointer;">
         <a href="{% url 'news43' %}">
             <img src="{% static 'blog/images/garsh-at-cogi-2025-a-remarkable-participation_c.jpg' %}" class="news-image">

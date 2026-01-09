@@ -1,0 +1,126 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+    .language-toggle {
+        position: fixed;
+        top: 100px;
+        right: 30px;
+        background: white;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+    .lang-btn {
+        display: block;
+        width: 60px;
+        padding: 10px;
+        margin: 5px 0;
+        background: #f8fafc;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+    }
+    .lang-btn.active {
+        background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+        border-color: #20b4b9;
+    }
+    .content-lang {
+        display: none;
+    }
+    .content-lang.active {
+        display: block;
+    }
+    .main-image {
+        width: 100%;
+        max-width: 800px;
+        margin: 2rem auto;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<div class="language-toggle">
+    <button class="lang-btn active" onclick="switchLanguage('en')">🇬🇧</button>
+    <button class="lang-btn" onclick="switchLanguage('ge')">🇬🇪</button>
+</div>
+
+<div class="content-lang active" id="content-en">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">Strengthening International Collaboration: Professor Elene Asanidze at the XI International Congress in Uzbekistan</h1>
+        <div class="article-meta">
+            <span class="article-date">January 09, 2026</span>
+            <span class="article-category">News</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            From November 24–26, 2025, the XI International Congress of Obstetricians and Gynecologists of the Republic of Uzbekistan, entitled “Women’s Health in the 21st Century: Quality of Life of Mother and Child,” was held in Tashkent, Uzbekistan.<br>Professor Elene Asanidze, President of the Georgian Association of Reproductive and Sexual Health, was invited as an expert speaker and delivered keynote lectures on the following topics:<br>The influence of genetic and metabolic factors on pregnancy outcomes in women with polycystic ovary syndrome (PCOS)<br>Precocious puberty in girls<br>Her presentations generated strong professional interest and received highly positive feedback from the audience.<br>The Georgian Association of Reproductive and Sexual Health continues to strengthen Georgia’s role on the global reproductive health stage. Participation in high-level international scientific forums fosters international collaboration and contributes to the advancement of reproductive health worldwide.
+        </p>
+    </div>
+    
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+        <div class="share-buttons">
+            <span>Share:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<div class="content-lang" id="content-ge">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">საერთაშორისო თანამშრომლობის გაძლიერება: პროფესორი ელენე ასანიძე უზბეკეთის მეან-გინეკოლოგთა XI საერთაშორისო კონგრესზე</h1>
+        <div class="article-meta">
+            <span class="article-date">2026 წლის 09 January</span>
+            <span class="article-category">სიახლეები</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            საერთაშორისო თანამშრომლობის გაძლიერება: პროფესორი ელენე ასანიძე უზბეკეთის მეან-გინეკოლოგთა XI საერთაშორისო კონგრესზე<br>2025 წლის 24-26 ნოემბერს, ტაშკენტში, უზბეკეთის რესპუბლიკაში, გაიმართა უზბეკეთის რესპუბლიკის მეან-გინეკოლოგთა XI საერთაშორისო კონგრესი „Women’s Health in the 21st Century. Quality of Life of Mother and Child“.<br>კონგრესზე პროფ. ელენე ასანიძე მიწვეული იყო ექსპერტ- მომხსენებლად და წარადგინა ორი ძირითადი ლექცია თემებზე:<br>ნაადრევი სქესობრივი განვითარება<br>გენეტიკური და მეტაბოლური ფაქტორების გავლენა ორსულობის გამოსავალზე ქალებში პოლიცისტური საკვერცხის სინდრომით<br>პროფესორ ასანიძის მოხსენებებმა დაიმსახურა კონგრესის მონაწილეთა მაღალი შეფასება და ფართო ინტერესი.<br>საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაციის გუნდი წარმატებით აგრძელებს საქართველოს როლის გაძლიერებას რეპროდუქციული ჯანმრთელობის გლობალურ ასპარეზზე. მსგავსი საერთაშორისო აქტივობები ხელს უწყობს პროფესიული თანამშრომლობის გაღრმავებას და რეპროდუქციული ჯანმრთელობის განვითარების წინსვლას საერთაშორისო დონეზე.<br>
+        </p>
+    </div>
+    
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← სიახლეებზე დაბრუნება</a>
+        <div class="share-buttons">
+            <span>გაზიარება:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<script>
+function switchLanguage(lang) {
+    document.querySelectorAll('.content-lang').forEach(el => {
+        el.classList.remove('active');
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.getElementById('content-' + lang).classList.add('active');
+    event.target.classList.add('active');
+}
+</script>
+
+{% endblock content %}

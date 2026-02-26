@@ -1,0 +1,162 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+    .language-toggle {
+        position: fixed;
+        top: 100px;
+        right: 30px;
+        background: white;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+    .lang-btn {
+        display: block;
+        width: 60px;
+        padding: 10px;
+        margin: 5px 0;
+        background: #f8fafc;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+    }
+    .lang-btn.active {
+        background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+        border-color: #20b4b9;
+    }
+    .content-lang {
+        display: none;
+    }
+    .content-lang.active {
+        display: block;
+    }
+    .main-image {
+        width: 100%;
+        max-width: 800px;
+        margin: 2rem auto;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<div class="language-toggle">
+    <button class="lang-btn active" onclick="switchLanguage('en')">🇬🇧</button>
+    <button class="lang-btn" onclick="switchLanguage('ge')">🇬🇪</button>
+</div>
+
+<div class="content-lang active" id="content-en">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">📢 Attention Obstetricians-Gynecologists, Reproductive Medicine Specialists, Pediatricians, Endocrinologists, and Family Physicians!</h1>
+        <div class="article-meta">
+            <span class="article-date">February 26, 2026</span>
+            <span class="article-category">News</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            📢 Attention Obstetricians-Gynecologists, Reproductive Medicine Specialists, Pediatricians, Endocrinologists, and Family Physicians!
+<br>🎓The Georgian Association of Reproductive and Sexual Health
+<br>is pleased to announce a CME training program:
+<br>🗓 March 20–21, 2026
+<br>📘 “Detection and Modern Management Principles of Reproductive Health Disorders in Children and Adolescents”
+<br>🎤 Speakers:
+<br>🧑‍🎓👩‍⚕️ Prof. Jenaro Kristesashvili
+<br>🧑‍🎓👩‍⚕️ Prof. Manana (Maka) Gegechkori
+<br>🧑‍🎓👩‍⚕️ Prof. Elene Asanidze
+<br>🔹 This training is intended for certified physicians in the following specialties:
+<br>👩‍⚕️ Obstetrics and Gynecology
+<br>👩‍⚕️ Reproductive Medicine
+<br>👩‍⚕️ Pediatrics
+<br>👩‍⚕️ Endocrinology
+<br>👩‍⚕️ Family Medicine
+<br>🎓 Upon completion of the training, participants will receive 12 CME credits.
+<br>📞 For registration and additional information:
+<br>Phone: +995 599 10 91 95
+<br>📧 Email: asanidzeelene@yahoo.com
+        </p>
+    </div>
+    
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to Events</a>
+        <div class="share-buttons">
+            <span>Share:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<div class="content-lang" id="content-ge">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">📢 მეან-გინეკოლოგების, რეპროდუქტოლოგების, პედიატრების, ენდოკრინოლოგებისა და საოჯახო მედიცინის სპეციალობის ექიმების საყურადღებოდ!</h1>
+        <div class="article-meta">
+            <span class="article-date">2026 წლის 26 February</span>
+            <span class="article-category">სიახლეები</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            📢 მეან-გინეკოლოგების, რეპროდუქტოლოგების, პედიატრების, ენდოკრინოლოგებისა და საოჯახო მედიცინის სპეციალობის ექიმების საყურადღებოდ!
+<br>🎓საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაცია
+<br>აცხადებს უპგ ტრეინინგს:
+<br>🗓 2026 წლის 20–21 მარტი
+<br>📘 „ბავშვთა და მოზარდთა რეპროდუქციული ჯანმრთელობის დარღვევების გამოვლენა და მათი მართვის თანამედროვე პრინციპები“
+<br>🎤 სპიკერები:
+<br>🧑‍🎓👩‍⚕️ პროფ. ჯენარო ქრისტესაშვილი
+<br>🧑‍🎓👩‍⚕️ პროფ. მანანა (მაკა) გეგეჭკორი
+<br>🧑‍🎓👩‍⚕️ პროფ. ელენე ასანიძე
+<br>🔹 ტრენინგი განკუთვნილია სერტიფიცირებული ექიმებისთვის შემდეგი სპეციალობებიდან:
+<br>👩‍⚕️ მეანობა-გინეკოლოგია
+<br>👩‍⚕️ რეპროდუქტოლოგია
+<br>👩‍⚕️ პედიატრია
+<br>👩‍⚕️ ენდოკრინოლოგია
+<br>👩‍⚕️ საოჯახო მედიცინა
+<br>🎓 ტრენინგის დასრულების შემდეგ მსმენელებს მიენიჭებათ 12 კრედიტ-ქულა.
+<br>ტრენინგის საფასური- 250 ლარი
+<br>📞 რეგისტრაციისა და დამატებითი ინფორმაციისთვის:
+<br> 📧 Email: asanidzeelene@yahoo.com ტელ.: 599 10 91 95
+        </p>
+    </div>
+    
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← ღონისძიებებზე დაბრუნება</a>
+        <div class="share-buttons">
+            <span>გაზიარება:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<script>
+function switchLanguage(lang) {
+    document.querySelectorAll('.content-lang').forEach(el => {
+        el.classList.remove('active');
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.getElementById('content-' + lang).classList.add('active');
+    event.target.classList.add('active');
+}
+</script>
+
+{% endblock content %}

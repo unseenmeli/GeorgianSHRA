@@ -77,6 +77,7 @@ urlpatterns = [
     path('news42/', views.news42, name='news42'),
     path('news43/', views.news43, name='news43'),
     path('news44/', views.news44, name='news44'),
+    path('news45/', views.news45, name='news45'),
 
     # for news posts to here !!!
 

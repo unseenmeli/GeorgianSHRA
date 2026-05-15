@@ -78,6 +78,10 @@ urlpatterns = [
     path('news43/', views.news43, name='news43'),
     path('news44/', views.news44, name='news44'),
     path('news45/', views.news45, name='news45'),
+    path('news46/', views.news46, name='news46'),
+    path('news47/', views.news47, name='news47'),
+    path('news48/', views.news48, name='news48'),
+    path('news49/', views.news49, name='news49'),
 
     # for news posts to here !!!
 

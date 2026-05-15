@@ -9,192 +9,72 @@
         min-height: 100vh;
     }
 
-    /* Hero Image - Full Width */
-    .hero-image-container {
-        width: 100vw;
-        height: auto;
+    /* Hero Section - Clean & Professional */
+    .hero-section {
+        background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+        padding: 4rem 2rem;
+        margin-bottom: 4rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-section::before {
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
-        margin: 0;
-        padding: 0;
+        bottom: 0;
+        background: url("{% static 'blog/images/tbilisi.jpg' %}") center/cover;
+        opacity: 0.08;
+        pointer-events: none;
+    }
+
+    .hero-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
         z-index: 1;
-        overflow: hidden;
-        max-height: 100vh;
     }
 
-    .hero-image {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        object-position: center top;
-        display: block;
-    }
-
-    /* Hero Text Overlay - Modern & Bold */
-    .hero-text-overlay {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 8%;
-        max-width: 650px;
-        text-align: right;
-    }
-
-    .congress-title {
-        font-size: 3rem;
-        font-weight: 900;
-        color: #ffffff;
-        line-height: 1.2;
-        margin: 0 0 2rem 0;
-        letter-spacing: -0.03em;
-        text-transform: uppercase;
-        background: linear-gradient(135deg, rgba(32, 180, 185, 0.95) 0%, rgba(26, 147, 153, 0.95) 100%);
-        padding: 1.5rem 2.5rem;
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 5% 100%);
-        box-shadow: 0 15px 50px rgba(32, 180, 185, 0.4);
-        backdrop-filter: blur(5px);
-        font-family: 'Manrope', sans-serif !important;
-    }
-
-    .congress-details {
-        font-size: 1.4rem;
-        font-weight: 700;
-        color: #1a1a1a;
-        background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
-        padding: 1.2rem 3rem;
-        margin: 0 0 2rem 0;
+    .hero-badge {
         display: inline-block;
-        clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
-        box-shadow: 0 10px 30px rgba(32, 180, 185, 0.5);
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        font-family: 'Manrope', sans-serif !important;
-    }
-
-    .congress-btn {
-        display: inline-block;
-        padding: 1.2rem 3.5rem;
-        background: #ffffff;
+        padding: 0.5rem 1.5rem;
+        background: rgba(32, 180, 185, 0.15);
+        border: 1px solid rgba(32, 180, 185, 0.3);
+        border-radius: 50px;
         color: #20b4b9;
-        font-size: 1.2rem;
-        font-weight: 800;
-        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 1px;
         text-transform: uppercase;
-        letter-spacing: 2px;
-        clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-        transition: all 0.3s ease;
-        border: 3px solid #ffffff;
-        font-family: 'Manrope', sans-serif !important;
+        margin-bottom: 1.5rem;
     }
 
-    .congress-btn:hover {
-        background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
-        color: #ffffff;
-        transform: translateY(-4px);
-        box-shadow: 0 15px 45px rgba(32, 180, 185, 0.6);
-        border-color: #20b4b9;
+    .hero-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        color: white;
+        margin: 0 0 1.5rem 0;
+        line-height: 1.2;
+        letter-spacing: -1px;
     }
 
-    @media (max-width: 1200px) {
-        .hero-text-overlay {
-            max-width: 550px;
-            right: 5%;
-        }
-
-        .congress-title {
-            font-size: 2.5rem;
-            padding: 1.2rem 2rem;
-        }
-
-        .congress-details {
-            font-size: 1.2rem;
-            padding: 1rem 2.5rem;
-        }
-
-        .congress-btn {
-            font-size: 1.1rem;
-            padding: 1rem 3rem;
-        }
-    }
-
-    @media (max-width: 1024px) {
-        .hero-text-overlay {
-            right: 4%;
-            max-width: 450px;
-        }
-
-        .congress-title {
-            font-size: 2rem;
-            padding: 1rem 1.5rem;
-        }
-
-        .congress-details {
-            font-size: 1.1rem;
-            padding: 0.9rem 2rem;
-        }
-
-        .congress-btn {
-            font-size: 1rem;
-            padding: 0.9rem 2.5rem;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .hero-text-overlay {
-            top: 15%;
-            right: 3%;
-            left: 3%;
-            max-width: none;
-            text-align: center;
-        }
-
-        .congress-title {
-            font-size: 1.5rem;
-            padding: 0.8rem 1.2rem;
-            clip-path: none;
-        }
-
-        .congress-details {
-            font-size: 0.95rem;
-            padding: 0.8rem 1.5rem;
-            clip-path: none;
-        }
-
-        .congress-btn {
-            font-size: 0.9rem;
-            padding: 0.8rem 2rem;
-            clip-path: none;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .congress-title {
-            font-size: 1.2rem;
-            padding: 0.6rem 1rem;
-        }
-
-        .congress-details {
-            font-size: 0.85rem;
-            padding: 0.6rem 1.2rem;
-        }
-
-        .congress-btn {
-            font-size: 0.8rem;
-            padding: 0.7rem 1.5rem;
-        }
+    .hero-subtitle {
+        font-size: clamp(1.1rem, 2vw, 1.4rem);
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 700px;
+        margin: 0 auto 2.5rem;
+        line-height: 1.6;
+        font-weight: 400;
     }
 
     /* News Section */
     .news-section {
         max-width: 1400px;
-        margin: 100vh auto 5rem;
+        margin: 0 auto 5rem;
         padding: 0 2rem;
-        position: relative;
-        z-index: 2;
-        background: #fafbfc;
     }
 
     .section-header {
@@ -354,13 +234,50 @@
     }
     </style>
 
-    <!-- Hero Image -->
-    <div class="hero-image-container">
-        <img src="{% static 'blog/images/tbilisi' %}" alt="GARSH Hero Image" class="hero-image">
-        <div class="hero-text-overlay">
-            <h1 class="congress-title">The 1st Congress of the Georgian Association of Reproductive and Sexual Health</h1>
-            <p class="congress-details">20th June 2026<br>Tbilisi, Georgia</p>
-            <a href="#" class="congress-btn">Learn More & Register</a>
+    <div class="hero-slider">
+        <div class="slider-container">
+            <div class="slide active">
+                <img src="{% static 'blog/images/the-georgian-association-of-reproductive-and-sexual-health-garsh-participated-in-the-40th-anniversary-international-congress-of-the-international-society-of-gynecological-endocrinology-isge-held-in-rome-on-march-46-2025_elelel.jpg' %}" alt="ISGE 40th Anniversary">
+                <div class="slide-content">
+                    <h2 data-translation-key="slide1Title">GARSH at ISGE 40th Anniversary</h2>
+                    <p data-translation-key="slide1Text">International Congress of Gynecological Endocrinology in Rome</p>
+                    <a href="{% url 'news48' %}" class="slide-btn">Learn More</a>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="{% static 'blog/images/the-georgian-association-of-reproductive-and-sexual-health-congratulates-irakli-simonia-on-the-successful-defense-of-his-doctoral-dissertation_irakli.jpg' %}" alt="Irakli Simonia Defense">
+                <div class="slide-content">
+                    <h2 data-translation-key="slide2Title">Doctoral Dissertation Success</h2>
+                    <p data-translation-key="slide2Text">Congratulations to Irakli Simonia on successful defense</p>
+                    <a href="{% url 'news47' %}" class="slide-btn">Learn More</a>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="{% static 'blog/images/congratulations-to-nino-abesadze-on-february-20-2026-at-the-faculty-of-medicine-of-ivane-javakhishvili-tbilisi-state-university_nina.jpg' %}" alt="Nino Abesadze Defense">
+                <div class="slide-content">
+                    <h2 data-translation-key="slide3Title">Congratulations Dr. Nino Abesadze</h2>
+                    <p data-translation-key="slide3Text">Successful dissertation defense at Tbilisi State University</p>
+                    <a href="{% url 'news46' %}" class="slide-btn">Read More</a>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="{% static 'blog/images/strengthening-international-collaboration-professor-elene-asanidze-at-the-xi-international-congress-in-uzbekistan_uzbek.jpeg' %}" alt="Uzbekistan Congress">
+                <div class="slide-content">
+                    <h2 data-translation-key="slide4Title">Strengthening International Collaboration</h2>
+                    <p data-translation-key="slide4Text">Professor Elene Asanidze at the XI International Congress in Uzbekistan</p>
+                    <a href="{% url 'news44' %}" class="slide-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <button class="slider-prev" onclick="changeSlide(-1)">‹</button>
+        <button class="slider-next" onclick="changeSlide(1)">›</button>
+
+        <div class="slider-dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
         </div>
     </div>
 
@@ -518,57 +435,287 @@
 }
 </style>
 
+<style>
+/* Clean Modern Slider */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto 4rem;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    background: #0f2027;
+}
+
+.slider-container {
+    position: relative;
+    height: 550px;
+    background: #1a1a1a;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    overflow: hidden;
+}
+
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%);
+    z-index: 1;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide:nth-child(1),
+.slide:nth-child(2),
+.slide:nth-child(3),
+.slide:nth-child(4) {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    background-size: cover;
+    background-position: center;
+}
+
+.slide:nth-child(1) img,
+.slide:nth-child(2) img,
+.slide:nth-child(3) img,
+.slide:nth-child(4) img {
+    object-fit: contain;
+    max-height: 100%;
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3rem;
+    color: white;
+    z-index: 10;
+    background: linear-gradient(to top, rgba(15, 32, 39, 0.95) 0%, transparent 100%);
+}
+
+.slide-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+    color: white;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.slide-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    max-width: 650px;
+}
+
+.slide-btn {
+    display: inline-block;
+    padding: 0.9rem 2.5rem;
+    background: #20b4b9;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.slide-btn:hover {
+    background: #1a9399;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(32, 180, 185, 0.3);
+    color: white;
+}
+
+.slider-prev,
+.slider-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 2rem;
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-prev {
+    left: 2rem;
+}
+
+.slider-next {
+    right: 2rem;
+}
+
+.slider-prev:hover,
+.slider-next:hover {
+    background: rgba(32, 180, 185, 0.3);
+    border-color: rgba(32, 180, 185, 0.5);
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.8rem;
+    z-index: 10;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #20b4b9;
+    width: 28px;
+    border-radius: 5px;
+}
+
+.dot:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 768px) {
+    .slider-container {
+        height: 400px;
+    }
+
+    .slide-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .slide-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .slide-content p {
+        font-size: 1rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .slide-btn {
+        padding: 0.75rem 2rem;
+        font-size: 0.95rem;
+    }
+
+    .slider-prev,
+    .slider-next {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+
+    .slider-prev {
+        left: 1rem;
+    }
+
+    .slider-next {
+        right: 1rem;
+    }
+}
+</style>
+
 <script>
-// Add background color to header after scrolling past hero image
-document.addEventListener('DOMContentLoaded', function() {
-    const header = document.querySelector('.site-header');
-    const heroImage = document.querySelector('.hero-image-container');
-    const dropdowns = document.querySelectorAll('.dropdown-content');
+let slideIndex = 1;
+let slideTimer;
 
-    if (!header || !heroImage) return;
+function showSlide(n) {
+    let slides = document.getElementsByClassName('slide');
+    let dots = document.getElementsByClassName('dot');
+    let prevIndex = slideIndex - 1;
 
-    window.addEventListener('scroll', function() {
-        const heroHeight = heroImage.offsetHeight;
-        const scrollPosition = window.pageYOffset;
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
 
-        // Calculate how far past the hero image we've scrolled
-        if (scrollPosition > heroHeight) {
-            // Fully past the image - add full background with brand color
-            header.style.backgroundColor = '#20b4b9';
-            header.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1)';
-
-            // Update dropdown backgrounds
-            dropdowns.forEach(dropdown => {
-                dropdown.style.backgroundColor = 'rgba(32, 180, 185, 0.95)';
-                dropdown.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
-            });
-        } else {
-            // Calculate opacity based on scroll position (last 20% of image height)
-            const fadeStartPoint = heroHeight * 0.8; // Start fading at 80% of image height
-
-            if (scrollPosition > fadeStartPoint) {
-                const fadeProgress = (scrollPosition - fadeStartPoint) / (heroHeight - fadeStartPoint);
-                const opacity = fadeProgress;
-                header.style.backgroundColor = `rgba(32, 180, 185, ${opacity})`;
-                header.style.boxShadow = `0 2px 8px rgba(0, 0, 0, ${opacity * 0.1})`;
-
-                // Update dropdown backgrounds with fade
-                dropdowns.forEach(dropdown => {
-                    dropdown.style.backgroundColor = `rgba(32, 180, 185, ${0.15 + (opacity * 0.8)})`;
-                    dropdown.style.boxShadow = `0 4px 8px rgba(0, 0, 0, ${opacity * 0.1})`;
-                });
-            } else {
-                // Still in top part of image - transparent
-                header.style.backgroundColor = 'transparent';
-                header.style.boxShadow = 'none';
-
-                // Keep dropdowns transparent
-                dropdowns.forEach(dropdown => {
-                    dropdown.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
-                    dropdown.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
-                });
-            }
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove('active', 'prev');
+        if (i < slideIndex - 1) {
+            slides[i].classList.add('prev');
         }
+    }
+
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove('active');
+    }
+
+    slides[slideIndex-1].classList.add('active');
+    dots[slideIndex-1].classList.add('active');
+}
+
+function changeSlide(n) {
+    clearTimeout(slideTimer);
+    showSlide(slideIndex += n);
+    autoSlide();
+}
+
+function currentSlide(n) {
+    clearTimeout(slideTimer);
+    showSlide(slideIndex = n);
+    autoSlide();
+}
+
+function autoSlide() {
+    slideTimer = setTimeout(function() {
+        slideIndex++;
+        showSlide(slideIndex);
+        autoSlide();
+    }, 5000);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    autoSlide();
+
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    const animatedElements = document.querySelectorAll('.scroll-animate, .slide-in-left, .slide-in-right, .fade-scale');
+    animatedElements.forEach(el => {
+        observer.observe(el);
     });
 });
 </script>

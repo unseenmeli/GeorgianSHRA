@@ -1,0 +1,126 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+    .language-toggle {
+        position: fixed;
+        top: 100px;
+        right: 30px;
+        background: white;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+    .lang-btn {
+        display: block;
+        width: 60px;
+        padding: 10px;
+        margin: 5px 0;
+        background: #f8fafc;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+    }
+    .lang-btn.active {
+        background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+        border-color: #20b4b9;
+    }
+    .content-lang {
+        display: none;
+    }
+    .content-lang.active {
+        display: block;
+    }
+    .main-image {
+        width: 100%;
+        max-width: 800px;
+        margin: 2rem auto;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<div class="language-toggle">
+    <button class="lang-btn active" onclick="switchLanguage('en')">🇬🇧</button>
+    <button class="lang-btn" onclick="switchLanguage('ge')">🇬🇪</button>
+</div>
+
+<div class="content-lang active" id="content-en">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">Organized by the Georgian Association of Reproductive and Sexual Health, the following training was successfully held on March 20–21, 2026</h1>
+        <div class="article-meta">
+            <span class="article-date">May 09, 2026</span>
+            <span class="article-category">News</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            Organized by the Georgian Association of Reproductive and Sexual Health, the following training was successfully held on March 20–21, 2026:<br>📘 “Modern Approaches to the Detection and Management of Reproductive Health Disorders in Children and Adolescentss”<br>The training was led by:<br>🧑‍🎓👩‍⚕️ Prof. Jenaro Kristesashvili <br>🧑‍🎓👩‍⚕️ Prof. Manana Maka Gegechkori <br>🧑‍🎓👩‍⚕️ Prof. Elene Asanidze <br>The training was conducted for certified physicians in the following specialties:<br>Obstetrics and Gynecology, Reproductive Medicine, Pediatrics, Endocrinology, and Family Medicine.<br>🎓 Participants were awarded 12 CME credit points.<br>💬 We sincerely thank all participants for their great interest, active engagement, and inspiring discussions.<br>We also extend our special thanks to the Zurab Sabakhtarashvili Reproductive Clinic for its 
+        </p>
+    </div>
+    
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+        <div class="share-buttons">
+            <span>Share:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<div class="content-lang" id="content-ge">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">🎉 საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაციის ორგანიზებით, 2026 წლის 20–21 მარტს წარმატებით ჩატარდა ტრენინგი</h1>
+        <div class="article-meta">
+            <span class="article-date">2026 წლის 09 May</span>
+            <span class="article-category">სიახლეები</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            🎉 საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაციის ორგანიზებით, 2026 წლის 20–21 მარტს წარმატებით ჩატარდა ტრენინგი:<br>📘 „ბავშვთა და მოზარდთა რეპროდუქციული ჯანმრთელობის დარღვევების გამოვლენა და მათი მართვის თანამედროვე პრინციპები“<br>ტრენინგს უძღვებოდნენ:<br>🧑‍🎓👩‍⚕️ პროფ. ჯენარო ქრისტესაშვილი<br>🧑‍🎓👩‍⚕️ პროფ. მანანა (მაკა) გეგეჭკორი<br>🧑‍🎓👩‍⚕️ პროფ. ელენე ასანიძე<br>ტრენინგი ჩატარდა სერტიფიცირებული ექიმებისთვის შემდეგ სპეციალობებში:<br>მეანობა-გინეკოლოგია, რეპროდუქტოლოგია, პედიატრია, ენდოკრინოლოგია, საოჯახო მედიცინა.<br>🎓 მონაწილეებს მიენიჭათ 12 კრედიტ-ქულა.<br>💬 მადლობას ვუხდით ყველა მონაწილეს აქტიური ჩართულობისთვის და საინტერესო დისკუსიებისთვის.<br>ასევე განსაკუთრებულ მადლობას ვუხდით ზურაბ საბახტარაშვილის რეპროდუქციულ კლინიკას თბილი მასპინძლობისთვის.
+        </p>
+    </div>
+    
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← სიახლეებზე დაბრუნება</a>
+        <div class="share-buttons">
+            <span>გაზიარება:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<script>
+function switchLanguage(lang) {
+    document.querySelectorAll('.content-lang').forEach(el => {
+        el.classList.remove('active');
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.getElementById('content-' + lang).classList.add('active');
+    event.target.classList.add('active');
+}
+</script>
+
+{% endblock content %}

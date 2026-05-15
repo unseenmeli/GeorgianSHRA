@@ -22,6 +22,14 @@
     box-sizing: border-box;
 }
 
+body, p, span, div, a, li, label, input, button, textarea {
+    font-family: 'Inter', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6, strong, b, .congress-title, .congress-details, .congress-btn {
+    font-family: 'Manrope', sans-serif !important;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.6;
@@ -32,14 +40,19 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Manrope', sans-serif;
+}
+
 .site-header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background-color: var(--header-bg);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    background-color: transparent;
+    box-shadow: none;
     z-index: 1000;
+    padding-top: 1rem;
 }
 
 .header-container {
@@ -66,6 +79,20 @@ body {
 
 .logo-link:hover {
     transform: translateX(2px);
+    color: inherit !important;
+}
+
+.logo-link:hover::after {
+    display: none;
+}
+
+.logo-link::after {
+    display: none;
+}
+
+.logo-link:hover .org-acronym,
+.logo-link:hover .org-full {
+    color: inherit !important;
 }
 
 .logo-img {
@@ -83,8 +110,9 @@ body {
 }
 
 .org-acronym {
+    font-family: 'Manrope', sans-serif;
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: 800;
     color: #fff;
     letter-spacing: -0.5px;
 }
@@ -134,7 +162,7 @@ body {
     position: absolute;
     top: calc(100% + 8px);
     left: 0;
-    background: var(--header-bg);
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     min-width: 200px;
@@ -240,7 +268,7 @@ h3 {
 }
 
 p {
-    font-family: 'Merriweather', Georgia, serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1.0625rem;
     line-height: 1.8;
     color: var(--text-secondary);
@@ -400,25 +428,32 @@ a:hover {
     gap: 2rem;
     padding: 2rem;
     background: white;
-    border-radius: 16px;
-    box-shadow: var(--shadow-sm);
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     margin-bottom: 2rem;
-    transition: var(--transition);
+    transition: all 0.3s ease;
     cursor: pointer;
+    border: 1px solid #e2e8f0;
 }
 
 .news-container:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+    border-color: #20b4b9;
 }
 
 .news-image {
     width: 280px;
-    height: 200px;
+    height: 190px;
     object-fit: contain;
-    background-color: white;
-    border-radius: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
     flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.news-container:hover .news-image {
+    transform: scale(1.02);
 }
 
 #news41-image {
@@ -432,14 +467,21 @@ a:hover {
 
 .news-title {
     font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: 0.75rem;
+    font-weight: 700;
+    color: #0f2027;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.news-container:hover .news-title {
+    color: #20b4b9;
 }
 
 .news-text {
-    color: var(--text-secondary);
-    line-height: 1.6;
+    color: #64748b;
+    line-height: 1.7;
+    font-size: 1rem;
 }
 
 .about-container,

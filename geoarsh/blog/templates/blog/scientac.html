@@ -20,21 +20,22 @@
 }
 
 .sidebar {
-    background: #f8f9fa;
-    border-radius: 8px;
+    background: #ffffff;
+    border-radius: 12px;
     overflow: hidden;
     height: fit-content;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .sidebar-item {
     padding: 1.2rem 1.5rem;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #f0f0f0;
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 1rem;
-    font-weight: 500;
-    color: #333;
+    font-weight: 600;
+    color: #1a2332;
     text-decoration: none;
     display: block;
 }
@@ -49,8 +50,9 @@
 }
 
 .sidebar-item:not(.active):hover {
-    background: #e8f4f5;
+    background: #f0f9fa;
     padding-left: 2rem;
+    color: #20b4b9;
 }
 
 .main-content {
@@ -83,8 +85,10 @@
 
 .content-header h1 {
     font-size: 2.5rem;
+    font-weight: 900;
     color: #1a2332;
     margin: 0 0 0.5rem 0;
+    letter-spacing: -0.5px;
 }
 
 .conference-banners {
@@ -94,16 +98,18 @@
 }
 
 .conference-banner {
-    background: white;
-    border-radius: 12px;
+    background: #ffffff;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .conference-banner:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    border-color: #20b4b9;
 }
 
 .conference-banner img {
@@ -141,10 +147,11 @@
 }
 
 .useful-links-container .page-contact-section {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .useful-links-container .page-contact-info {

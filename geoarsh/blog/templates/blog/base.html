@@ -7,7 +7,7 @@
   <title>GARSH - Georgian Association of Reproductive and Sexual Health</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Manrope:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'blog/main.css' %}">
   <link rel="stylesheet" href="{% static 'blog/news-article.css' %}">
   <style>
@@ -15,21 +15,18 @@
       position: relative;
       overflow: hidden;
       transition: color 0.3s ease, transform 0.2s ease;
-      font-size: 0.95rem !important;
+      font-size: 1.05rem !important;
       padding: 0.7rem 1.2rem !important;
       min-width: 100px;
       text-align: center;
       white-space: nowrap;
+      font-weight: 900 !important;
+      letter-spacing: 0.5px !important;
+      text-transform: uppercase !important;
     }
 
     .nav-link-nonclickable {
       cursor: default !important;
-      pointer-events: none;
-    }
-
-    .nav-link-nonclickable::before,
-    .nav-link-nonclickable::after {
-      display: none !important;
     }
 
     .nav-link::before {
@@ -87,7 +84,15 @@
 
     .header-container {
       max-width: 1400px !important;
-      padding: 0 2rem !important;
+      padding: 0 0.5rem !important;
+    }
+
+    .logo-section {
+      margin-left: -5.5rem !important;
+    }
+
+    .main-nav {
+      margin-right: -1.5rem !important;
     }
 
     @media (min-width: 769px) {
@@ -150,28 +155,31 @@
     }
 
     .org-acronym {
-      font-weight: 800;
-      font-size: 1.3rem;
-      letter-spacing: 2px;
+      font-weight: 900;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
       color: #ffffff;
       transition: all 0.4s ease;
-      text-shadow: 0 2px 10px rgba(255,255,255,0.2);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
     .logo-section:hover .org-acronym {
       color: #ffffff;
-      text-shadow: 0 3px 15px rgba(255,255,255,0.5);
+      text-shadow: 0 3px 15px rgba(255,255,255,0.6);
+      letter-spacing: 1.5px;
     }
 
     .org-full {
       transition: all 0.4s ease;
-      opacity: 0.9;
+      font-weight: 600;
+      color: #ffffff;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
     }
 
     .logo-section:hover .org-full {
-      opacity: 1;
       color: #ffffff;
-      text-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+      text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.5px;
     }
 
     .logo-link {
@@ -404,14 +412,17 @@
 
       .logo-section .org-acronym {
         color: white !important;
-        font-size: 1.2rem !important;
+        font-size: 1.3rem !important;
+        font-weight: 900 !important;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
       }
 
       .org-full {
         display: block !important;
         color: white !important;
-        font-size: 0.7rem !important;
-        opacity: 0.9;
+        font-size: 0.75rem !important;
+        font-weight: 600 !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
       }
 
       .logo-img {
@@ -562,10 +573,11 @@
           </li>
           <li class="nav-item has-dropdown">
             <div class="nav-header" onclick="toggleDropdown(this)">
-              <span class="nav-link nav-link-nonclickable" data-translation-key="scientific" onclick="event.stopPropagation();">Research</span>
+              <a class="nav-link" href="{% url 'publications' %}" data-translation-key="scientific" onclick="event.stopPropagation();">Research</a>
               <span class="dropdown-toggle">+</span>
             </div>
             <div class="dropdown-content">
+              <a class="nav-link" href="{% url 'publications' %}" data-translation-key="scientific">Research</a>
               <a href="{% url 'education' %}" data-translation-key="education">Education</a>
               <a href="{% url 'publications' %}" data-translation-key="publications">Publications</a>
             </div>

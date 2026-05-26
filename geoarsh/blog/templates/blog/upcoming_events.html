@@ -3,25 +3,34 @@
 {% block content %}
 
 <style>
+.events-page-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
 .events-section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin: 2rem 0 1.5rem 0;
+    text-align: left;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin: 2rem 0 3rem 0;
     padding-top: 1rem;
+    letter-spacing: -0.5px;
 }
 
 @media (max-width: 768px) {
+    .events-page-wrapper {
+        padding: 0 1rem;
+    }
+
     .events-section-title {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 }
 </style>
 
+<div class="events-page-wrapper">
 <h1 class="events-section-title" data-translation-key="upcomingEvents">Upcoming Events</h1>
 
     <div class="news-container" onclick="window.location.href=`{% url 'news45' %}`;" style="cursor: pointer;">
@@ -39,6 +48,6 @@
             </p>
         </div>
     </div>
-
+</div>
 
 {% endblock content %}

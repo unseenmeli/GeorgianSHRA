@@ -2,6 +2,37 @@
 {% load static %}
 {% block content %}
 
+<style>
+.news-page-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.news-section-title {
+    text-align: left;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin: 2rem 0 3rem 0;
+    padding-top: 1rem;
+    letter-spacing: -0.5px;
+}
+
+@media (max-width: 768px) {
+    .news-page-wrapper {
+        padding: 0 1rem;
+    }
+
+    .news-section-title {
+        font-size: 2rem;
+    }
+}
+</style>
+
+<div class="news-page-wrapper">
+<h1 class="news-section-title" data-translation-key="newsTitle">Latest News & Updates</h1>
+
     <div class="news-container" onclick="window.location.href=`{% url 'news48' %}`;" style="cursor: pointer;">
         <a href="{% url 'news48' %}">
             <img src="{% static 'blog/images/the-georgian-association-of-reproductive-and-sexual-health-garsh-participated-in-the-40th-anniversary-international-congress-of-the-international-society-of-gynecological-endocrinology-isge-held-in-rome-on-march-46-2025_elelel.jpg' %}" class="news-image">
@@ -551,6 +582,6 @@ Effectiveness of Combined Sur...
             
         </div>
     </div>
-
+</div>
 
 {% endblock content %}

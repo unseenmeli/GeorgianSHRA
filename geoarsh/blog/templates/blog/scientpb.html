@@ -2,6 +2,37 @@
 {% load static %}
 {% block content %}
 
+<style>
+.publications-page-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.publications-section-title {
+    text-align: left;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin: 2rem 0 3rem 0;
+    padding-top: 1rem;
+    letter-spacing: -0.5px;
+}
+
+@media (max-width: 768px) {
+    .publications-page-wrapper {
+        padding: 0 1rem;
+    }
+
+    .publications-section-title {
+        font-size: 2rem;
+    }
+}
+</style>
+
+<div class="publications-page-wrapper">
+<h1 class="publications-section-title" data-translation-key="publicationsTitle">Scientific Publications</h1>
+
 <div class="body-container">
 
     <div class="news-container" onclick="window.location.href=`{% url 'news3' %}`;" style="cursor: pointer;">
@@ -101,6 +132,7 @@
             </div>
     </div>
 
+</div>
 </div>
 
 {% endblock content %}

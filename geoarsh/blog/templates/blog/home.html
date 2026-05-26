@@ -5,7 +5,7 @@
     <style>
     /* Modern Page Container */
     .home-page {
-        background: #fafbfc;
+        background: transparent;
         min-height: 100vh;
     }
 
@@ -14,14 +14,14 @@
         width: 100vw;
         height: auto;
         position: absolute;
-        top: 0;
+        top: -80px;
         left: 0;
         right: 0;
         margin: 0;
         padding: 0;
         z-index: 1;
         overflow: hidden;
-        max-height: 100vh;
+        max-height: calc(100vh + 80px);
     }
 
     .hero-image {
@@ -189,135 +189,152 @@
 
     /* News Section */
     .news-section {
-        max-width: 1400px;
+        max-width: 1600px;
         margin: 100vh auto 5rem;
-        padding: 0 2rem;
+        padding: 0 1rem;
         position: relative;
         z-index: 2;
-        background: #fafbfc;
+        background: transparent;
     }
 
     .section-header {
-        text-align: center;
-        margin-bottom: 4rem;
+        text-align: left;
+        margin-bottom: 3.5rem;
+        padding: 0;
     }
 
     .section-title {
-        font-size: clamp(2.2rem, 4vw, 3.5rem);
-        font-weight: 800;
-        color: #0f2027;
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: #ffffff;
         margin: 0 0 0.8rem 0;
-        letter-spacing: -1px;
+        letter-spacing: -0.5px;
+        line-height: 1.2;
     }
 
     .section-subtitle {
-        font-size: 1.15rem;
-        color: #64748b;
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.85);
         margin: 0;
         font-weight: 400;
     }
 
-    /* News Grid */
+    /* News Grid - Clean Professional Layout */
     .news-grid-container {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
         gap: 2rem;
         margin-bottom: 3rem;
     }
 
     /* News Card */
     .news-card {
-        background: white;
-        border-radius: 16px;
+        background: #ffffff;
+        border-radius: 20px;
         overflow: hidden;
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        transition: all 0.35s ease;
         cursor: pointer;
         display: flex;
         flex-direction: column;
         height: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     .news-card:hover {
         transform: translateY(-8px);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        background: #f8f9fa;
+        border-color: rgba(0, 0, 0, 0.15);
+    }
+
+    .news-row,
+    .news-row-three {
+        display: contents;
     }
 
     .news-card-image {
         position: relative;
         width: 100%;
-        height: 220px;
+        height: 240px;
         overflow: hidden;
-        background: #f1f5f9;
+        background: rgba(255, 255, 255, 0.05);
     }
 
     .news-card-image img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
-        transition: transform 0.3s ease;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+        object-position: center center;
     }
 
     .news-card:hover .news-card-image img {
-        transform: scale(1.05);
+        transform: scale(1.08);
+    }
+
+    /* Specific image positioning adjustments */
+    .news-card:nth-child(2) .news-card-image img,
+    .news-card:nth-child(3) .news-card-image img {
+        object-position: center top;
     }
 
     .news-card-badge {
         position: absolute;
         top: 1rem;
         right: 1rem;
-        background: #20b4b9;
-        color: white;
+        background: rgba(255, 255, 255, 0.9);
+        color: #158e92;
         padding: 0.4rem 1rem;
         border-radius: 20px;
-        font-size: 0.75rem;
-        font-weight: 600;
+        font-size: 0.7rem;
+        font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
 
     .news-card-content {
-        padding: 1.5rem;
+        padding: 1.8rem;
         display: flex;
         flex-direction: column;
         flex-grow: 1;
     }
 
     .news-card-title {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: #0f2027;
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: #1a2332;
         margin: 0 0 0.75rem 0;
         line-height: 1.4;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        letter-spacing: -0.2px;
+        transition: color 0.3s ease;
+    }
+
+    .news-card:hover .news-card-title {
+        color: #20b4b9;
     }
 
     .news-card-excerpt {
         font-size: 0.95rem;
-        color: #64748b;
+        color: #555;
         line-height: 1.6;
         margin: 0 0 auto 0;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        font-weight: 400;
     }
 
     .news-card-footer {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: 1.5rem;
+        margin-top: 1.2rem;
         padding-top: 1rem;
-        border-top: 1px solid #e2e8f0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     .news-card-date {
         font-size: 0.85rem;
-        color: #94a3b8;
+        color: #777;
         font-weight: 500;
     }
 
@@ -329,10 +346,17 @@
     }
 
     .news-card:hover .news-card-link {
-        color: #1a9399;
+        color: #158e92;
     }
 
     /* Responsive adjustments */
+    @media (max-width: 1200px) {
+        .news-grid-container {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.8rem;
+        }
+    }
+
     @media (max-width: 768px) {
         .news-section {
             padding: 0 1rem;
@@ -343,13 +367,29 @@
             margin-bottom: 2.5rem;
         }
 
+        .section-title {
+            font-size: 2rem;
+        }
+
         .news-grid-container {
             grid-template-columns: 1fr;
             gap: 1.5rem;
         }
 
         .news-card-image {
-            height: 200px;
+            height: 220px;
+        }
+
+        .news-card-content {
+            padding: 1.5rem;
+        }
+
+        .news-card-title {
+            font-size: 1.1rem;
+        }
+
+        .news-card-excerpt {
+            font-size: 0.92rem;
         }
     }
     </style>
@@ -373,7 +413,7 @@
 
         <!-- News Grid -->
         <div class="news-grid-container">
-            <!-- Card 1 -->
+            <!-- Card 1 - HERO -->
             <article class="news-card" onclick="window.location.href='{% url 'news48' %}'">
                 <div class="news-card-image">
                     <img src="{% static 'blog/images/the-georgian-association-of-reproductive-and-sexual-health-garsh-participated-in-the-40th-anniversary-international-congress-of-the-international-society-of-gynecological-endocrinology-isge-held-in-rome-on-march-46-2025_elelel.jpg' %}" alt="ISGE Congress">
@@ -389,8 +429,10 @@
                 </div>
             </article>
 
-            <!-- Card 2 -->
-            <article class="news-card" onclick="window.location.href='{% url 'news47' %}'">
+            <!-- Row 2 - Two cards -->
+            <div class="news-row">
+                <!-- Card 2 -->
+                <article class="news-card" onclick="window.location.href='{% url 'news47' %}'">
                 <div class="news-card-image">
                     <img src="{% static 'blog/images/the-georgian-association-of-reproductive-and-sexual-health-congratulates-irakli-simonia-on-the-successful-defense-of-his-doctoral-dissertation_irakli.jpg' %}" alt="Irakli Simonia">
                     <div class="news-card-badge">Achievement</div>
@@ -405,69 +447,73 @@
                 </div>
             </article>
 
-            <!-- Card 3 -->
-            <article class="news-card" onclick="window.location.href='{% url 'news46' %}'">
-                <div class="news-card-image">
-                    <img src="{% static 'blog/images/congratulations-to-nino-abesadze-on-february-20-2026-at-the-faculty-of-medicine-of-ivane-javakhishvili-tbilisi-state-university_nina.jpg' %}" alt="Nino Abesadze">
-                    <div class="news-card-badge">Achievement</div>
-                </div>
-                <div class="news-card-content">
-                    <h3 class="news-card-title" data-translation-key="news46Title">Congratulations Dr. Nino Abesadze</h3>
-                    <p class="news-card-excerpt" data-translation-key="homeNews46Paragraph">Successful dissertation defense at Tbilisi State University</p>
-                    <div class="news-card-footer">
-                        <span class="news-card-date">February 2026</span>
-                        <span class="news-card-link">Read more →</span>
+                <!-- Card 3 -->
+                <article class="news-card" onclick="window.location.href='{% url 'news46' %}'">
+                    <div class="news-card-image">
+                        <img src="{% static 'blog/images/congratulations-to-nino-abesadze-on-february-20-2026-at-the-faculty-of-medicine-of-ivane-javakhishvili-tbilisi-state-university_nina.jpg' %}" alt="Nino Abesadze">
+                        <div class="news-card-badge">Achievement</div>
                     </div>
-                </div>
-            </article>
+                    <div class="news-card-content">
+                        <h3 class="news-card-title" data-translation-key="news46Title">Congratulations Dr. Nino Abesadze</h3>
+                        <p class="news-card-excerpt" data-translation-key="homeNews46Paragraph">Successful dissertation defense at Tbilisi State University</p>
+                        <div class="news-card-footer">
+                            <span class="news-card-date">February 2026</span>
+                            <span class="news-card-link">Read more →</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
 
-            <!-- Card 4 -->
-            <article class="news-card" onclick="window.location.href='{% url 'news44' %}'">
-                <div class="news-card-image">
-                    <img src="{% static 'blog/images/strengthening-international-collaboration-professor-elene-asanidze-at-the-xi-international-congress-in-uzbekistan_uzbek.jpeg' %}" alt="Uzbekistan Congress">
-                    <div class="news-card-badge">Conference</div>
-                </div>
-                <div class="news-card-content">
-                    <h3 class="news-card-title" data-translation-key="news44Title">International Congress in Uzbekistan</h3>
-                    <p class="news-card-excerpt" data-translation-key="homeNews44Paragraph">Professor Elene Asanidze at the XI International Congress</p>
-                    <div class="news-card-footer">
-                        <span class="news-card-date">November 2025</span>
-                        <span class="news-card-link">Read more →</span>
+            <!-- Row 3 - Three cards -->
+            <div class="news-row-three">
+                <!-- Card 4 -->
+                <article class="news-card" onclick="window.location.href='{% url 'news44' %}'">
+                    <div class="news-card-image">
+                        <img src="{% static 'blog/images/strengthening-international-collaboration-professor-elene-asanidze-at-the-xi-international-congress-in-uzbekistan_uzbek.jpeg' %}" alt="Uzbekistan Congress">
+                        <div class="news-card-badge">Conference</div>
                     </div>
-                </div>
-            </article>
+                    <div class="news-card-content">
+                        <h3 class="news-card-title" data-translation-key="news44Title">International Congress in Uzbekistan</h3>
+                        <p class="news-card-excerpt" data-translation-key="homeNews44Paragraph">Professor Elene Asanidze at the XI International Congress</p>
+                        <div class="news-card-footer">
+                            <span class="news-card-date">November 2025</span>
+                            <span class="news-card-link">Read more →</span>
+                        </div>
+                    </div>
+                </article>
 
-            <!-- Card 5 -->
-            <article class="news-card" onclick="window.location.href='{% url 'news43' %}'">
-                <div class="news-card-image">
-                    <img src="{% static 'blog/images/garsh-at-cogi-2025-a-remarkable-participation_c.jpg' %}" alt="COGI 2025">
-                    <div class="news-card-badge">Conference</div>
-                </div>
-                <div class="news-card-content">
-                    <h3 class="news-card-title" data-translation-key="news43Title">GARSH at COGI 2025</h3>
-                    <p class="news-card-excerpt" data-translation-key="homeNews43Paragraph">Remarkable participation at the 33rd World Congress</p>
-                    <div class="news-card-footer">
-                        <span class="news-card-date">2025</span>
-                        <span class="news-card-link">Read more →</span>
+                <!-- Card 5 -->
+                <article class="news-card" onclick="window.location.href='{% url 'news43' %}'">
+                    <div class="news-card-image">
+                        <img src="{% static 'blog/images/garsh-at-cogi-2025-a-remarkable-participation_c.jpg' %}" alt="COGI 2025">
+                        <div class="news-card-badge">Conference</div>
                     </div>
-                </div>
-            </article>
+                    <div class="news-card-content">
+                        <h3 class="news-card-title" data-translation-key="news43Title">GARSH at COGI 2025</h3>
+                        <p class="news-card-excerpt" data-translation-key="homeNews43Paragraph">Remarkable participation at the 33rd World Congress</p>
+                        <div class="news-card-footer">
+                            <span class="news-card-date">2025</span>
+                            <span class="news-card-link">Read more →</span>
+                        </div>
+                    </div>
+                </article>
 
-            <!-- Card 6 -->
-            <article class="news-card" onclick="window.location.href='{% url 'news42' %}'">
-                <div class="news-card-image">
-                    <img src="{% static 'blog/images/full-congress-package-fcp-scholarship-by-the-international-society-of-gynecological-endocrinology-isge-for-the-year-2026_e.jpg' %}" alt="ISGE Scholarship">
-                    <div class="news-card-badge">Scholarship</div>
-                </div>
-                <div class="news-card-content">
-                    <h3 class="news-card-title" data-translation-key="news42Title">ISGE Scholarship 2026</h3>
-                    <p class="news-card-excerpt" data-translation-key="homeNews42Paragraph">Full Congress Package awarded to Aleksandre Asanidze</p>
-                    <div class="news-card-footer">
-                        <span class="news-card-date">2026</span>
-                        <span class="news-card-link">Read more →</span>
+                <!-- Card 6 -->
+                <article class="news-card" onclick="window.location.href='{% url 'news42' %}'">
+                    <div class="news-card-image">
+                        <img src="{% static 'blog/images/full-congress-package-fcp-scholarship-by-the-international-society-of-gynecological-endocrinology-isge-for-the-year-2026_e.jpg' %}" alt="ISGE Scholarship">
+                        <div class="news-card-badge">Scholarship</div>
                     </div>
-                </div>
-            </article>
+                    <div class="news-card-content">
+                        <h3 class="news-card-title" data-translation-key="news42Title">ISGE Scholarship 2026</h3>
+                        <p class="news-card-excerpt" data-translation-key="homeNews42Paragraph">Full Congress Package awarded to Aleksandre Asanidze</p>
+                        <div class="news-card-footer">
+                            <span class="news-card-date">2026</span>
+                            <span class="news-card-link">Read more →</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </div>
     </div>
 
@@ -495,19 +541,21 @@
 
 .click-here h1 {
     color: white;
-    background: #20b4b9;
+    background: rgba(255, 255, 255, 0.1);
     font-size: 1.3rem;
     padding: 1.2rem 3rem;
-    border-radius: 8px;
+    border-radius: 10px;
     transition: all 0.3s ease;
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(32, 180, 185, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .click-here:hover h1 {
-    background: #1a9399;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(32, 180, 185, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 @media (max-width: 768px) {
@@ -518,59 +566,5 @@
 }
 </style>
 
-<script>
-// Add background color to header after scrolling past hero image
-document.addEventListener('DOMContentLoaded', function() {
-    const header = document.querySelector('.site-header');
-    const heroImage = document.querySelector('.hero-image-container');
-    const dropdowns = document.querySelectorAll('.dropdown-content');
-
-    if (!header || !heroImage) return;
-
-    window.addEventListener('scroll', function() {
-        const heroHeight = heroImage.offsetHeight;
-        const scrollPosition = window.pageYOffset;
-
-        // Calculate how far past the hero image we've scrolled
-        if (scrollPosition > heroHeight) {
-            // Fully past the image - add full background with brand color
-            header.style.backgroundColor = '#20b4b9';
-            header.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1)';
-
-            // Update dropdown backgrounds
-            dropdowns.forEach(dropdown => {
-                dropdown.style.backgroundColor = 'rgba(32, 180, 185, 0.95)';
-                dropdown.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
-            });
-        } else {
-            // Calculate opacity based on scroll position (last 20% of image height)
-            const fadeStartPoint = heroHeight * 0.8; // Start fading at 80% of image height
-
-            if (scrollPosition > fadeStartPoint) {
-                const fadeProgress = (scrollPosition - fadeStartPoint) / (heroHeight - fadeStartPoint);
-                const opacity = fadeProgress;
-                header.style.backgroundColor = `rgba(32, 180, 185, ${opacity})`;
-                header.style.boxShadow = `0 2px 8px rgba(0, 0, 0, ${opacity * 0.1})`;
-
-                // Update dropdown backgrounds with fade
-                dropdowns.forEach(dropdown => {
-                    dropdown.style.backgroundColor = `rgba(32, 180, 185, ${0.15 + (opacity * 0.8)})`;
-                    dropdown.style.boxShadow = `0 4px 8px rgba(0, 0, 0, ${opacity * 0.1})`;
-                });
-            } else {
-                // Still in top part of image - transparent
-                header.style.backgroundColor = 'transparent';
-                header.style.boxShadow = 'none';
-
-                // Keep dropdowns transparent
-                dropdowns.forEach(dropdown => {
-                    dropdown.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
-                    dropdown.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
-                });
-            }
-        }
-    });
-});
-</script>
 
 {% endblock content %}

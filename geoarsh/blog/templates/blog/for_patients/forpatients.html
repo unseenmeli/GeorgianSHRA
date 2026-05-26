@@ -2,12 +2,38 @@
 {% load static %}
 {% block content %}
 
-<h1 id="for_patients_h1" data-translation-key="ForPatientsMainH1">
+<style>
+.for-patients-page-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.for-patients-section-title {
+    text-align: left;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin: 2rem 0 3rem 0;
+    padding-top: 1rem;
+    letter-spacing: -0.5px;
+}
+
+@media (max-width: 768px) {
+    .for-patients-page-wrapper {
+        padding: 0 1rem;
+    }
+
+    .for-patients-section-title {
+        font-size: 2rem;
+    }
+}
+</style>
+
+<div class="for-patients-page-wrapper">
+<h1 class="for-patients-section-title" id="for_patients_h1" data-translation-key="ForPatientsMainH1">
     Overall knowledge for Patients!
 </h1>
-
-<hr>
-<hr>
 
 <div class="body-container">
     <div class="news-container" onclick="window.location.href=`{% url 'for_patients1' %}`;" style="cursor: pointer;">
@@ -68,7 +94,6 @@
         </a>
     </div>
 </div>
+</div>
 
-<hr>
-<hr>
 {% endblock content %}

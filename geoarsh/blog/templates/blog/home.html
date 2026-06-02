@@ -74,7 +74,7 @@
     }
 
     .congress-btn {
-        display: inline-block;
+        display: block;
         padding: 1.2rem 3.5rem;
         background: #ffffff;
         color: #20b4b9;
@@ -88,6 +88,9 @@
         transition: all 0.3s ease;
         border: 3px solid #ffffff;
         font-family: 'Manrope', sans-serif !important;
+        margin-top: 0;
+        margin-left: auto;
+        width: fit-content;
     }
 
     .congress-btn:hover {
@@ -400,7 +403,7 @@
         <div class="hero-text-overlay">
             <h1 class="congress-title">The 1st Congress of the Georgian Association of Reproductive and Sexual Health</h1>
             <p class="congress-details">20th June 2026<br>Tbilisi, Georgia</p>
-            <a href="#" class="congress-btn">Learn More & Register</a>
+            <a href="{% url 'first_congress' %}" class="congress-btn">Learn More</a>
         </div>
     </div>
 

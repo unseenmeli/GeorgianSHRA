@@ -1,0 +1,551 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+.congress-container {
+    background: transparent;
+    min-height: 100vh;
+}
+
+.congress-banner-display {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: -80px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.congress-banner-display img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+}
+
+.learn-more-btn {
+    position: absolute;
+    bottom: 10rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+    color: white;
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 10px 30px rgba(32, 180, 185, 0.5);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.learn-more-btn:hover {
+    transform: translateX(-50%) translateY(-5px);
+    box-shadow: 0 15px 40px rgba(32, 180, 185, 0.6);
+}
+
+.arrow-down {
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.congress-content {
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(32, 180, 185, 0.1);
+    margin: 100vh 2rem 3rem 2rem;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 3rem;
+}
+
+.congress-content h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #1a2332;
+    margin-bottom: 2rem;
+    position: relative;
+    display: block;
+    padding-bottom: 1rem;
+    text-align: left;
+}
+
+.congress-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(90deg, #20b4b9 0%, transparent 100%);
+    border-radius: 2px;
+}
+
+.congress-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.congress-info {
+    flex: 1;
+}
+
+.congress-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-width: 300px;
+}
+
+.detail-card {
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-radius: 12px;
+    border-left: 5px solid #20b4b9;
+    transition: all 0.3s ease;
+}
+
+.detail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(32, 180, 185, 0.15);
+}
+
+.detail-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a2332;
+    margin-bottom: 0.75rem;
+}
+
+.detail-card p {
+    font-size: 1rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+.program-section {
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(32, 180, 185, 0.1);
+    margin: 3rem 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.program-section h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #1a2332;
+    margin-bottom: 2rem;
+    text-align: left;
+    position: relative;
+    display: block;
+    padding-bottom: 1rem;
+}
+
+.program-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(90deg, #20b4b9 0%, transparent 100%);
+    border-radius: 2px;
+}
+
+.session {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-radius: 16px;
+    border-left: 5px solid #20b4b9;
+}
+
+.session-header {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #20b4b9;
+    margin-bottom: 1.5rem;
+}
+
+.session-moderators {
+    font-size: 1rem;
+    color: #6b7280;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.program-item {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.program-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 15px rgba(32, 180, 185, 0.15);
+}
+
+.program-time {
+    display: inline-block;
+    background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.program-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a2332;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.program-speaker {
+    font-size: 0.95rem;
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+.break-item {
+    text-align: center;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(32, 180, 185, 0.1) 0%, rgba(26, 147, 153, 0.05) 100%);
+    border-radius: 12px;
+    font-weight: 700;
+    color: #20b4b9;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.download-program-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+    color: white;
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(32, 180, 185, 0.3);
+    transition: all 0.3s ease;
+}
+
+.download-program-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(32, 180, 185, 0.5);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .congress-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .congress-content {
+        padding: 2rem;
+        flex-direction: column;
+    }
+
+    .congress-details {
+        min-width: 100%;
+    }
+
+    .program-section {
+        padding: 1.5rem;
+        margin: 2rem 1rem;
+    }
+
+    .session {
+        padding: 1.5rem;
+    }
+
+    .program-item {
+        padding: 1rem;
+    }
+}
+</style>
+
+<div class="congress-container">
+    <div class="congress-banner-display">
+        <img src="{% static 'blog/images/toshowcase.jpg' %}" alt="First GARSH Congress">
+        <button class="learn-more-btn" onclick="window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })">
+            <span data-translation-key="learnMore">Learn More</span>
+            <span class="arrow-down">↓</span>
+        </button>
+    </div>
+
+    <div class="congress-content">
+        <div class="congress-info">
+            <h2 data-translation-key="congressTitle">საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაციის (GARSH) პირველი სამეცნიერო-პრაქტიკული კონფერენცია</h2>
+            <p data-translation-key="congressIntro">
+                საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაციის ორგანიზებით 2026 წლის 20 ივნისს თბილისში, სასტუმრო შერატონ გრანდ თბილისი მეტეხი პალასში გაიმართება სამეცნიერო-პრაქტიკული კონფერენცია.
+            </p>
+            <p data-translation-key="congressTheme">
+                კონფერენციის თემას წარმოადგენს რეპროდუქციული და სქესობრივი ჯანმრთელობის დარღვევების დიაგნოსტიკა და მათი მართვის თანამედროვე ტენდენციები.
+            </p>
+            <p data-translation-key="congressGoal">
+                ღონისძიება აერთიანებს დარგის წამყვან სპეციალისტებს, მათ შორის მეან-გინეკოლოგებს, რეპროდუქტოლოგებს, ენდოკრინოლოგებსა და სხვა მომიჯნავე სპეციალობის ექიმებს. კონფერენციის მიზანია თანამედროვე, მტკიცებულებებზე დაფუძნებული სამედიცინო ცოდნის გაზიარება, პროფესიული თანამშრომლობის გაძლიერება და ინოვაციების ხელშეწყობა.
+            </p>
+            <p data-translation-key="congressProgram">
+                სამეცნიერო პროგრამა მოიცავს დარგის აქტუალურ და სადავო საკითხებს, რომლებიც განხილული იქნება სტრუქტურირებული დებატების, მიზნობრივი დისკუსიებისა და ინტერაქტიული სესიების ფორმატში.
+            </p>
+        </div>
+
+        <div class="congress-details">
+            <div class="detail-card">
+                <h3 data-translation-key="congressDate">თარიღი</h3>
+                <p data-translation-key="congressDateValue">20 ივნისი, 2026</p>
+            </div>
+            <div class="detail-card">
+                <h3 data-translation-key="congressVenue">ადგილი</h3>
+                <p>Sheraton Grand Tbilisi Metechi Palace</p>
+            </div>
+            <div class="detail-card">
+                <h3 data-translation-key="congressAbstracts">აბსტრაქტების მიღება</h3>
+                <p data-translation-key="congressAbstractsValue">იწყება 2026 წლის აპრილიდან</p>
+            </div>
+            <div class="detail-card">
+                <h3 data-translation-key="congressContact">კონტაქტი</h3>
+                <p><a href="mailto:asanidzeelene@yahoo.com" style="color: #20b4b9; text-decoration: none;">asanidzeelene@yahoo.com</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Program Section -->
+    <div class="program-section">
+        <h2 data-translation-key="congressProgramTitle">კონფერენციის პროგრამა</h2>
+
+        <div class="program-item">
+            <div class="program-time">9:00-10:00</div>
+            <div class="program-title">მონაწილეთა რეგისტრაცია</div>
+        </div>
+
+        <div class="program-item">
+            <div class="program-time">10:00-10:15</div>
+            <div class="program-title">კონგრესის გახსნა, მისალმება</div>
+        </div>
+
+        <!-- Session 1 -->
+        <div class="session">
+            <div class="session-header">1 სესია</div>
+            <div class="session-moderators">მოდერატორები: ჯენარო ქრისტესაშვილი, არჩილ ხომასურიძე, დავით მეტრეველი</div>
+
+            <div class="program-item">
+                <div class="program-time">10:15-10:30</div>
+                <div class="program-title">პრობიოტიკები საშარდე გზების ინფექციის მკურნალობაში</div>
+                <div class="program-speaker">არჩილ ჩხოტუა - მედიცინის დოქტორი, ლ. მანაგაძის სახ. უროლოგიის ეროვნული ცენტრის დირექტორი სამეცნიერო დარგში. საქართველოს უროლოგთა ასოციაციის გენერალური მდივანი</div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">10:30-10:40</div>
+                <div class="program-title">ჰიპერჰომოცისტეინემიისა და MTHFR გენების პოლიმორფიზმის გავლენა რეპროდუქციულ გამოსავლებზე პაციენტებში პოლიცისტური საკვერცხეების სინდრომით</div>
+                <div class="program-speaker">მანანა ურჯუმელაშვილი - მედიცინის დოქტორი, უნივერსიტეტი „გეომედი" - ასისტენტ პროფესორი, რმც „უნივერსი"</div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">10:40-10:50</div>
+                <div class="program-title">განსხვავებული სქესობრივი განვითარების დიფერენციალური დიაგნოსტიკა ქალური ფენოტიპისა და საშვილოსნოს არარსებობის მქონე პირებში</div>
+                <div class="program-speaker">ანა ჯიბლაძე - თსუ-ს დოქტორანტი, რმც „უნივერსი", საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაციის დოქტორანტურის და რეზიდენტურის სტუდენტებთან ურთიერთობის მიმართულების ხელმძღვანელი</div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">10:50-11:00</div>
+                <div class="program-title">მიულერის ანომალიების დიაგნოსტიკის შესაძლებლობები ქალებში რეპროდუქციული დარღვევებით</div>
+                <div class="program-speaker">ია ჩაფიძე - თსუ-ს დოქტორანტი, რეპროდუქციული მედიცინის ცენტრი "უნივერსი"</div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">11:00-11:10</div>
+                <div class="program-title">პერიფერიული ნაადრევი სქესობრივი განვითარება საკვერცხის ცალმხრივი აგენეზიის ფონზე</div>
+                <div class="program-speaker">თინათინ გორშკოვა - პროფ. ჟორდანიას და პროფ. ხომასურიძის რეპროდუქტოლოგიის ინსტიტუტის რეზიდენტი</div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">11:10-11:25</div>
+                <div class="program-title">თანამედროვე მიდგომები ანდროგენიზაციის მკურნალობაში</div>
+                <div class="program-speaker">პროფესორი ჯენარო ქრისტესაშვილი - მედიცინის დოქტორი, თსუ, რმც „უნივერსი". საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაციის მთავარი ექსპერტი</div>
+            </div>
+        </div>
+
+        <div class="break-item">11:30-11:50 შესვენება - ყავა/ჩაი</div>
+
+        <!-- Session 2 -->
+        <div class="session">
+            <div class="session-header">2 სესია</div>
+            <div class="session-moderators">მოდერატორები: ელენე ასანიძე, თამარ ალიბეგაშვილი, მაია ჩხაიძე</div>
+
+            <div class="program-item">
+                <div class="program-time">11:50-12:00</div>
+                <div class="program-title">საქართველოში ექიმების სამუშაო რეალობა და მისი გავლენა მენტალურ ჯანმრთელობასა და ცხოვრების ხარისხზე</div>
+                <div class="program-speaker">ალექსანდრე ასანიძე - თსსუ, საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაციის სამედიცინო უნივერსიტეტის სტუდენტებთან ურთიერთობის მიმართულების ხელმძღვანელი</div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">12:00-12:15</div>
+                <div class="program-title">მიო-ინოზიტოლი - ინსულინრეზისტენტობის მართვის ახალი სტანდარტი: მეთფორმინიდან კომპლექსურ მიდგომამდე</div>
+                <div class="program-speaker">შოთა ჯანჯღავა - მედიცინის დოქტორი, ასოცირებული პროფესორი, კლინიკური კვლევების დეპარტამენტის ხელმძღვანელი, „ენდოკრინოლოგიის ეროვნული ინსტიტუტის" დირექტორის მოადგილე</div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">12:15-12:30</div>
+                <div class="program-title">მტკიცებულებებზე დაფუძნებული პრევენცია: ვაქცინაცია როგორც ჯანდაცვის გარანტი</div>
+                <div class="program-speaker">პროფესორი მაია ჩხაიძე - მედიცინის დოქტორი, ციციშვილის სახ. ბავშვთა კლინიკის სამედიცინო დირექტორი. პედიატრთა აკადემიის პრეზიდენტი</div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">12:30-12:45</div>
+                <div class="program-title">ადამიანი პაპილომავირუსის (HPV) ვაქცინაცია: კიბოს პრევენციის მთავარი სტრატეგია</div>
+                <div class="program-speaker">თამარ ალიბეგაშვილი - მედიცინის აკადემიური დოქტორი, საქართველოს საშვილოსნოს ყელის პათოლოგიის და კოლპოსკოპიის საზოგადოების თავმჯდომარე, ეროვნული სკრინინგ ცენტრის გინეკოლოგიური სამსახურის ხელმძღვანელი. IFCPC-IARC -ის კოლპოსკოპიის კურსის ტრენერი</div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">12:45-13:00</div>
+                <div class="program-title">ესტროგენდეფიციტური მდგომარეობების მართვის თანამედროვე მიდგომები</div>
+                <div class="program-speaker">პროფესორი ელენე ასანიძე - მედიცინის დოქტორი, თბილისის სამედიცინო აკადემია, საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაციის პრეზიდენტი</div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">13:00-13:15</div>
+                <div class="program-title">ფერტილობის შენარჩუნება: თანამედროვე ტენდენციები და სტრატეგიული მიდგომები</div>
+                <div class="program-speaker">ლუდმილა ბარბაქაძე - მედიცინის დოქტორი, თსუ-ს ასისტენტ პროფესორი, კლინიკა ლიდერმედი, ინ ვიტრო განაყოფიერების განყოფილების ხელმძღვანელი</div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">13:15-13:25</div>
+                <div class="program-title">ჭარბი მენსტრუაციული სისხლდენა - კომპლექსური მართვა</div>
+                <div class="program-speaker">პროფესორი მარიამ ხარაიშვილი - მედიცინის დოქტორი, ქართულ-ამერიკული უნივერსიტეტი, „ჯეო ჰოსპიტალი"</div>
+            </div>
+        </div>
+
+        <div class="break-item">13:30-14:30 შესვენება/ლანჩი</div>
+
+        <!-- Session 3 -->
+        <div class="session">
+            <div class="session-header">3 სესია</div>
+            <div class="session-moderators">მოდერატორები: მაკა გეგეჭკორი, ლუდმილა ბარბაქაძე, შორენა ჭიოკაძე</div>
+
+            <div class="program-item">
+                <div class="program-time">14:30-14:45</div>
+                <div class="program-title">რეპროდუქციული გენეტიკის პერსპექტივები: საქართველოს გამოცდილება და კლინიკური ინტეგრაციის გზები</div>
+                <div class="program-speaker">მარიამ ჭიპაშვილი - მედიცინის დოქტორი, ასოცირებული პროფესორი, თსსუ, ჟორდანიას სამედიცინო ცენტრი</div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">14:45-14:55</div>
+                <div class="program-title">ადენომიოზის დიაგნოსტიკა: ტრანსვაგინური ულტრაბგერის, მაგნიტურ-რეზონანსული ტომოგრაფიისა და ჰისტეროსკოპიის შედარებითი ანალიზი</div>
+                <div class="program-speaker">ლელა თანდაშვილი - მედიცინის დოქტორი, ქართულ-ამერიკული უნივერსიტეტი, ასოცირებული პროფესორი, ავერსის კლინიკა</div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">14:55-15:10</div>
+                <div class="program-title">ენდომეტრიოზის მკურნალობის გრძელვადიანი შესაძლებლობები ახალგაზრდა ასაკის ქალებში</div>
+                <div class="program-speaker">პროფესორი მაკა გეგეჭკორი - მედიცინის დოქტორი, თსსუ - კლინიკური პროფესორი, ზურაბ საბახტარაშვილის რეპროდუქციული კლინიკის სასწავლო-სამეცნიერო მიმართულების ხელმძღვანელი</div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">15:10-15:20</div>
+                <div class="program-title">ქრონიკული ენდომეტრიტი - ძველი პრობლემის ახალი სახე. კავშირი რეპროდუქციულ დანაკარგებთან</div>
+                <div class="program-speaker">მაია ჭიოკაძე - მედიცინის დოქტორი, ქართულ-ამერიკული უნივერსიტეტი, ასისტენტ პროფესორი, რეპროდუქციული მედიცინის ცენტრი "უნივერსი"</div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">15:20-15:30</div>
+                <div class="program-title">მენოპაუზის გენიტოურინარული სინდრომი</div>
+                <div class="program-speaker">შორენა გოგოხია - ინვიტრო ლაიფი, ქართულ-ამერიკული კლინიკა მედიქალ ჰაუსი</div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">15:30-15:40</div>
+                <div class="program-title">პათოლოგიური სისხლდენები საშვილოსნოდან მაზარდ გოგონებში</div>
+                <div class="program-speaker">მაკა ჯორბენაძე - მედიცინის დოქტორი, ასოცირებული პროფესორი ი. ჯავახიშვილის სახელობის თბილისის სახელმწიფო უნივერსიტეტი, ჟორდანიას მედიცინის ცენტრი</div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">15:40-15:55</div>
+                <div class="program-title">მამაკაცის ფაქტორი უნაყოფობაში და ორსულობის განმეორებით დანაკარგებში</div>
+                <div class="program-speaker">თეიმურაზ გაგნიძე - მედიცინის დოქტორი, რეპროდუქციული მედიცინის ცენტრი "უნივერსი" - გენერალური დირექტორი</div>
+            </div>
+        </div>
+
+        <div class="break-item">16:00-16:20 შესვენება - ყავა/ჩაი</div>
+
+        <!-- Session 4 -->
+        <div class="session">
+            <div class="session-header">4 სესია</div>
+            <div class="session-moderators">მოდერატორები: თეიმურაზ გაგნიძე, ლევან კობალაძე, ჯენარო ქრისტესაშვილი</div>
+
+            <div class="program-item">
+                <div class="program-time">16:20-16:30</div>
+                <div class="program-title">რეპროდუქციული პროგნოზის გაუმჯობესების პერსპექტივები აზოოსპერმიის მქონე უნაყოფო მამაკაცებში - კლინიკური შემთხვევის გარჩევა</div>
+                <div class="program-speaker">სოფიო კვალიაშვილი - მედიცინის დოქტორი, ჟორდანიას სამედიცინო ცენტრი, პინეოს სამედიცინო ეკოსისტემა, სამედიცინო ცენტრო ციტო</div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">16:30-16:40</div>
+                <div class="program-title">უცნობი ეტიოლოგიის უნაყოფობა: თანამედროვე წარმოდგენები შესაძლო მიზეზების შესახებ</div>
+                <div class="program-speaker">ნანა ჯანელიძე-ყურაშვილი - თსუ-ს დოქტორანტი, ადამიანის რეპროდუქციისა და ემბრიოლოგიის საქართველოს ასოციაციის თანადამფუძნებელი, ჟორდანიას სამედიცინო ცენტრის რეპრიდუქციული დეპარტამენტიის მიმართულების ხელმძღვანელი</div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">16:40-16:50</div>
+                <div class="program-title">კომბინირებული ქირურგიული და ჰორმონული მკურნალობის ეფექტურობა უნაყოფო პაციენტებში ღრმა ენდომეტრიოზით</div>
+                <div class="program-speaker">დავით სხირტლაძე - მედიცინის დოქტორი, ასოცირებული პროფესორი, უნივ. "უნილეველი", კლინიკა კარაპს მედლაინი, სს "ვიან"</div>
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">16:50-17:05</div>
+                <div class="program-title">ქალი თუ მამაკაცი? სქესის იდენტიფიკაცია</div>
+                <div class="program-speaker">ლევან კობალაძე - მედიცინის დოქტორი, სახ. მართვის მაგისტრი, რეპროდუქციული მედიცინის ცენტრი "უნივერსი"</div>
+            </div>
+        </div>
+
+        <div class="program-item">
+            <div class="program-time">17:05–17:30</div>
+            <div class="program-title">დისკუსია, კონფერენციის შეჯამება, დახურვა</div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

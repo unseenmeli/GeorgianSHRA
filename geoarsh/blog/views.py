@@ -21,6 +21,9 @@ def publications(request):
 def about_congresses(request):
     return render(request, 'blog/scientac.html')
 
+def first_congress(request):
+    return render(request, 'blog/first_congress.html')
+
 def guidelines(request):
     return render(request, 'blog/guidelines.html')
 

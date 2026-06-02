@@ -140,7 +140,7 @@
 .back-to-news {
     display: inline-flex;
     align-items: center;
-    color: var(--primary-color);
+    color: #ffffff;
     font-weight: 600;
     text-decoration: none;
     transition: transform 0.3s ease;
@@ -148,6 +148,7 @@
 
 .back-to-news:hover {
     transform: translateX(-4px);
+    color: #f0f0f0;
 }
 
 .share-buttons {

@@ -5,39 +5,61 @@
 <style>
 .useful-links-container {
     display: flex;
+    flex-direction: row;
     gap: 2rem;
     max-width: 1400px;
     margin: 2rem auto;
     padding: 0 2rem;
-    align-items: flex-start;
 }
 
 .sidebar-wrapper {
-    min-width: 280px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-top: 70px;
 }
 
 .sidebar {
     background: #ffffff;
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
     height: fit-content;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(32, 180, 185, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.sidebar:hover {
+    box-shadow: 0 12px 40px rgba(32, 180, 185, 0.15);
 }
 
 .sidebar-item {
-    padding: 1.2rem 1.5rem;
+    padding: 1.4rem 1.8rem;
     border-bottom: 1px solid #f0f0f0;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1.05rem;
     font-weight: 600;
     color: #1a2332;
     text-decoration: none;
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #20b4b9;
+    transform: scaleY(0);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sidebar-item:last-child {
@@ -45,33 +67,42 @@
 }
 
 .sidebar-item.active {
-    background: #20b4b9;
+    background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
     color: white;
 }
 
+.sidebar-item.active::before {
+    transform: scaleY(1);
+}
+
 .sidebar-item:not(.active):hover {
-    background: #f0f9fa;
-    padding-left: 2rem;
+    background: linear-gradient(90deg, #f0f9fa 0%, transparent 100%);
+    padding-left: 2.2rem;
     color: #20b4b9;
+}
+
+.sidebar-item:not(.active):hover::before {
+    transform: scaleY(1);
 }
 
 .main-content {
     flex: 1;
+    transform: translateY(-40px);
 }
 
 .content-section {
     display: none;
-    animation: fadeIn 0.3s ease-in;
+    animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .content-section.active {
     display: block;
 }
 
-@keyframes fadeIn {
+@keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -80,35 +111,58 @@
 }
 
 .content-header {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
 }
 
 .content-header h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 900;
     color: #1a2332;
-    margin: 0 0 0.5rem 0;
-    letter-spacing: -0.5px;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: -1px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 1rem;
+}
+
+.content-header h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(90deg, #20b4b9 0%, transparent 100%);
+    border-radius: 3px;
+}
+
+.content-description {
+    font-size: 1.1rem;
+    color: #1a2332;
+    line-height: 1.6;
+    margin: 0;
+    display: block;
 }
 
 .conference-banners {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .conference-banner {
     background: #ffffff;
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(32, 180, 185, 0.1);
 }
 
 .conference-banner:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(32, 180, 185, 0.2);
     border-color: #20b4b9;
 }
 
@@ -124,6 +178,66 @@
 
 .conference-banner.garsh-banner img {
     width: 100%;
+}
+
+.clickable-banner {
+    position: relative;
+    cursor: pointer;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        box-shadow: 0 4px 30px rgba(32, 180, 185, 0.4);
+    }
+}
+
+.clickable-banner .banner-link {
+    display: block;
+    position: relative;
+    text-decoration: none;
+}
+
+.clickable-banner .click-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(32, 180, 185, 0.85) 0%, rgba(26, 147, 153, 0.85) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.clickable-banner .click-text {
+    color: white;
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+.clickable-banner:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(32, 180, 185, 0.4);
+    animation: none;
+}
+
+.clickable-banner:hover .click-overlay {
+    opacity: 1;
+}
+
+.clickable-banner:hover .click-text {
+    transform: translateY(0);
 }
 
 .coming-soon-box {
@@ -148,41 +262,72 @@
 
 .useful-links-container .page-contact-section {
     background: #ffffff;
-    padding: 2.5rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(32, 180, 185, 0.1);
 }
 
 .useful-links-container .page-contact-info {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 0;
 }
 
 .useful-links-container .page-contact-item {
-    padding: 1.5rem;
-    background: #f8f9fa;
-    border-radius: 8px;
-    border-left: 4px solid #20b4b9;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-radius: 12px;
+    border-left: 5px solid #20b4b9;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.useful-links-container .page-contact-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(32, 180, 185, 0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.useful-links-container .page-contact-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 15px rgba(32, 180, 185, 0.15);
+}
+
+.useful-links-container .page-contact-item:hover::before {
+    opacity: 1;
 }
 
 .useful-links-container .page-contact-label {
     display: block;
-    font-weight: 600;
+    font-weight: 700;
     color: #1a2332;
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.15rem;
+    position: relative;
+    z-index: 1;
 }
 
 .useful-links-container .page-contact-link {
     color: #20b4b9;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.05rem;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
 }
 
 .useful-links-container .page-contact-link:hover {
+    color: #1a9399;
     text-decoration: underline;
 }
 
@@ -193,6 +338,7 @@
 
     .sidebar-wrapper {
         min-width: 100%;
+        position: static;
     }
 
     .sidebar {
@@ -201,14 +347,19 @@
 
     .sidebar-item {
         text-align: center;
+        justify-content: center;
     }
 
     .content-header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     .coming-soon-box h2 {
         font-size: 2rem;
+    }
+
+    .clickable-banner .click-text {
+        font-size: 1.5rem;
     }
 }
 
@@ -219,11 +370,11 @@
     }
 
     .content-header h1 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     .sidebar-item {
-        padding: 1rem;
+        padding: 1.1rem;
         font-size: 0.95rem;
     }
 
@@ -236,34 +387,28 @@
     }
 
     .useful-links-container .page-contact-section {
+        padding: 2rem;
+    }
+
+    .useful-links-container .page-contact-item {
         padding: 1.5rem;
+    }
+
+    .clickable-banner .click-text {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
     }
 }
 </style>
 
 <div class="useful-links-container">
     <aside class="sidebar-wrapper">
-        <div class="sidebar sidebar-featured">
+        <div class="sidebar">
             <a href="#" class="sidebar-item active" data-section="congresses" data-translation-key="sidebarOurCongresses">
                 GARSH Congresses
             </a>
-        </div>
-
-        <div class="sidebar">
             <a href="#" class="sidebar-item" data-section="conferences" data-translation-key="sidebarSuggestedConferences">
                 Suggested Conferences
-            </a>
-            <a href="#" class="sidebar-item" data-section="partners" data-translation-key="sidebarPartnersAndCourses">
-                Partners & Courses
-            </a>
-            <a href="#" class="sidebar-item" data-section="societies" data-translation-key="sidebarSocieties">
-                Societies
-            </a>
-            <a href="#" class="sidebar-item" data-section="galleries" data-translation-key="sidebarPhotoGalleries">
-                Photo Galleries
-            </a>
-            <a href="#" class="sidebar-item" data-section="previous" data-translation-key="sidebarPreviousCongresses">
-                Previous Congresses
             </a>
             <a href="#" class="sidebar-item" data-section="contact" data-translation-key="sidebarContact">
                 Contact
@@ -276,10 +421,16 @@
         <div id="congresses-section" class="content-section active">
             <div class="content-header">
                 <h1 data-translation-key="sidebarOurCongresses">GARSH Congresses</h1>
+                <p class="content-description">Discover our flagship scientific events bringing together leading experts in reproductive health and endocrinology.</p>
             </div>
             <div class="conference-banners">
-                <div class="conference-banner garsh-banner">
-                    <img src="{% static 'blog/images/tbilisi12.jpg' %}" alt="GARSH Congress">
+                <div class="conference-banner garsh-banner clickable-banner">
+                    <a href="/first-congress" class="banner-link">
+                        <img src="{% static 'blog/images/toshowcase.jpg' %}" alt="GARSH Congress">
+                        <div class="click-overlay">
+                            <span class="click-text">Click to Learn More</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -288,6 +439,7 @@
         <div id="conferences-section" class="content-section">
             <div class="content-header">
                 <h1 data-translation-key="suggestedConferencesTitle">Suggested Conferences</h1>
+                <p class="content-description">Explore upcoming international conferences and events recommended by our association for continued professional development.</p>
             </div>
             <div class="conference-banners">
                 <div class="conference-banner">
@@ -308,50 +460,11 @@
             </div>
         </div>
 
-        <!-- Partners & Courses Section -->
-        <div id="partners-section" class="content-section">
-            <div class="content-header">
-                <h1 data-translation-key="sidebarPartnersAndCourses">Partners & Courses</h1>
-            </div>
-            <div class="coming-soon-box">
-                <h2 data-translation-key="comingSoon">Coming Soon</h2>
-            </div>
-        </div>
-
-        <!-- Societies Section -->
-        <div id="societies-section" class="content-section">
-            <div class="content-header">
-                <h1 data-translation-key="sidebarSocieties">Societies</h1>
-            </div>
-            <div class="coming-soon-box">
-                <h2 data-translation-key="comingSoon">Coming Soon</h2>
-            </div>
-        </div>
-
-        <!-- Photo Galleries Section -->
-        <div id="galleries-section" class="content-section">
-            <div class="content-header">
-                <h1 data-translation-key="sidebarPhotoGalleries">Photo Galleries</h1>
-            </div>
-            <div class="coming-soon-box">
-                <h2 data-translation-key="comingSoon">Coming Soon</h2>
-            </div>
-        </div>
-
-        <!-- Previous Congresses Section -->
-        <div id="previous-section" class="content-section">
-            <div class="content-header">
-                <h1 data-translation-key="sidebarPreviousCongresses">Previous Congresses</h1>
-            </div>
-            <div class="coming-soon-box">
-                <h2 data-translation-key="comingSoon">Coming Soon</h2>
-            </div>
-        </div>
-
         <!-- Contact Section -->
         <div id="contact-section" class="content-section">
             <div class="content-header">
                 <h1 data-translation-key="sidebarContact">Contact</h1>
+                <p class="content-description">Get in touch with our team for general inquiries, membership information, or technical support.</p>
             </div>
             <div class="page-contact-section">
                 <div class="page-contact-info">

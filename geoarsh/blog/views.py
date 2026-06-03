@@ -205,6 +205,12 @@ def news48(request):
     return render(request, "blog/news/news48.html")
 def news49(request):
     return render(request, "blog/news/news49.html")
+def news50(request):
+    return render(request, "blog/news/news50.html")
+def news51(request):
+    return render(request, "blog/news/news51.html")
+def news52(request):
+    return render(request, "blog/news/news52.html")
 # for news posts to here !!!
 
 def events1(request):
@@ -297,8 +303,9 @@ def post_creator(request):
         images_dir = Path(settings.BASE_DIR) / 'blog' / 'static' / 'blog' / 'images'
         images_dir.mkdir(parents=True, exist_ok=True)
 
-        # Save main image
-        main_image_filename = f"{slugify(title_en)}_{main_image.name}"
+        # Save main image with truncated filename to avoid filesystem limits
+        slugified_title = slugify(title_en)[:100]  # Limit to 100 chars
+        main_image_filename = f"{slugified_title}_{main_image.name}"
         main_image_path = images_dir / main_image_filename
         with open(main_image_path, 'wb+') as destination:
             for chunk in main_image.chunks():
@@ -312,7 +319,7 @@ def post_creator(request):
         for i in range(1, 4):
             additional_image = request.FILES.get(f'additional_image{i}')
             if additional_image:
-                add_image_filename = f"{slugify(title_en)}_add{i}_{additional_image.name}"
+                add_image_filename = f"{slugified_title}_add{i}_{additional_image.name}"
                 add_image_path = images_dir / add_image_filename
                 with open(add_image_path, 'wb+') as destination:
                     for chunk in additional_image.chunks():

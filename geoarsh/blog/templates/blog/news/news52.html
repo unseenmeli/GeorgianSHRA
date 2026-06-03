@@ -1,0 +1,126 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+    .language-toggle {
+        position: fixed;
+        top: 100px;
+        right: 30px;
+        background: white;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+    .lang-btn {
+        display: block;
+        width: 60px;
+        padding: 10px;
+        margin: 5px 0;
+        background: #f8fafc;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+    }
+    .lang-btn.active {
+        background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+        border-color: #20b4b9;
+    }
+    .content-lang {
+        display: none;
+    }
+    .content-lang.active {
+        display: block;
+    }
+    .main-image {
+        width: 100%;
+        max-width: 800px;
+        margin: 2rem auto;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<div class="language-toggle">
+    <button class="lang-btn active" onclick="switchLanguage('en')">🇬🇧</button>
+    <button class="lang-btn" onclick="switchLanguage('ge')">🇬🇪</button>
+</div>
+
+<div class="content-lang active" id="content-en">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">🎓 The Georgian Association of Reproductive and Sexual Health proudly congratulates its team members on an important international scientific achievement.</h1>
+        <div class="article-meta">
+            <span class="article-date">June 03, 2026</span>
+            <span class="article-category">News</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            🎓 The Georgian Association of Reproductive and Sexual Health proudly congratulates its team members on an important international scientific achievement.<br>The research article authored by Professor Elene Asanidze, President of the Georgian Association of Reproductive and Sexual Health; Professor Jenaro Kristesashvili, Chief Expert of the Association; Aleksandre  Asanidze, Head of the Student Affairs Division; Ana Jibladze, Head of the Doctoral and Residency Affairs Division; and their co-authors:<br>📖 “Work-life realities of doctors in Georgia and their impact on mental health and work-related well-being: A cross-sectional study”<br>has been published in PLOS ONE, one of the world's leading international peer-reviewed scientific journals (USA).<br>🏆 Journal Metrics<br>• Q1 Ranking (Scimago)<br>• SJR: 0.726<br>• 5-Year Impact Factor: 3.2<br>🎓 This publication has a particularly inspiring story. The original concept of the project was proposed by Aleksandre Asanidze, who initially developed the study for a student scientific conference. After reviewing the concept and recognizing the significance of the preliminary findings, the research team expanded the study design and developed it into a comprehensive scientific investigation. Aleksandre’s initiative, academic curiosity, and dedication played a pivotal role in the successful implementation of this project.<br>The study focuses on the mental health, occupational well-being, and working conditions of physicians in Georgia and represents an important contribution to both medical science and public health research.<br>We sincerely congratulate all authors and co-authors on this significant scientific accomplishment and wish them continued success, productivity, and many future international publications.
+        </p>
+    </div>
+    
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+        <div class="share-buttons">
+            <span>Share:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<div class="content-lang" id="content-ge">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">🎓 საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაცია ულოცავს თავისი გუნდის წევრებს მნიშვნელოვან საერთაშორისო სამეცნიერო წარმატებას!</h1>
+        <div class="article-meta">
+            <span class="article-date">2026 წლის 03 June</span>
+            <span class="article-category">სიახლეები</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            🎓 საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაცია ულოცავს თავისი გუნდის წევრებს მნიშვნელოვან საერთაშორისო სამეცნიერო წარმატებას!<br>ასოციაციის პრეზიდენტის, პროფესორ ელენე ასანიძის, ასოციაციის მთავარი ექსპერტის, პროფესორ ჯენარო ქრისტესაშვილის, ასოციაციის სტუდენტური მიმართულების ხელმძღვანელის, ალექსანდრე ასანიძის, ასოციაციის დოქტორანტებისა და რეზიდენტების მიმართულების ხელმძღვანელის, ანა ჯიბლაძის, და მათი თანაავტორების სამეცნიერო ნაშრომი:<br>📖 “Work-life realities of doctors in Georgia and their impact on mental health and work-related well-being: A cross-sectional study”<br>გამოქვეყნდა PLOS ONE-ში — ერთ-ერთ წამყვან საერთაშორისო რეცენზირებად სამეცნიერო ჟურნალში (აშშ).<br>🏆 ჟურნალის მაჩვენებლები<br>• Q1 რეიტინგი (Scimago)<br>• SJR: 0.726<br>• 5-year Impact Factor: 3.2<br>🎓ამ პუბლიკაციას განსაკუთრებული ისტორია აქვს. პროექტის იდეა თავდაპირველად ეკუთვნოდა ალექსანდრე ასანიძეს, რომელმაც კვლევა სტუდენტური სამეცნიერო კონფერენციისთვის დაიწყო. იდეის განხილვისა და წინასწარი შედეგების მნიშვნელობის გაანალიზების შემდეგ, გადავწყვიტეთ კვლევის დიზაინის გაძლიერება და მისი სრულფასოვან სამეცნიერო პროექტად განვითარება. მისი ინიციატივა, აკადემიური ინტერესი და თავდადება ამ ნაშრომის განხორციელებაში განსაკუთრებით მნიშვნელოვანი იყო.<br>კვლევა ეძღვნება საქართველოში ექიმების მენტალური ჯანმრთელობის, პროფესიული კეთილდღეობისა და სამუშაო გარემოს შეფასებას და წარმოადგენს მნიშვნელოვან წვლილს როგორც სამედიცინო, ისე საზოგადოებრივი ჯანმრთელობის მიმართულებით.<br>ვულოცავთ ყველა ავტორსა და თანაავტორს ამ მნიშვნელოვან სამეცნიერო მიღწევას და ვუსურვებთ მომავალში კიდევ მრავალ წარმატებულ საერთაშორისო პუბლიკაციას!<br>📎 სტატიის ბმული:<br>https://lnkd.in/dFxqryxA
+        </p>
+    </div>
+    
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← სიახლეებზე დაბრუნება</a>
+        <div class="share-buttons">
+            <span>გაზიარება:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<script>
+function switchLanguage(lang) {
+    document.querySelectorAll('.content-lang').forEach(el => {
+        el.classList.remove('active');
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.getElementById('content-' + lang).classList.add('active');
+    event.target.classList.add('active');
+}
+</script>
+
+{% endblock content %}

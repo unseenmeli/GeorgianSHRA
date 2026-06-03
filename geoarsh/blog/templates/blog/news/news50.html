@@ -1,0 +1,126 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+    .language-toggle {
+        position: fixed;
+        top: 100px;
+        right: 30px;
+        background: white;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+    .lang-btn {
+        display: block;
+        width: 60px;
+        padding: 10px;
+        margin: 5px 0;
+        background: #f8fafc;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+    }
+    .lang-btn.active {
+        background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+        border-color: #20b4b9;
+    }
+    .content-lang {
+        display: none;
+    }
+    .content-lang.active {
+        display: block;
+    }
+    .main-image {
+        width: 100%;
+        max-width: 800px;
+        margin: 2rem auto;
+        display: block;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<div class="language-toggle">
+    <button class="lang-btn active" onclick="switchLanguage('en')">🇬🇧</button>
+    <button class="lang-btn" onclick="switchLanguage('ge')">🇬🇪</button>
+</div>
+
+<div class="content-lang active" id="content-en">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">🎉 Members of the Georgian Association of Reproductive and Sexual Health were invited to participate in a conference held on March 26 of this year at Hotel “Khedi.”</h1>
+        <div class="article-meta">
+            <span class="article-date">June 03, 2026</span>
+            <span class="article-category">News</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            🎉 Members of the Georgian Association of Reproductive and Sexual Health were invited to participate in a conference held on March 26 of this year at Hotel “Khedi.”<br>As part of the conference, Prof.  Luda Barbakadze  delivered a presentation on the topic: “Management of Menopausal Symptoms: Balancing Effectiveness and Safety,” while Prof. Manana Maka Gegechkori  presented on the topic: “PMS.”<br>The Association places particular importance on the development of academic and scientific directions, the sharing of professional knowledge, and the promotion of modern clinical approaches, which makes professional meetings of this kind especially valuable.<br>The conference was organized by the British pharmaceutical company Amaxa.
+        </p>
+    </div>
+    
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← Back to News</a>
+        <div class="share-buttons">
+            <span>Share:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<div class="content-lang" id="content-ge">
+<article class="news-article">
+    <div class="article-header">
+        <h1 class="article-title">🎉საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაციის წევრები მოწვეული იყვნენ მიმდინარე წლის 26 მარტს გამართულ კონფერენციაზე, რომელიც სასტუმრო „ხედში“ გაიმართა.</h1>
+        <div class="article-meta">
+            <span class="article-date">2026 წლის 03 June</span>
+            <span class="article-category">სიახლეები</span>
+        </div>
+    </div>
+
+    
+
+    <div class="article-content">
+        <p class="article-lead">
+            🎉საქართველოს რეპროდუქციული და სქესობრივი ჯანმრთელობის ასოციაციის წევრები მოწვეული იყვნენ მიმდინარე წლის 26 მარტს გამართულ კონფერენციაზე, რომელიც სასტუმრო „ხედში“ გაიმართა.<br>კონფერენციის ფარგლებში პროფ. ლუდმილა ბარბაქაძემ წარადგინა მოხსენება თემაზე: „მენოპაუზური სიმპტომების მართვა: ბალანსი ეფექტურობასა და უსაფრთხოებას შორის“, ხოლო პროფ. მანანა გეგეჭკორმა — მოხსენება თემაზე: „პმს თუ / და / VS პმდდ“.<br>ასოციაციის საქმიანობაში განსაკუთრებული მნიშვნელობა ენიჭება აკადემიური და სამეცნიერო მიმართულებების განვითარებას, პროფესიული ცოდნის გაზიარებასა და თანამედროვე კლინიკური მიდგომების მხარდაჭერას, რაც მსგავსი ფორმატის პროფესიულ შეხვედრებს განსაკუთრებულ მნიშვნელობას ანიჭებს.<br>კონფერენციის ორგანიზატორი იყო ბრიტანული ფარმაცევტული კომპანია Amaxa.
+        </p>
+    </div>
+    
+
+    <div class="article-footer">
+        <a href="{% url 'news' %}" class="back-to-news">← სიახლეებზე დაბრუნება</a>
+        <div class="share-buttons">
+            <span>გაზიარება:</span>
+            <button class="share-btn" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href))">Facebook</button>
+            <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href))">Twitter</button>
+        </div>
+    </div>
+</article>
+</div>
+
+<script>
+function switchLanguage(lang) {
+    document.querySelectorAll('.content-lang').forEach(el => {
+        el.classList.remove('active');
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.getElementById('content-' + lang).classList.add('active');
+    event.target.classList.add('active');
+}
+</script>
+
+{% endblock content %}

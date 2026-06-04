@@ -277,9 +277,12 @@
     }
 
     /* Specific image positioning adjustments */
-    .news-card:nth-child(2) .news-card-image img,
-    .news-card:nth-child(3) .news-card-image img {
+    .news-card:nth-child(2) .news-card-image img {
         object-position: center top;
+    }
+
+    .news-card:nth-child(3) .news-card-image img {
+        object-position: center -50px;
     }
 
     .news-card-badge {
@@ -453,7 +456,7 @@
                 <!-- Card 3 -->
                 <article class="news-card" onclick="window.location.href='{% url 'news50' %}'">
                     <div class="news-card-image">
-                        <img src="{% static 'blog/images/members-of-the-georgian-association-of-reproductive-and-sexual-health-were-invited-to-participate-in-a-conference-held-on-march-26-of-this-year-at-hotel-khedi_659156318_122159503850716755_4571823491374851650_n.jpg' %}" alt="Hotel Khedi Conference">
+                        <img src="{% static 'blog/images/members-of-the-georgian-association-of-reproductive-and-sexual-health-were-invited-to-participate-in-a-conference-held-on-march-26-of-this-year-at-hotel-khedi_659156318_122159503850716755_4571823491374851650_n.jpg' %}" alt="Hotel Khedi Conference" style="object-position: center -80px;">
                         <div class="news-card-badge">Event</div>
                     </div>
                     <div class="news-card-content">

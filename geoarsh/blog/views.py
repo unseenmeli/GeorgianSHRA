@@ -24,6 +24,9 @@ def about_congresses(request):
 def first_congress(request):
     return render(request, 'blog/first_congress.html')
 
+def first_congress_abstract(request):
+    return render(request, 'blog/first_congress_abstract.html')
+
 def guidelines(request):
     return render(request, 'blog/guidelines.html')
 

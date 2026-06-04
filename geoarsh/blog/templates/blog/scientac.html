@@ -424,13 +424,23 @@
                 <p class="content-description">Discover our flagship scientific events bringing together leading experts in reproductive health and endocrinology.</p>
             </div>
             <div class="conference-banners">
-                <div class="conference-banner garsh-banner clickable-banner">
-                    <a href="/first-congress" class="banner-link">
-                        <img src="{% static 'blog/images/toshowcase.jpg' %}" alt="GARSH Congress">
-                        <div class="click-overlay">
-                            <span class="click-text">Click to Learn More</span>
-                        </div>
-                    </a>
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                    <div class="conference-banner garsh-banner clickable-banner" style="flex: 1; min-width: 300px;">
+                        <a href="/first-congress" class="banner-link">
+                            <img src="{% static 'blog/images/toshowcase.jpg' %}" alt="GARSH Congress">
+                            <div class="click-overlay">
+                                <span class="click-text">Click to Learn More</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="conference-banner garsh-banner clickable-banner" style="flex: 1; min-width: 300px;">
+                        <a href="/first-congress-abstract" class="banner-link">
+                            <img src="{% static 'blog/images/abstract.jpg' %}" alt="Abstract Submission">
+                            <div class="click-overlay">
+                                <span class="click-text">Click to Learn More</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

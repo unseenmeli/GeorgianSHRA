@@ -1,0 +1,389 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+
+<style>
+.abstract-container {
+    background: transparent;
+    min-height: 100vh;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.abstract-header {
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(32, 180, 185, 0.1);
+    margin: 2rem auto;
+    position: relative;
+    z-index: 2;
+}
+
+.abstract-header h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #1a2332;
+    margin-bottom: 1rem;
+    position: relative;
+    display: block;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+.abstract-header h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(90deg, #20b4b9 0%, transparent 100%);
+    border-radius: 2px;
+}
+
+.abstract-header p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4b5563;
+    text-align: center;
+    margin: 0;
+}
+
+.abstract-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.abstract-button {
+    background: #ffffff;
+    border: 2px solid rgba(32, 180, 185, 0.2);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.abstract-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(32, 180, 185, 0.2);
+    border-color: #20b4b9;
+}
+
+.abstract-button.active {
+    background: linear-gradient(135deg, #20b4b9 0%, #1a9399 100%);
+    border-color: #20b4b9;
+}
+
+.abstract-button h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: #1a2332;
+}
+
+.abstract-button p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #4b5563;
+    opacity: 0.9;
+}
+
+.abstract-button.active h3,
+.abstract-button.active p {
+    color: white;
+}
+
+.abstract-content-container {
+    display: none;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 3rem;
+    margin: 2rem 0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(32, 180, 185, 0.1);
+    animation: fadeInUp 0.6s ease;
+}
+
+.abstract-content-container.active {
+    display: block;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.abstract-content h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1a2332;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.abstract-content .author-info {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-left: 5px solid #20b4b9;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.abstract-content .author-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #20b4b9;
+    margin-bottom: 0.5rem;
+}
+
+.abstract-content .author-affiliation {
+    font-size: 1rem;
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+.abstract-content .abstract-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #1a2332;
+    text-align: justify;
+}
+
+.abstract-content .abstract-text p {
+    color: #1a2332;
+    margin-bottom: 1rem;
+}
+
+.abstract-content .abstract-text p strong {
+    color: #20b4b9;
+    font-weight: 700;
+}
+
+@media (max-width: 1200px) {
+    .abstract-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .abstract-header {
+        padding: 2rem;
+        margin: 1rem;
+    }
+
+    .abstract-header h1 {
+        font-size: 2rem;
+    }
+
+    .abstract-buttons {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .abstract-content-container {
+        padding: 2rem;
+    }
+}
+</style>
+
+<div class="abstract-container">
+    <div class="abstract-header">
+        <h1 data-translation-key="abstractsTitle">Congress Abstracts</h1>
+        <p data-translation-key="abstractsSubtitle">Accepted abstracts for presentation at the First GARSH Congress</p>
+    </div>
+
+    <div class="abstract-buttons">
+        <div class="abstract-button" data-abstract="abstract1">
+            <h3>Lela Tandashvili</h3>
+        </div>
+        <div class="abstract-button" data-abstract="abstract2">
+            <h3>Levan Kobaladze</h3>
+        </div>
+        <div class="abstract-button" data-abstract="abstract3">
+            <h3>Tamar Alibegashvili</h3>
+        </div>
+        <div class="abstract-button" data-abstract="abstract4">
+            <h3>Shota Janjaghava</h3>
+        </div>
+    </div>
+
+    <!-- Abstract 1 Content -->
+    <div id="abstract1" class="abstract-content-container">
+        <div class="abstract-content">
+            <h2>Diagnostic Evaluation of Adenomyosis: A Comparative Analysis of Transvaginal Ultrasonography, Magnetic Resonance Imaging, and Hysteroscopy<br>ადენომიოზის დიაგნოსტიკა: ტრანსვაგინური ულტრაბგერის, მაგნიტურ-რეზონანსული ტომოგრაფიის და ჰისტეროსკოპიის შედარებითი ანალიზი</h2>
+            <div class="author-info">
+                <div class="author-name">Lela Tandashvili</div>
+                <div class="author-affiliation">MD, Head of the Department of Internal Medicine, Georgian American University, Associate Professor, Aversi Clinic</div>
+            </div>
+            <div class="abstract-text">
+                <p><strong>ქართული:</strong></p>
+                <p>ადენომიოზი წარმოადგენს საშვილოსნოს კეთილთვისებიან პათოლოგიას, რომელიც ხასიათდება ენდომეტრიუმის ქსოვილის არსებობით მიომეტრიუმში და ხშირად ასოცირებულია ტკივილთან, მენსტრუალურ დარღვევებთან და რეპროდუქციულ პრობლემებთან. ზუსტი დიაგნოსტიკა კვლავ რჩება მნიშვნელოვან კლინიკურ გამოწვევად. პრეზენტაციაში განხილულია ტრანსვაგინური ულტრაბგერის, მაგნიტურ-რეზონანსული ტომოგრაფიისა და ჰისტეროსკოპიის დიაგნოსტიკური ეფექტურობის შედარებითი ანალიზი ადენომიოზის შეფასებაში.</p>
+
+                <p>3D ტრანსვაგინალური ულტრაბგერა წარმოადგენს პირველი რიგის მეთოდს და ეფუძნება MUSA კრიტერიუმებს, მათ შორის მიომეტრიუმის ასიმეტრიულ გასქელებას, ცისტებს, ჰიპერექოგენურ უბნებს და არარეგულარულ გარდამავალ ზონას. იგი ასევე იძლევა გარდამავალი ზონის (JZ) მორფოლოგიისა და სისქის შეფასების საშუალებას.</p>
+
+                <p>მაგნიტურ-რეზონანსული ტომოგრაფია ითვლება მაღალსპეციფიკურ მეთოდად, განსაკუთრებით რთულ შემთხვევებში, სადაც JZ-ის გასქელება >12 მმ და მისი სტრუქტურული ცვლილებები წარმოადგენს მნიშვნელოვან დიაგნოსტიკურ მარკერს.</p>
+
+                <p>ჰისტეროსკოპია წარმოადგენს დამატებით დიაგნოსტიკურ მეთოდს, რომელიც უზრუნველყოფს საშვილოსნოს ღრუსა და ენდომეტრიუმის პირდაპირ ვიზუალიზაციას. ამ მეთოდით შესაძლებელია ენდომეტრიუმის არათანაბრობის, მიკროპოლიპების, სუბენდომეტრიული ცისტოზური და ჰემორაგიული ცვლილებების გამოვლენა, რაც მნიშვნელოვანია ზედაპირული ადენომიოზის არაპირდაპირი შეფასებისთვის.</p>
+
+                <p>აღნიშნული მეთოდების კომბინირებული გამოყენება ზრდის დიაგნოსტიკურ სიზუსტეს და მნიშვნელოვან როლს ასრულებს პაციენტის სწორი მართვისა და რეპროდუქციული შედეგების გაუმჯობესებაში.</p>
+
+                <hr style="margin: 2rem 0; border: none; border-top: 2px solid #e5e7eb;">
+
+                <p><strong>English:</strong></p>
+                <p>Adenomyosis is a benign gynecological disorder characterized by the presence of ectopic endometrial tissue within the myometrium and is commonly associated with dysmenorrhea, abnormal uterine bleeding, chronic pelvic pain, and infertility. Accurate diagnosis remains challenging because of heterogeneous clinical and imaging findings. This presentation provides a comparative overview of transvaginal ultrasonography (TVUS), magnetic resonance imaging (MRI), and hysteroscopy in the diagnosis of adenomyosis, with emphasis on junctional zone (JZ) assessment and hysteroscopic evaluation.</p>
+
+                <p>TVUS is the first-line imaging modality, particularly with application of the Morphological Uterus Sonographic Assessment (MUSA) criteria, including asymmetrical myometrial thickening, myometrial cysts, fan-shaped shadowing, hyperechoic islands, translesional vascularity, and irregular junctional zone. Three-dimensional TVUS allows additional assessment of JZ morphology and thickness. MRI remains the reference standard because of its superior soft-tissue resolution and precise visualization of the junctional zone, where JZ thickness greater than 12 mm strongly suggests adenomyosis.</p>
+
+                <p>Hysteroscopy provides direct visualization of the uterine cavity and endomyometrial interface, revealing findings such as hypervascularization, irregular endometrial surface, subendometrial defects, and cystic hemorrhagic lesions. Although limited in detecting deep myometrial disease, hysteroscopy plays an important complementary role by identifying associated intrauterine pathology and enabling targeted biopsy.</p>
+
+                <p>Integration of hysteroscopic findings with MUSA criteria and junctional zone assessment represents an emerging multimodal approach in adenomyosis evaluation. A combined use of TVUS, MRI, and hysteroscopy improves diagnostic accuracy and supports optimal patient management.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Abstract 2 Content -->
+    <div id="abstract2" class="abstract-content-container">
+        <div class="abstract-content">
+            <h2>Female or Male? Gender Identification<br>ქალი თუ მამაკაცი? სქესის იდენტიფიკაცია</h2>
+            <div class="author-info">
+                <div class="author-name">Levan Kobaladze</div>
+                <div class="author-affiliation">MD, PhD, MPA, Physician-Sexologist, Center for Reproductive Medicine "Universe"<br>მედიცინის დოქტორი, სახ. მართვის მაგისტრი, ექიმი სექსოლოგი, რეპროდუქციული მედიცინის ცენტრი "უნივერსი"</div>
+            </div>
+            <div class="abstract-text">
+                <p><strong>ქართული:</strong></p>
+                <p>სქესის იდენტიფიკაცია ადამიანის პიროვნული განვითარების ერთ-ერთი უმნიშვნელოვანესი ნაწილია და მოიცავს იმას, თუ როგორ აღიქვამს და განსაზღვრავს ადამიანი საკუთარ თავს - მამაკაცად თუ ქალად. ეს პროცესი იწყება დაბადებიდან და გრძელდება მოზარდობამდე, ზოგჯერ — სრულწლოვანებამდეც. ბიოლოგიური სქესი შეიძლება იყოს მამრობითი, მდედრობითი ან ინტერსექსუალური ფორმა, ხოლო გენდერული იდენტობა — გაცილებით ფართო სპექტრითაა წარმოდგენილი.</p>
+
+                <p>ახალშობილებში სქესის გასაზღვრა ძირითადად ემყარება გარეთა სასქესო ორგანოების შეფასებას და არ წარმოადგენას პრობლემას. პრობლემა ჩნდება, როდესაც აღინიშნება ინტერსექსუალური გარეთა სასქესო ორგანოები. ასეთ სიტუაციაში საჭირო ხდება სპეციალური გამოკვლევების ჩატარება და მულტიდისციპლინური გუნდის მონაწილეობა.</p>
+
+                <p>იშვიათად შეუსაბამობა გენეტიკურ და ანატომიურ სქესებს შორის შეიძლება გამოვლინდეს ნორმალური მდედრობითი სქესის დამახასიათებელი გარეთა სასქესო ორგანოებით 46,XY კარიოტიპის მქონე ინდივიდებში. ასეთ სიტუაციას შესაძლოა ადგილი ჰქონდეს ანდროგენრეზისტენტობის სრული ფორმის (ტესტიკულური ფემინიზაცია) და გონადების დისგენეზიის სრული ფორმის (სვაიერის სინდრომი) შემთხვევებში. ასეთი ინდივიდები დაბადებისას შეფასებული იყვნენ გოგონებად, გარეთა სასქესო ორგანოები იყო ნორმალური მდედრობითი, საპასპორტო სქესი ჰქონდათ ქალის, ოჯახში იზრდებოდნენ როგორც გოგონები, ფსიქო-სექსუალური განწყობა ჰქონდათ ქალური როგორც მოზარდობაში, ასევე ზრდასრულ ასაკში. მამაკაცთან სექსუალური ურთიერთობის დროს არ ჰქონდათ პენილ-ვაგინალური კონტაქტის პრობლემა და ხშირად ორგაზმსაც აღწევდნენ. მათი ფსიქოსექსუალური განწყობა და ფანტაზიებიც იყო ქალური და კმაყოფილები იყვნენ თავიანთი სექსუალური ცხოვრებით. დიაგნოზის გაგების შემდეგ, მიუხედავად გარკვეული სტრესისა, არცერთ ინდივიდს არ განუხილია სქესის შეცვლის საკითხი.</p>
+
+                <p>სქესის იდენტიფიკაცია რთული, მრავალფაქტორული პროცესია, რომელიც იწყება დაბადებისთანავე და გრძელდება პიროვნული განვითარების მთელ გზაზე.</p>
+
+                <p>სქესის იდენტიფიკაციის აშლილობების შემთხვევაში რეკომენდებულია ღრმა ანალიზი, დაკვირვება დინამიკაში, საჭიროების შემთხვევაში სპეციალური გამოკვლევების ჩატარება მულტიდისციპლინური გუნდის მონაწილეობით.</p>
+
+                <hr style="margin: 2rem 0; border: none; border-top: 2px solid #e5e7eb;">
+
+                <p><strong>English:</strong></p>
+                <p>Gender identification is a crucial part of a human's personal development and involves how a person perceives and defines themselves as male or female. This process begins at birth and continues through adolescence, and sometimes into adulthood. Biological sex can be male, female, or intersex, while gender identity is a much broader spectrum.</p>
+
+                <p>In newborns, sex determination is primarily based on evaluation of external genitalia and is not a problem. The problem arises when intersex external genitalia are observed. In such situations, special examinations and the participation of a multidisciplinary team are required.</p>
+
+                <p>Rarely, a discrepancy between genetic and anatomical sex can occur in individuals with a 46,XY karyotype with normal female external genitalia. This situation may occur in cases of Complete Androgen Insensitivity Syndrome (testicular feminization - CAIS) and complete gonadal dysgenesis (Swayer syndrome). Such individuals were assessed as girls at birth, had normal female external genitalia, had a female passport gender, were raised as girls in the family, had a feminine psychosexual disposition both in adolescence and adulthood. During sexual intercourse with a man, they had no problems with penile-vaginal contact and often achieved orgasm. Their psychosexual mood and fantasies were also feminine, and they were satisfied with their sexual lives. After learning of the diagnosis, despite some stress, none of the individuals discussed the issue of gender reassignment.</p>
+
+                <p>Gender identification is a complex, multifactor process that begins at birth and continues throughout the entire path of personal development.</p>
+
+                <p>In cases of gender identification disorders in-depth analysis, observation in dynamics, and, if necessary, special examinations with the participation of a multidisciplinary team are recommended.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Abstract 3 Content -->
+    <div id="abstract3" class="abstract-content-container">
+        <div class="abstract-content">
+            <h2>Human Papillomavirus (HPV) Vaccination: A Key Strategy for Cancer Prevention<br>ადამიანი პაპილომავირუსის (HPV) ვაქცინაცია: კიბოს პრევენციის მთავარი სტრატეგია</h2>
+            <div class="author-info">
+                <div class="author-name">Tamar Alibegashvili</div>
+                <div class="author-affiliation">MD, PhD; Head of the Gynecological Department of the National Screening Center, President of the Georgian Society for Cervical Pathology and Colposcopy<br>მედ. აკად. დოქტორი; ეროვნულის სკრინინგ ცენტრის გინეკოლოგიური სამსახურის ხელმძღვანელი, საქართველოს საშვილოსნოს ყელის პათოლოგიის და კოლპოსკოპიის საზოგადოების თავმჯდომარე</div>
+            </div>
+            <div class="abstract-text">
+                <p><strong>ქართული:</strong></p>
+                <p>ადამიანის პაპილომავირუსის (HPV) ინფექცია სხვადსხვა ორგანოების კიბოს გამომწვევი ეტიოლოგიური ფაქტორია. ყველაზე უფრო ხშირად ის იწვევს საშვილოსნოს ყელის კიბოს, რომელიც მთელ მსოფლიოში ქალებში კიბოსთან დაკავშირებული ავადობისა და სიკვდილიანობის წამყვან მიზეზად რჩება. საშვილოსნოს ყელის კიბოს გარდა, HPV პასუხისმგებელია ანალური, ოროფარინგეალური, პენისის, ვულვისა და საშოს კიბოს მნიშვნელოვან ნაწილზე, რაც აზიანებს როგორც ქალებს, ასევე მამაკაცებს. პროფილაქტიკური HPV ვაქცინების შემუშავება საზოგადოებრივი ჯანდაცვის მნიშვნელოვან წინსვლას წარმოადგენს, რომელიც უზრუნველყოფს ეფექტურ დაცვას HPV-ის ყველაზე ონკოგენური ტიპებისგან. განსაკუთრებით აღსანიშნავია 9-ვალენტური ვაქცინა, რომელიც მიზნად ისახავს იმ HPV ტიპების პრევენციას, რომლებიც პასუხისმგებელია საშვილოსნოს ყელის კიბოს შემთხვევების დაახლოებით 90%-ზე, ასევე სხვა ავთვისებიან სიმსივნეებთან დაკავშირებულ ტიპებზე.</p>
+
+                <p>HPV ვაქცინაციის პროგრამების ფართოდ გავრცელებამ მნიშვნელოვნად შემცირება HPV ინფექციის მაჩვენებლების, გენიტალური მეჭეჭების და მაღალი ხარისხის კიბოსწინარე დაზიანებების სიხშირე, განსაკუთრებით მაღალი დაფარვის მქონე ქვეყნებში. მიუხედავად ამისა, გლობალური ვაქცინაციის დონე კვლავ ჩამორჩება მსოფლიო ჯანდაცვის ორგანიზაციის მიერ დასახულ მიზნებს, განსაკუთრებით დაბალი და საშუალო შემოსავლის მქონე ქვეყნებში, სადაც HPV-სთან დაკავშირებული კიბოს ტვირთი არაპროპორციულად მაღალია. ვაქცინის მიღების ძირითადი ბარიერებია შეზღუდული ცნობიერება, კულტურული დამოკიდებულებები, დეზინფორმაცია და არასაკმარისი ჯანდაცვის ინფრასტრუქტურა.</p>
+
+                <p>ისეთ ქვეყნებში, როგორიცაა საქართველო, ადამიანის პაპილომავირუსის (HPV) ვაქცინაცია შედის ეროვნული იმუნიზაციის პროგრამაში და უფასოდ ხორციელდება, თუმცა, ევროპის საშუალო მაჩვენებელთან შედარებით, დაფარვა შედარებით დაბალი რჩება. ეს ხაზს უსვამს საზოგადოებრივი ჯანდაცვის ინტერვენციების გაძლიერების მნიშვნელობას, მათ შორის საგანმანათლებლო კამპანიების, ჯანდაცვის პროვაიდერების ჩართულობისა და სკოლებში ვაქცინაციის სტრატეგიების ჩათვლით.</p>
+
+                <p>დასკვნის სახით, ადამიანის პაპილომავირუსის (HPV) ვაქცინაცია პირველადი კიბოს პრევენციის ქვაკუთხედია. ვაქცინაციის მაღალი დაფარვის მიღწევა, ეფექტურ სკრინინგის პროგრამებთან ერთად, აუცილებელია ადამიანის პაპილომავირუსის (HPV) მიერ გამოწვეული კიბოს გლობალური ტვირთის შესამცირებლად და საშვილოსნოს ყელის კიბოს, როგორც საზოგადოებრივი ჯანმრთელობის პრობლემის, აღმოფხვრისკენ წინსვლისთვის.</p>
+
+                <hr style="margin: 2rem 0; border: none; border-top: 2px solid #e5e7eb;">
+
+                <p><strong>English:</strong></p>
+                <p>Human papillomavirus (HPV) infection is a well-established etiological factor for a wide range of cancers, most notably cervical cancer, which remains a leading cause of cancer-related morbidity and mortality among women worldwide. In addition to cervical cancer, HPV is responsible for a significant proportion of anal, oropharyngeal, penile, vulvar, and vaginal cancers, affecting both women and men. The development of prophylactic HPV vaccines represents a major advancement in public health, offering effective protection against the most oncogenic HPV types. The 9-valent vaccine, in particular, targets HPV types responsible for approximately 90% of cervical cancer cases, as well as several types associated with other malignancies.</p>
+
+                <p>Widespread implementation of HPV vaccination programs has demonstrated substantial reductions in HPV infection rates, genital warts, and high-grade precancerous lesions, especially in countries with high coverage. However, global vaccination rates remain below the targets set by the World Health Organization, particularly in low- and middle-income countries, where the burden of HPV-related cancers is disproportionately high. Key barriers to vaccine uptake include limited awareness, cultural attitudes, misinformation, and inadequate healthcare infrastructure.</p>
+
+                <p>In countries such as Georgia, HPV vaccination is included in the national immunization program and provided free of charge, yet coverage remains relatively low compared to European averages. This underscores the importance of strengthening public health interventions, including education campaigns, healthcare provider engagement, and school-based vaccination strategies.</p>
+
+                <p>In conclusion, HPV vaccination is a cornerstone of primary cancer prevention. Achieving high vaccination coverage, combined with effective screening programs, is essential for reducing the global burden of HPV-related cancers and advancing toward the elimination of cervical cancer as a public health problem.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Abstract 4 Content -->
+    <div id="abstract4" class="abstract-content-container">
+        <div class="abstract-content">
+            <h2>Myo-Inositol – A New Standard in the Management of Insulin Resistance: From Metformin to a Comprehensive Approach<br>მიო-ინოზიტოლი - ინსულინრეზისტენტობის მართვის ახალი სტანდარტი: მეთფორმინიდან კომპლექსურ მიდგომამდე</h2>
+            <div class="author-info">
+                <div class="author-name">Shota Janjaghava</div>
+                <div class="author-affiliation">MD, Associate Professor, Head of Clinical Research Department, Deputy Director of "National Institute of Endocrinology"</div>
+            </div>
+            <div class="abstract-text">
+                <p><strong>ქართული:</strong></p>
+                <p>ინსულინრეზისტენტობა და თანმდევი მეტაბოლური სინდრომი გინეკოლოგიური ენდოკრინოლოგიის ერთ-ერთ უმთავრეს კლინიკურ გამოწვევას წარმოადგენს. ამ პროცესში განსაკუთრებულ ყურადღებას იმსახურებს კომპენსატორული ჰიპერინსულინემიის პირდაპირი ტოქსიკური ზეგავლენა საკვერცხის ქსოვილზე. ჭარბი ინსულინი ასტიმულირებს თეკა-უჯრედების მიერ ანდროგენების ჰიპერსეკრეციას და არღვევს ფოლიკულოგენეზის დინამიკას, რაც პოლიენდოკრინული მეტაბოლური ოვარიული სინდრომის (PMOS), ქრონიკული ანოვულაციისა და უნაყოფობის პათოგენეზის ფუნდამენტური რგოლია.</p>
+
+                <p>შესაბამისად, მეტაბოლური სინდრომის კომპლექსურ მართვას პრინციპული მნიშვნელობა ენიჭება გინეკოლოგიურ პრაქტიკაში. ინსულინმგრძნობელობის უჯრედულ დონეზე აღდგენა პირდაპირ და დადებითად აისახება საკვერცხის ფუნქციაზე - მცირდება ლოკალური ჰიპერანდროგენემია და იხსნება ფოლიკულის განვითარების შეფერხება. ეს პროცესი უზრუნველყოფს მენსტრუალური ციკლის რეგულაციას, აუმჯობესებს ოოციტის ხარისხს და სარწმუნოდ ზრდის სპონტანური ოვულაციის მაჩვენებელს. ამრიგად, მეტაბოლური კონტროლი ფერტილობის რესტავრაციის აუცილებელი წინაპირობაა.</p>
+
+                <p>ისტორიულად, აღნიშნული მიზნების მისაღწევად მეთფორმინი განიხილებოდა ფარმაკოლოგიურ ოქროს სტანდარტად. თუმცა, გასტროინტესტინალური გვერდითი მოვლენები, პაციენტთა დაბალი დამყოლობა და საკვერცხის სპეციფიკურ სიგნალგადამცემ გზებზე შეზღუდული პირდაპირი გავლენა უფრო მიზნობრივი თერაპიული ალტერნატივის საჭიროებას ქმნის.</p>
+
+                <p>სწორედ ამ ხარვეზს ავსებს მიო-ინოზიტოლი. როგორც ინსულინის სიგნალის მეორეული მესენჯერი, იგი არა მხოლოდ აუმჯობესებს სისტემურ მეტაბოლიზმს, არამედ გამოირჩევა საკვერცხეზე მიზნობრივი ტროპულობით. ის აღადგენს ჰიპერინსულინემიის ფონზე დარღვეულ უჯრედშიდა ინოზიტოლურ ბალანსს, ეფექტურად აქვეითებს ანდროგენებს და უზრუნველყოფს ოოციტის ხარისხის გაუმჯობესებას - რაც მეთფორმინიდან კომპლექსურ მიდგომაზე გადასვლის მყარ კლინიკურ საფუძველს ქმნის.</p>
+
+                <hr style="margin: 2rem 0; border: none; border-top: 2px solid #e5e7eb;">
+
+                <p><strong>English:</strong></p>
+                <p>Insulin resistance and the concomitant metabolic syndrome represent one of the primary clinical challenges in gynecological endocrinology. In this context, the direct toxic impact of compensatory hyperinsulinemia on ovarian tissue warrants particular attention. Excess insulin stimulates the hypersecretion of androgens by theca cells and disrupts the dynamics of folliculogenesis, constituting a fundamental mechanism in the pathogenesis of Polyendocrine Metabolic Ovarian Syndrome (PMOS), chronic anovulation, and infertility.</p>
+
+                <p>Consequently, the comprehensive management of metabolic syndrome is of paramount importance in gynecological practice. The restoration of insulin sensitivity at the cellular level exerts a direct and positive effect on ovarian function: it reduces local hyperandrogenemia and resolves the developmental arrest of follicles. This process facilitates the regulation of the menstrual cycle, improves oocyte quality, and significantly increases the rate of spontaneous ovulation. Thus, metabolic control is an indispensable prerequisite for the restoration of fertility.</p>
+
+                <p>Historically, metformin has been considered the pharmacological gold standard for achieving these clinical end-points. However, its gastrointestinal adverse effects, suboptimal patient compliance, and limited direct influence on ovary-specific intracellular signaling pathways necessitate a more targeted therapeutic alternative.</p>
+
+                <p>Myo-inositol precisely addresses this therapeutic gap. Functioning as a second messenger in the insulin signaling cascade, it not only improves systemic metabolism but also exhibits a targeted tropism for the ovary. It restores the intracellular inositol balance that is compromised by hyperinsulinemia, effectively mitigates androgen levels, and enhances oocyte quality-thereby establishing a robust clinical rationale for transitioning from metformin to a comprehensive management approach.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.abstract-button');
+    const contents = document.querySelectorAll('.abstract-content-container');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            const abstractId = this.getAttribute('data-abstract');
+
+            // Remove active class from all buttons
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Add active class to clicked button
+            this.classList.add('active');
+
+            // Hide all content containers
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Show selected content
+            const selectedContent = document.getElementById(abstractId);
+            selectedContent.classList.add('active');
+
+            // Scroll to content
+            setTimeout(() => {
+                selectedContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        });
+    });
+});
+</script>
+
+{% endblock content %}

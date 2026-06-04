@@ -10,6 +10,7 @@ urlpatterns = [
     path('scientific-information/publications/', views.publications, name='publications'),
     path('scientific-information/about-congresses/', views.about_congresses, name='about_congresses'),
     path('first-congress/', views.first_congress, name='first_congress'),
+    path('first-congress-abstract/', views.first_congress_abstract, name='first_congress_abstract'),
     path('GAPAG/', views.guidelines, name='guidelines'),
     path('GAPAG/About/', views.national_guidelines, name='national_guidelines'),
     path('GAPAG/News/', views.translated_guidelines, name='translated_guidelines'),

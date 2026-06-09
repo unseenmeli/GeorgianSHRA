@@ -146,30 +146,47 @@
     }
 
     @media (max-width: 768px) {
+        /* On mobile the header is a solid bar in normal flow, so drop the hero into
+           normal flow right below it (no -80px overlay) and give it a real cover
+           height. Negative margins break it out of .content-wrapper's 3rem 1rem
+           padding so it sits full-bleed and flush under the header. */
+        .hero-image-container {
+            position: relative;
+            top: 0;
+            height: 60vh;
+            max-height: 60vh;
+            width: 100vw;
+            margin: -3rem -1rem 0 -1rem;
+        }
+
+        .hero-image {
+            height: 100%;
+            width: 100%;
+            object-position: center center;
+        }
+
         .hero-text-overlay {
-            top: 15%;
-            right: 3%;
-            left: 3%;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 4%;
+            left: 4%;
             max-width: none;
-            text-align: center;
+            text-align: right;
         }
 
         .congress-title {
             font-size: 1.5rem;
-            padding: 0.8rem 1.2rem;
-            clip-path: none;
+            padding: 1rem 1.5rem;
         }
 
         .congress-details {
             font-size: 0.95rem;
-            padding: 0.8rem 1.5rem;
-            clip-path: none;
+            padding: 0.9rem 2rem;
         }
 
         .congress-btn {
             font-size: 0.9rem;
-            padding: 0.8rem 2rem;
-            clip-path: none;
+            padding: 0.8rem 2.5rem;
         }
     }
 
@@ -366,7 +383,8 @@
     @media (max-width: 768px) {
         .news-section {
             padding: 0 1rem;
-            margin-bottom: 3rem;
+            /* hero is now in normal flow on mobile, so no 100vh offset needed */
+            margin: 2.5rem auto 3rem;
         }
 
         .section-header {

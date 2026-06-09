@@ -151,6 +151,29 @@
     gap: 2.5rem;
 }
 
+.banner-row {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.banner-row .conference-banner {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* below the wrap point, let banners shrink below 300px instead of overflowing */
+@media (max-width: 700px) {
+    .banner-row {
+        gap: 1.5rem;
+    }
+
+    .banner-row .conference-banner {
+        flex: 1 1 100%;
+        min-width: 0;
+    }
+}
+
 .conference-banner {
     background: #ffffff;
     border-radius: 20px;
@@ -424,8 +447,8 @@
                 <p class="content-description">Discover our flagship scientific events bringing together leading experts in reproductive health and endocrinology.</p>
             </div>
             <div class="conference-banners">
-                <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
-                    <div class="conference-banner garsh-banner clickable-banner" style="flex: 1; min-width: 300px;">
+                <div class="banner-row">
+                    <div class="conference-banner garsh-banner clickable-banner">
                         <a href="/first-congress" class="banner-link">
                             <img src="{% static 'blog/images/toshowcase.jpg' %}" alt="GARSH Congress">
                             <div class="click-overlay">
@@ -433,7 +456,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="conference-banner garsh-banner clickable-banner" style="flex: 1; min-width: 300px;">
+                    <div class="conference-banner garsh-banner clickable-banner">
                         <a href="/first-congress-abstract" class="banner-link">
                             <img src="{% static 'blog/images/abstract.jpg' %}" alt="Abstract Submission">
                             <div class="click-overlay">

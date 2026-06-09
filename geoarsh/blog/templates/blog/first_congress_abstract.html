@@ -179,22 +179,55 @@
 }
 
 @media (max-width: 768px) {
+    .abstract-container {
+        padding: 1rem;
+    }
+
     .abstract-header {
-        padding: 2rem;
-        margin: 1rem;
+        padding: 1.75rem;
+        margin: 1rem 0;
     }
 
     .abstract-header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .abstract-header p {
+        font-size: 1rem;
     }
 
     .abstract-buttons {
         grid-template-columns: 1fr;
         gap: 1rem;
+        margin: 1.5rem 0;
+    }
+
+    .abstract-button {
+        padding: 1.25rem;
     }
 
     .abstract-content-container {
-        padding: 2rem;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+
+    .abstract-content h2 {
+        font-size: 1.5rem;
+    }
+
+    /* h2 headings inside abstracts use inline font-size: 1.5rem — scale down on mobile */
+    .abstract-content .abstract-text h2 {
+        font-size: 1.25rem !important;
+    }
+
+    .abstract-content .abstract-text {
+        font-size: 1rem;
+        /* justify creates ragged word-gaps on narrow screens */
+        text-align: left;
+    }
+
+    .abstract-content .author-info {
+        padding: 1.25rem;
     }
 }
 </style>

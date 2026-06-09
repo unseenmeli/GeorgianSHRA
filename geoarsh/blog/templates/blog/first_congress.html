@@ -6,6 +6,31 @@
 .congress-container {
     background: transparent;
     min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.supporters-block {
+    position: relative;
+    margin-top: 2rem;
+}
+
+.supporters-img {
+    width: 120%;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.supporters-label {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-size: 5rem;
+    font-weight: 900;
+    color: #20b4b9;
+    letter-spacing: 1rem;
+    position: absolute;
+    right: -6rem;
+    top: 50%;
+    transform: translateY(-50%) translateX(300px);
 }
 
 .congress-banner-display {
@@ -283,13 +308,81 @@
         font-size: 2.5rem;
     }
 
+    .congress-container {
+        overflow-x: visible;
+        margin: 0 -1rem;
+    }
+
+    /* kill the wrapper's top padding so the image is flush under the header
+       (no negative margin, so nothing slides up behind the header) */
+    .main-content .content-wrapper {
+        padding-top: 0;
+    }
+
+    .congress-banner-display {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+
+    .congress-banner-display img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center center;
+    }
+
+    .learn-more-btn {
+        bottom: 3rem;
+        padding: 0.9rem 1.8rem;
+        font-size: 1rem;
+        white-space: nowrap;
+    }
+
     .congress-content {
-        padding: 2rem;
+        padding: 1.5rem;
         flex-direction: column;
+        gap: 2rem;
+        /* banner is now in normal flow on mobile, so no 100vh offset needed */
+        margin: 2.5rem 1rem 3rem 1rem;
+    }
+
+    .congress-content h2 {
+        font-size: 1.6rem;
+        line-height: 1.3;
+        margin-bottom: 1.5rem;
+    }
+
+    .congress-content p {
+        font-size: 1rem;
+        line-height: 1.7;
     }
 
     .congress-details {
         min-width: 100%;
+    }
+
+    .detail-card {
+        padding: 1.5rem;
+    }
+
+    /* supporters image overflowed horizontally on mobile */
+    .supporters-img {
+        width: 100%;
+    }
+
+    .supporters-label {
+        position: static;
+        writing-mode: horizontal-tb;
+        text-orientation: mixed;
+        transform: none;
+        font-size: 2rem;
+        letter-spacing: 0.4rem;
+        text-align: center;
+        margin-top: 1rem;
     }
 
     .program-section {
@@ -297,12 +390,41 @@
         margin: 2rem 1rem;
     }
 
+    .program-section h2 {
+        font-size: 1.6rem;
+        line-height: 1.3;
+    }
+
     .session {
-        padding: 1.5rem;
+        padding: 1.25rem;
+    }
+
+    .session-header {
+        font-size: 1.25rem;
+    }
+
+    .session-moderators {
+        font-size: 0.9rem;
     }
 
     .program-item {
         padding: 1rem;
+    }
+
+    .program-item:hover {
+        transform: none;
+    }
+
+    .program-title {
+        font-size: 1rem;
+    }
+
+    .program-speaker {
+        font-size: 0.9rem;
+    }
+
+    .break-item {
+        font-size: 1rem;
     }
 }
 </style>
@@ -331,9 +453,9 @@
             <p data-translation-key="congressProgram">
                 სამეცნიერო პროგრამა მოიცავს დარგის აქტუალურ და სადავო საკითხებს, რომლებიც განხილული იქნება სტრუქტურირებული დებატების, მიზნობრივი დისკუსიებისა და ინტერაქტიული სესიების ფორმატში.
             </p>
-            <div style="position: relative; margin-top: 2rem;">
-                <img src="{% static 'blog/images/dd.jpg' %}" alt="Congress Sponsors" style="width: 120%; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
-                <div style="writing-mode: vertical-rl; text-orientation: upright; font-size: 5rem; font-weight: 900; color: #20b4b9; letter-spacing: 1rem; position: absolute; right: -6rem; top: 50%; transform: translateY(-50%) translateX(300px);">
+            <div class="supporters-block">
+                <img src="{% static 'blog/images/dd.jpg' %}" alt="Congress Sponsors" class="supporters-img">
+                <div class="supporters-label">
                     SUPPORTERS
                 </div>
             </div>

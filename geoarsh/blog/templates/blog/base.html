@@ -395,6 +395,11 @@
         transition: opacity 0.3s ease;
       }
 
+      /* Header is in normal flow on mobile, so drop the desktop fixed-header offset */
+      .main-content {
+        margin-top: 0;
+      }
+
       .header-container {
         padding: 0 1rem !important;
         display: flex;

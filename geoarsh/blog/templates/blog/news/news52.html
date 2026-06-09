@@ -43,6 +43,22 @@
         border-radius: 12px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
+    @media (max-width: 768px) {
+        /* fixed toggle overlapped the article title on mobile; make it a compact horizontal bar */
+        .language-toggle {
+            top: 72px;
+            right: 12px;
+            padding: 5px;
+            display: flex;
+            gap: 5px;
+        }
+        .lang-btn {
+            width: 40px;
+            padding: 6px;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+    }
 </style>
 
 <div class="language-toggle">
